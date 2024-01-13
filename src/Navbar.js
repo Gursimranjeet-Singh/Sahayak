@@ -1,141 +1,136 @@
-import react from "react";
+import React, { useState } from "react";
 import "./Navbar.css";
+import PropTypes from "prop-types";
 
 
 export default function Navbar(props) {
+  const [show1, setShow1] = useState(false);
+  const [show2, setShow2] = useState(false);
+  const [show3, setShow3] = useState(false);
+
+  function handleMouseEnter(setshow) {
+    setshow(true);
+  }
+
+  function handleMouseLeave(setshow) {
+    setshow(false);
+  }
+
   return (
     <>
       <nav id="navbar">
+        {/* top nav bar */}
         <div id="topnav" style={{ border: "2px solid red" }}>
+          {/* log and image */}
           <div id="lefttopnav">
-            <img src={props.logo} alt="error" height={10} width={10} />
-            <a href="">{props.webpagename}</a>
+            <img src={process.env.PUBLIC_URL + '/logo512.png'} alt="error" height={10} width={10} />
+            <p href="">{props.webpagename}</p>
           </div>
+          {/* search bar */}
           <div id="righttopnav">
-            <a href="">
-              <i class="fa-brands fa-square-github"></i>
-            </a>
-            <a href="/">
-              <i class="fa-brands fa-youtube"></i>
-            </a>
-            <a href="/">
-              <i class="fa-brands fa-facebook"></i>
-            </a>
-            <a href="/">
-              <i class="fa-brands fa-twitter"></i>
-            </a>
+            <div id="search">
+              <i className="fa fa-search" />
+              <input type="text" placeholder="Have a question? Ask Now" />
+              <button type="submit">Search</button>
+            </div>
           </div>
         </div>
-        <div id="bottomnav" style={{ border: "2px solid blue" }}>
-          <div id="leftnav">
-            <ul id="nav-ul">
-              <li>
-                <a href="/">Home</a>
-              </li>
-              <li class="nav-item dropdown">
-                <a
-                  class="nav-link dropdown-toggle"
-                  href="#"
-                  role="button"
-                  data-bs-toggle="dropdown"
-                  aria-expanded="false"
-                >
-                  About us
-                </a>
-                <ul class="dropdown-menu">
-                  <li>
-                    <a class="dropdown-item" href="#">
-                      Who We Are
-                    </a>
-                  </li>
-                  <li>
-                    <a class="dropdown-item" href="#">
-                      Our Team
-                    </a>
-                  </li>
-                </ul>
-              </li>
 
-              <li class="nav-item dropdown">
-                <a
-                  class="nav-link dropdown-toggle"
-                  href="#"
-                  role="button"
-                  data-bs-toggle="dropdown"
-                  aria-expanded="false"
-                >
-                  Profile
-                </a>
-                <ul class="dropdown-menu">
-                  <li>
-                    <a class="dropdown-item" href="#">
-                      View
-                    </a>
-                  </li>
-                  <li>
-                    <a class="dropdown-item" href="#">
-                      Logout
-                    </a>
-                  </li>
-                </ul>
-              </li>
-              <li class="nav-item dropdown">
-                <a
-                  class="nav-link dropdown-toggle"
-                  href="#"
-                  role="button"
-                  data-bs-toggle="dropdown"
-                  aria-expanded="false"
-                >
-                  Services
-                </a>
-                <ul class="dropdown-menu">
-                  <li>
-                    <a class="dropdown-item" href="#">
-                      Bus{" "}
-                    </a>
-                  </li>
-                  <li>
-                    <a class="dropdown-item" href="#">
-                      Metro
-                    </a>
-                  </li>
-                </ul>
-              </li>
+        {/* bottom nav bar */}
+        <div id="bottomnav" style={{ border: "2px solid blue" }}>
+          {/* home etc */}
+          <div id="leftbottomnav">
+            <li>
+              <a href="">Home</a>
+            </li>
+            <div
+              id="plan"
+              onMouseEnter={() => handleMouseEnter(setShow1)}
+              onMouseLeave={() => handleMouseLeave(setShow1)}
+            >
               <li>
-                <a href="">Feed Back</a>
+                Trip Guider{" "}
+                <i
+                  class="fa-sharp fa-solid fa-caret-down"
+                  style={{ color: "black" }}
+                ></i>
               </li>
+              {show1 && (
+                <ul
+                  onMouseEnter={() => handleMouseEnter(setShow1)}
+                  onMouseLeave={() => handleMouseLeave(setShow1)}
+                >
+                  <li>Bus Trip</li>
+                  <li>Metro Trip</li>
+                  <li>Train Trip</li>
+                  <li>Cab Trip</li>
+                </ul>
+              )}
+            </div>
+            <div
+              id="ourservices"
+              onMouseEnter={() => handleMouseEnter(setShow2)}
+              onMouseLeave={() => handleMouseLeave(setShow2)}
+            >
               <li>
-                <a href="/">Help</a>
+                Our Services{" "}
+                <i
+                  class="fa-sharp fa-solid fa-caret-down"
+                  style={{ color: "black" }}
+                ></i>
               </li>
-            </ul>
+              {show2 && (
+                <ul
+                  onMouseEnter={() => handleMouseEnter(setShow2)}
+                  onMouseLeave={() => handleMouseLeave(setShow2)}
+                >
+                  <li>Service 1</li>
+                  <li>Service 2</li>
+                  <li>Service 3</li>
+                  <li>Service 4</li>
+                </ul>
+              )}
+            </div>
+
+            <li>
+              <a href="">Contact Us</a>
+            </li>
           </div>
-          <div id="rightnav">
-            <form class="d-flex" role="search">
-              <input
-                class="form-control me-2"
-                type="search"
-                placeholder="Search"
-                aria-label="Search"
-              />
-              <button class="btn btn-outline-success" type="submit">
-                Search
-              </button>
-            </form>
+          {/* account dashboard */}
+          <div id="rightbottomnav">
+            <img
+              alt="error"
+              src={process.env.PUBLIC_URL + '/defaultprofile.jpg'}
+              height={40}
+              width={40}
+              onMouseEnter={() => handleMouseEnter(setShow3)}
+              onMouseLeave={() => handleMouseLeave(setShow3)}
+            />
+            {show3 && (
+              <ul
+                onMouseEnter={() => handleMouseEnter(setShow3)}
+                onMouseLeave={() => handleMouseLeave(setShow3)}
+              >
+                <li>Dashboard</li>
+                <li>Emergency Contact Information</li>
+                <li>Assistance Request History</li>
+                <li>User Preferences</li>
+                <li>Logout</li>
+              </ul>
+            )}
           </div>
         </div>
       </nav>
     </>
   );
 }
-Navbar.defaultProps = {
-    logo: "Enter url here",
-    webpagename: "WebPage Name Here",
-  };
-  
-Navbar.propTypes = {
-    logo: PropTypes.string.isRequired,
-    webpagename: PropTypes.string.isRequired,
-  };
-  
 
+Navbar.defaultProps = {
+  logo: "Enter url here",
+  webpagename: "WebPage Name Here",
+};
+
+Navbar.propTypes = {
+  logo: PropTypes.string.isRequired,
+  webpagename: PropTypes.string.isRequired,
+};
