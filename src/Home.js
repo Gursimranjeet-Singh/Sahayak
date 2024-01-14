@@ -22,7 +22,7 @@ export default function Home() {
 
   return (
     <>
-      <Navbar webpagename="Trip Guider" />
+      
       <div id="homecontent">
         <div id="homeimage">
           <div

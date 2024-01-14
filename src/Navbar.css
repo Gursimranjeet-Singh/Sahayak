@@ -10,7 +10,12 @@ html{
     filter: invert();
 } */
 
+#navbar{
+    position: sticky;
+    top: 0;
+    z-index: 15;
 
+}
 #nav-ul{
     list-style-type: none;
    display: flex;
@@ -20,9 +25,8 @@ html{
 /*  */
 #topnav{
     display: flex;
-    position: sticky;
-    top: 0;
     z-index: 5;
+    background-color: white;
 }
 
 /* logo and image */
@@ -89,10 +93,7 @@ button:hover{
 
 #bottomnav{
     display: flex;
-    position: sticky;
-    top: 0;
-    z-index: 5;
-    background-color: #eee8e8d0;
+    background-color: white;
 }
 
 /* home etc */
