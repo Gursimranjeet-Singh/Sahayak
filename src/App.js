@@ -1,14 +1,14 @@
 
 import './App.css';
-import Navbar from './Navbar';
+import Home from './Home';
 
 
 function App() {
   return (
-    <>
-    <Navbar webpagename="Sahayak"/>
-    </>
+    <Home/>
   );
 }
 
 export default App;
+
+
