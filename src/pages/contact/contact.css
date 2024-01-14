@@ -1,0 +1,123 @@
+#contactcontent {
+  display: flex;
+  flex-direction: column;
+}
+
+#contactform {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: 2px solid red;
+}
+.contactformheadp{
+    font-size: 2rem;
+    font-weight: 600;
+    
+
+}
+#contactinfo {
+    position: relative;
+    border: 2px solid black;
+    display: flex;
+  }
+  
+  #contactinfo::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('../../../public/formbg.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+ /* Adjust the blur value as needed */
+    z-index: -1;
+    
+    filter: brightness(0.8);
+  }
+  
+  #contactinfoleft {
+    border: 2px solid green;
+    margin: 1rem;
+    display: flex;
+    flex-direction:column ;
+    gap: 2rem;
+  }
+  
+  #contactinfolef1,
+  #contactinfolef2,
+  #contactinfolef3,
+  #contactinfolef4 {
+    width: 20vw;
+  }
+.img1 {
+  background-image: url("../../../public/wwd1.png");
+  width: 4rem;
+  height: 4rem;
+  background-size: cover;
+}
+.logoandhead{
+    display: flex;
+    gap: 2rem;
+}
+.leftp{
+    margin-left: 6rem;
+    font-size: 1.5rem;
+    color:white;
+}
+#contactinfoleft h2{
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: white;
+    
+}
+.lefta a{
+    margin-left: 6rem;
+    font-size: 1.9rem;
+    font-weight: 600;
+    color: whitesmoke;
+}
+#contactinforight{
+    margin: 5rem;
+}
+
+#contactinforight form{
+    display: flex;
+    flex-direction: column;
+   border: 2px solid orange;
+   
+}
+form label{
+    font-size:2.5rem;
+    font-weight: 700;
+    color: white;
+    font-weight: 700;
+}
+input[type="text"],input[type="email"],input[type="message"] {
+    width: 37vw;
+    height: 4vh;
+    font-size: 1.5rem;
+    
+}
+input[type="text"]:hover,input[type="email"]:hover,input[type="message"]:hover {
+   border: 3px solid #005fa7;
+}
+
+textarea{
+    width: 37vw;
+    height: 10vh;
+    font-size: 1.5rem;
+}
+form button{
+    width: 10vw;
+    height: 4vh;
+    background-color: #005fa7;
+    color: white;
+    font-size: 1.5rem;
+    font-weight: 600;
+    border: none;
+    border-radius: 5px;
+    margin-top: 1rem;
+    margin-left: 20rem;
+}
