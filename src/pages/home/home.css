@@ -34,7 +34,7 @@ html{
     left:96vw;
     top: 13rem;
     cursor: pointer;
-    background: url('../public/arrowright.png') no-repeat 0 0;
+    background: url('../../../public/arrowright.png') no-repeat 0 0;
     width: 40px;
     height: 40px;
    border: none;
@@ -51,7 +51,7 @@ html{
     left: 1vw;
     top:13rem;
     cursor: pointer;
-    background: url('../public/arrowleft.png') no-repeat 0 0;
+    background: url('../../../public/arrowleft.png') no-repeat 0 0;
     width: 40px;
     height: 40px;
    border: none;
@@ -124,7 +124,7 @@ html{
 }
 /* for icon left box */
 #iconandheadingl div{
-    background: url('../public/wwd1.png') no-repeat 0 0;
+    background: url('../../../public/wwd1.png') no-repeat 0 0;
     width: 4vw;
     height: 4vw;
     background-size: cover;
@@ -132,7 +132,7 @@ html{
 
 /* for icon right box */
 #iconandheading2 div{
-    background: url('../public/wwd2.png') no-repeat 0 0;
+    background: url('../../../public/wwd2.png') no-repeat 0 0;
     width: 3.5vw;
     height: 3.5vw;
     background-size: cover;
@@ -174,7 +174,7 @@ html{
   
 }
 #wherewework div{
-    background-image: url('../public/whereweworkimg.png');
+    background-image: url('../../../public/whereweworkimg.png');
     background-repeat: no-repeat;
     background-position: center top;
     width: 30vw;
