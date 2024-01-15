@@ -7,10 +7,11 @@
   font-weight: 700;
   color: #005fa7;
   text-align: center;
+  margin-top: 2rem;
 }
 #contactcontent hr {
-  border-width: 0.5rem;
-  border-color: blue;
+  border-width: 0.2rem;
+  border-color: #005fa7;
   width: 20vw;
   margin: auto;
   margin-bottom: 2rem;
@@ -59,6 +60,8 @@
 #contactinfolef3,
 #contactinfolef4 {
   width: 20vw;
+  background-color: #f5f5f559;
+  
 }
 .img1 {
   background-image: url("../../../public/wwd1.png");
@@ -93,6 +96,8 @@
 #contactinforight form {
   display: flex;
   flex-direction: column;
+  background-color: #f5f5f559;
+  padding: 2rem;
 }
 form label {
   font-size: 2.5rem;
@@ -108,7 +113,8 @@ input[type="email"]
   font-size: 1.5rem;
 }
 input[type="text"]:hover,
-input[type="email"]:hover
+input[type="email"]:hover,
+textarea:hover
 {
   border: 3px solid #005fa7;
 }
@@ -117,6 +123,7 @@ textarea {
   width: 37vw;
   height: 10vh;
   font-size: 1.5rem;
+  border: none;
 }
 form button {
   width: 10vw;
@@ -129,4 +136,9 @@ form button {
   border-radius: 5px;
   margin-top: 1rem;
   margin-left: 20rem;
+}
+form button:hover {
+  cursor: pointer;
+  color: #f5f5f5f5;
+
 }

@@ -30,23 +30,21 @@
 a {
   font-size: 1.5rem;
 }
-a:active,
-a:visited,
-a:link {
+a:link,
+a:visited
+ {
   text-decoration: none;
   color: black;
+}
+/* order matters link visited hover active */
+a:hover,a:active{
+  color: #005fa7;
+  text-decoration: underline ;
 }
 #contact div:contains("Contact Us") {
   font-size: 2rem;
 }
-#mainanddev {
-  display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
-  justify-content: center;
-  font-size: 1.5rem;
-  font-weight: 700;
-}
+
 #copy {
   background-color: #005fa7;
   font-size: 2rem;

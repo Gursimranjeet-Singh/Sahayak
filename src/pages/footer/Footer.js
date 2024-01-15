@@ -161,17 +161,7 @@ export default function Footer() {
             </a>
           </div>
         </div>
-        <div id="mainanddev">
-          <div>
-            <p>Developed and Maintained by </p>
-          </div>
-          <div>
-            <p>Gursimranjeet Singh</p>
-          </div>
-          <div>
-            <p>gursimranjeet.cs22@bmsce.ac.in</p>
-          </div>
-        </div>
+        
       </div>
       <div id="copy">
         Copyright © 2024 Samarthyam India. All Rights Reserved. Powered By
