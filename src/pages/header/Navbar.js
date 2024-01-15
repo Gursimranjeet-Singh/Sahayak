@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import "./Navbar.css";
 import PropTypes from "prop-types";
 
-
 export default function Navbar(props) {
   const [show1, setShow1] = useState(false);
   const [show2, setShow2] = useState(false);
@@ -20,10 +19,15 @@ export default function Navbar(props) {
     <>
       <nav id="navbar">
         {/* top nav bar */}
-        <div id="topnav" style={{ border: "2px solid red" }}>
+        <div id="topnav" >
           {/* log and image */}
           <div id="lefttopnav">
-            <img src={process.env.PUBLIC_URL + '/logo512.png'} alt="error" height={10} width={10} />
+            <img
+              src={process.env.PUBLIC_URL + "/logo512.png"}
+              alt="error"
+              height={10}
+              width={10}
+            />
             <p href="">{props.webpagename}</p>
           </div>
           {/* search bar */}
@@ -37,7 +41,7 @@ export default function Navbar(props) {
         </div>
 
         {/* bottom nav bar */}
-        <div id="bottomnav" style={{ border: "2px solid blue" }}>
+        <div id="bottomnav" >
           {/* home etc */}
           <div id="leftbottomnav">
             <li>
@@ -51,7 +55,7 @@ export default function Navbar(props) {
               <li>
                 Trip Guider{" "}
                 <i
-                  class="fa-sharp fa-solid fa-caret-down"
+                  className="fa-sharp fa-solid fa-caret-down"
                   style={{ color: "black" }}
                 ></i>
               </li>
@@ -75,7 +79,7 @@ export default function Navbar(props) {
               <li>
                 Our Services{" "}
                 <i
-                  class="fa-sharp fa-solid fa-caret-down"
+                  className="fa-sharp fa-solid fa-caret-down"
                   style={{ color: "black" }}
                 ></i>
               </li>
@@ -100,7 +104,7 @@ export default function Navbar(props) {
           <div id="rightbottomnav">
             <img
               alt="error"
-              src={process.env.PUBLIC_URL + '/defaultprofile.jpg'}
+              src={process.env.PUBLIC_URL + "/defaultprofile.jpg"}
               height={40}
               width={40}
               onMouseEnter={() => handleMouseEnter(setShow3)}

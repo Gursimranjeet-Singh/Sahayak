@@ -1,5 +1,57 @@
-import React from "react";
+import React, { Fragment } from "react";
 import "./contact.css";
+
+const arrr=[{id:0,detail:"name"},{id:1,detail:"email"},{id:2,detail:"subject"}]
+const arrl=[
+{id:"contactinfolef1",h2:"Accessibility Audit",leftp:"We conduct Accessibility Audits. Connect with us and leave it to the experts for making your site universally accessible. Please contact us by sending an email to",lefta1:'Gursimranjeet@gmail.com',lefta2:234567890},
+{id:"contactinfolef2",h2:"Accessibility Audit1",leftp:"We conduct Accessibility Audits. Connect with us and leave it to the experts for making your site universally accessible. Please contact us by sending an email to",lefta1:'Gursimranjeet@gmail.com',lefta2:234567890},
+{id:"contactinfolef3",h2:"Social Media",leftp:"We conduct Accessibility Audits. Connect with us and leave it to the experts for making your site universally accessible. Please contact us by sending an email to",lefta1:null,lefta2:null},
+{id:"contactinfolef4",h2:"For Press and Media Enquiries",leftp:"We conduct Accessibility Audits. Connect with us and leave it to the experts for making your site universally accessible. Please contact us by sending an email to",lefta1:'Gursimranjeet@gmail.com',lefta2:null}
+]
+
+                 
+
+
+function Contactinfoleft() {
+  let listitems=arrl.map(items=><Fragment key={items.id}>
+   <div  id={items.id}>
+                <div className="logoandhead">
+                  <div className="img1"></div>
+                  <h2>{items.h2}</h2>
+                </div>
+                <div>
+                  <p className="leftp">
+                    {items.leftp}
+                  </p>
+                </div>
+                <div className="lefta">
+                  <a href="">{items.lefta1}</a>
+                </div>
+                <div className="lefta">
+                  <a href="">{items.lefta2}</a>
+                </div>
+              </div>
+   </Fragment>)
+
+   return(<>{listitems}</>);
+}
+
+
+function Forminput() {
+  let listitems=arrr.map(items=> <Fragment key={items.id}>
+    <label htmlFor={items.detail}>{items.detail.toUpperCase()}</label>
+   <br />
+   <input type="text" id={items.detail} name={items.detail} required />
+   <br />
+   <br />
+   <br /></Fragment>)
+    return(<>{listitems}
+    </>)
+  }
+
+  function Formlinkleft(){
+
+  }
 
 function handleFormSubmission(token) {
   document.getElementById("demo-form").submit();
@@ -13,6 +65,7 @@ export default function Contact() {
     <>
       <div id="contactcontent">
         <h2>Contact Us</h2>
+        <hr />
         <div id="contactform">
           <p className="contactformheadp">
             We are always happy to hear from you!{" "}
@@ -23,71 +76,7 @@ export default function Contact() {
           </p>
           <div id="contactinfo">
             <div id="contactinfoleft">
-              <div id="contactinfolef1">
-                <div className="logoandhead">
-                  <div className="img1"></div>
-                  <h2>Accessibility Audit</h2>
-                </div>
-                <div>
-                  <p className="leftp">
-                    We conduct Accessibility Audits. Connect with us and leave
-                    it to the experts for making your site universally
-                    accessible. Please contact us by sending an email to
-                  </p>
-                </div>
-                <div className="lefta">
-                  <a href="">Gursimranjeet@gmail.com</a>
-                </div>
-                <div className="lefta">
-                  <a href="">1234567890</a>
-                </div>
-              </div>
-              <div id="contactinfolef2">
-                <div className="logoandhead">
-                  <div className="img1"></div>
-                  <h2>Accessibility Audit1</h2>
-                </div>
-                <div>
-                  <p className="leftp">
-                    We are listening. Send us your ideas, studies, research,
-                    think pieces or other recommendations{" "}
-                  </p>
-                </div>
-                <div className="lefta">
-                  <a href="">Gursimranjeet@gmail.com</a>
-                </div>
-                <div className="lefta">
-                  <a href="">0123456789</a>
-                </div>
-              </div>
-              <div id="contactinfolef3">
-                <div className="logoandhead">
-                  <div className="img1"></div>
-                  <h2>Social Media</h2>
-                </div>
-                <div>
-                  <p className="leftp">
-                    Join our social media communities to get the latest
-                    articles, photos, videos and events updates.
-                  </p>
-                </div>
-              </div>
-              <div id="contactinfolef4">
-                <div className="logoandhead">
-                  <div className="img1"></div>
-                  <h2>For Press and Media Enquiries</h2>
-                </div>
-                <div>
-                  <p className="leftp">
-                    We conduct Accessibility Audits. Connect with us and leave
-                    it to the experts for making your site universally
-                    accessible. Please contact us by sending an email to
-                  </p>
-                </div>
-                <div className="lefta">
-                  <a href="">Gursimranjeet@gmail.com</a>
-                </div>
-              </div>
+              <Contactinfoleft/>
             </div>
             <div id="contactinforight">
               <form
@@ -95,44 +84,12 @@ export default function Contact() {
                 action="https://formspree.io/f/xnqoqjzq"
                 method="POST"
               >
-                <label htmlFor="name">Name</label>
-                <br />
-                <input
-                  type="text"
-                  id="name"
-                  name="name"
-                  
-                  required
-                />
-                <br /><br /><br />
-                <label htmlFor="email">Email</label>
-                <br />
-                <input
-                  type="email"
-                  id="email"
-                  name="email"
-                  
-                  required
-                />
-                <br /><br /><br />
-                <label htmlFor="subject">Subject</label>
-                <br />
-                <input
-                  type="text"
-                  id="subject"
-                  name="subject"
-                  
-                  required
-                />
-                <br /><br /><br />
+
+                <Forminput/>
+
                 <label htmlFor="message">Message</label>
                 <br />
-                <textarea
-                  id="message"
-                  name="message"
-                  
-                  required
-                ></textarea>
+                <textarea id="message" name="message" required></textarea>
                 <br />
                 <button>Submit</button>
               </form>

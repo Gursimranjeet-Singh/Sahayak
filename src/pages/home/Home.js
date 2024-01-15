@@ -22,7 +22,6 @@ export default function Home() {
 
   return (
     <>
-      
       <div id="homecontent">
         <div id="homeimage">
           <div
@@ -101,10 +100,11 @@ export default function Home() {
         <div id="videoandwherewework">
           <div id="video">
             <h2>Awareness</h2>
-            <video  controls>
+            <video controls>
               <source
                 src="https://www.youtube.com/embed/VIDEO_ID"
-                type="video/youtube"/>
+                type="video/youtube"
+              />
               Your browser does not support the video tag.
             </video>
           </div>

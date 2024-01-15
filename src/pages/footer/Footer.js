@@ -10,23 +10,23 @@ export default function Footer() {
     <div id="footer">
       <div id="socialmedia">
         <a href="">
-          <i class="fa-brands fa-facebook" style={{ color: "#ffffff" }}></i>
+          <i className="fa-brands fa-facebook" style={{ color: "#ffffff" }}></i>
         </a>
 
         <a href="">
           <i
-            class="fa-brands fa-square-x-twitter"
+            className="fa-brands fa-square-x-twitter"
             style={{ color: "#ffffff" }}
           ></i>
         </a>
 
         <a href="">
-          <i class="fa-brands fa-linkedin" style={{ color: "#ffffff" }}></i>
+          <i className="fa-brands fa-linkedin" style={{ color: "#ffffff" }}></i>
         </a>
 
         <a href="">
           <i
-            class="fa-brands fa-square-github"
+            className="fa-brands fa-square-github"
             style={{ color: "#ffffff" }}
           ></i>
         </a>
@@ -37,7 +37,7 @@ export default function Footer() {
           <div>
             <a href=" ">
               <i
-                class="fa-sharp fa-solid fa-caret-down fa-rotate-270"
+                className="fa-sharp fa-solid fa-caret-down fa-rotate-270"
                 style={{ color: "#263754" }}
               ></i>
               Emergency Contact Service
@@ -46,7 +46,7 @@ export default function Footer() {
           <div>
             <a href=" ">
               <i
-                class="fa-sharp fa-solid fa-caret-down fa-rotate-270"
+                className="fa-sharp fa-solid fa-caret-down fa-rotate-270"
                 style={{ color: "#263754" }}
               ></i>
               Assistance Request History
@@ -55,7 +55,7 @@ export default function Footer() {
           <div>
             <a href=" ">
               <i
-                class="fa-sharp fa-solid fa-caret-down fa-rotate-270"
+                className="fa-sharp fa-solid fa-caret-down fa-rotate-270"
                 style={{ color: "#263754" }}
               ></i>
               User Preference
@@ -64,7 +64,7 @@ export default function Footer() {
           <div>
             <a href=" ">
               <i
-                class="fa-sharp fa-solid fa-caret-down fa-rotate-270"
+                className="fa-sharp fa-solid fa-caret-down fa-rotate-270"
                 style={{ color: "#263754" }}
               ></i>
               Logout
@@ -76,7 +76,7 @@ export default function Footer() {
           <div>
             <a href="">
               <i
-                class="fa-sharp fa-solid fa-caret-down fa-rotate-270"
+                className="fa-sharp fa-solid fa-caret-down fa-rotate-270"
                 style={{ color: "#263754" }}
               ></i>
               Service1
@@ -85,7 +85,7 @@ export default function Footer() {
           <div>
             <a href="">
               <i
-                class="fa-sharp fa-solid fa-caret-down fa-rotate-270"
+                className="fa-sharp fa-solid fa-caret-down fa-rotate-270"
                 style={{ color: "#263754" }}
               ></i>
               Service2
@@ -94,7 +94,7 @@ export default function Footer() {
           <div>
             <a href="">
               <i
-                class="fa-sharp fa-solid fa-caret-down fa-rotate-270"
+                className="fa-sharp fa-solid fa-caret-down fa-rotate-270"
                 style={{ color: "#263754" }}
               ></i>
               Service3
@@ -106,7 +106,7 @@ export default function Footer() {
           <div>
             <a href=" ">
               <i
-                class="fa-sharp fa-solid fa-caret-down fa-rotate-270"
+                className="fa-sharp fa-solid fa-caret-down fa-rotate-270"
                 style={{ color: "#263754" }}
               ></i>
               Plan Your Trip
@@ -115,7 +115,7 @@ export default function Footer() {
           <div>
             <a href=" ">
               <i
-                class="fa-sharp fa-solid fa-caret-down fa-rotate-270"
+                className="fa-sharp fa-solid fa-caret-down fa-rotate-270"
                 style={{ color: "#263754" }}
               ></i>
               Book Your Trip
@@ -124,7 +124,7 @@ export default function Footer() {
           <div>
             <a href=" ">
               <i
-                class="fa-sharp fa-solid fa-caret-down fa-rotate-270"
+                className="fa-sharp fa-solid fa-caret-down fa-rotate-270"
                 style={{ color: "#263754" }}
               ></i>
               Manage Your Trip
@@ -136,7 +136,7 @@ export default function Footer() {
           <div>
             <a href=" ">
               <i
-                class="fa-sharp fa-solid fa-caret-down fa-rotate-270"
+                className="fa-sharp fa-solid fa-caret-down fa-rotate-270"
                 style={{ color: "#263754" }}
               ></i>
               Direct Mail
@@ -145,7 +145,7 @@ export default function Footer() {
           <div>
             <a href=" ">
               <i
-                class="fa-sharp fa-solid fa-caret-down fa-rotate-270"
+                className="fa-sharp fa-solid fa-caret-down fa-rotate-270"
                 style={{ color: "#263754" }}
               ></i>
               Call Us
@@ -154,7 +154,7 @@ export default function Footer() {
           <div>
             <a href=" ">
               <i
-                class="fa-sharp fa-solid fa-caret-down fa-rotate-270"
+                className="fa-sharp fa-solid fa-caret-down fa-rotate-270"
                 style={{ color: "#263754" }}
               ></i>
               Contact Page
