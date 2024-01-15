@@ -1,0 +1,56 @@
+
+#headdash{
+    height: 6.4rem;
+    color: white;
+    background-color: hsl(206, 100%, 33%);
+    font-size: 3.5rem;
+    display: flex;
+    align-items: center;
+    text-indent: 1.6rem;
+    border-top-right-radius: 0.7rem;
+    border-top-left-radius: 0.7rem;
+    font-family: garamond;
+    font-weight: 700;
+}
+#maincontent{
+    display: flex;
+   
+    width: 100vw;
+    
+}
+#leftnavdash{
+    
+    width: 19.5vw;
+   
+    
+}
+.divleftdash{
+    width: 100%;
+   height: 4.8rem;
+  font-size: 1.6rem;
+  font-family: UberMoveText, system-ui, "Helvetica Neue", Helvetica, Arial, sans-serif;
+   background-color: white;
+   padding-top: 12px;
+   padding-bottom: 12px;
+   padding-left: calc(24px * 1);
+   padding-right: 12px;
+   border: none;
+   text-align: left;
+  
+}
+.divleftdash:hover{
+    background-color: white;
+}
+.divleftdash:focus{
+    border-left: 5px solid hsl(206, 100%, 33%);
+    background-image: linear-gradient(0deg, rgba(255, 255, 255, 0.92), rgba(255, 255, 255, 0.92));
+    background-color: #000000;
+    /* both background color and image are giving that texture combined */
+
+    
+}
+#rightcontentdash{
+    border: 2px solid red;
+    width: calc(100vw - 19.5vw);
+    padding-left: 2rem;
+}

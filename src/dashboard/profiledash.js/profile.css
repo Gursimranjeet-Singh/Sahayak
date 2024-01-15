@@ -1,0 +1,47 @@
+#headingprofile{
+    color: rgb(0, 0, 0);
+    font-family: UberMove, UberMoveText, system-ui, "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-weight: 700;
+    font-size: 36px;
+    line-height: 44px;
+    margin-top: 3rem;
+    margin-bottom: 3rem;
+}
+#profileimage{
+    border-radius: 50%;
+    box-sizing: border-box;
+    display: block;
+    height: 96px;
+    width: 96px;
+   background-image: url("../../../public/defaultprofile.jpg");
+   background-size: cover;
+   margin-bottom: 3rem;
+}
+#basicinfo{
+    
+    color: rgb(0, 0, 0);
+    font-family: UberMove, UberMoveText, system-ui, "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 32px;
+    margin-bottom:3rem ;
+
+}
+.infoabout{
+    color: rgb(0, 0, 0);
+    font-family: UberMoveText, system-ui, "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-weight: 500;
+    font-size: 1.6rem;
+   
+}
+.infovalue{
+    color: rgb(84, 84, 84);
+    
+    font-family: UberMoveText, system-ui, "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-weight: 500;
+    font-size: 1.6rem;
+    
+}
+hr{
+    width: 20vw;
+}
