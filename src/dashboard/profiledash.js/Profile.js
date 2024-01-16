@@ -2,10 +2,11 @@
 import React, { Fragment } from "react";
 import "./profile.css";
 export default function Profile() {
+  // below information to be get from login page database just for ui reference
   const info = [
     { id: 0, nameofitem: "Name", valueofitem: "Gursimranjeet Singh" },
-    { id: 0, nameofitem: "Email", valueofitem: "Gursimranjeet@gmail.com" },
-    { id: 0, nameofitem: "Contact Number", valueofitem: "42379857923" },
+    { id: 1, nameofitem: "Email", valueofitem: "Gursimranjeet@gmail.com" },
+    { id: 2, nameofitem: "Contact Number", valueofitem: "42379857923" },
   ];
   function Showlistitems() {
     let listitems = info.map((items) => (
@@ -25,6 +26,7 @@ export default function Profile() {
       <div id="info">
         <Showlistitems />
       </div>
+      
     </>
   );
 }

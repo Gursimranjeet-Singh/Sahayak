@@ -1,6 +1,7 @@
 import React from 'react';
 import './dashboard.css';
 import Profile from './profiledash.js/Profile.js';
+import Emergency from './emergency/Emergency.js';
 export default function Dashboard(){
     return(
         <>
@@ -17,7 +18,7 @@ export default function Dashboard(){
                     <button className='divleftdash'>Support & Complaint</button>  
             </div>
             <div id='rightcontentdash'>
-                <Profile/>
+                <Emergency/>
             </div>
         </div>
         
