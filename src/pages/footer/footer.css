@@ -30,15 +30,13 @@
 a {
   font-size: 1.5rem;
 }
-a:link,
-a:visited
- {
+ a:link, a:visited {
   text-decoration: none;
-  color: black;
+  color: black!important;
 }
 /* order matters link visited hover active */
 a:hover,a:active{
-  color: #005fa7;
+  color: #005fa7!important;
   text-decoration: underline ;
 }
 #contact div:contains("Contact Us") {

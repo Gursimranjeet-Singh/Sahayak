@@ -1,8 +1,21 @@
 import React, { useState } from "react";
 import "./Navbar.css";
 import PropTypes from "prop-types";
+import {Link} from 'react-router-dom';
 
 export default function Navbar(props) {
+  // let width=window.innerWidth;
+  // const [show, setShow] = useState(false);
+  // if(width<600&&width>450){
+  //   ()=>{
+  //     setShow(true);
+  //   }
+  // }
+  // else{
+  //   ()=>{
+  //     setShow(false);
+  //   }
+  // }
   const [show1, setShow1] = useState(false);
   const [show2, setShow2] = useState(false);
   const [show3, setShow3] = useState(false);
@@ -32,9 +45,9 @@ export default function Navbar(props) {
           </div>
           {/* search bar */}
           <div id="righttopnav">
-            <div id="search">
+            <div className="search">
               <i className="fa fa-search" />
-              <input type="text" placeholder="Have a question? Ask Now" />
+              <input type="text" placeholder="Search Here" />
               <button type="submit">Search</button>
             </div>
           </div>
@@ -45,9 +58,9 @@ export default function Navbar(props) {
           {/* home etc */}
           <div id="leftbottomnav">
             <li>
-              <a href="">Home</a>
+              <Link to="/">Home</Link>
             </li>
-            <div
+            {/* <div
               id="plan"
               onMouseEnter={() => handleMouseEnter(setShow1)}
               onMouseLeave={() => handleMouseLeave(setShow1)}
@@ -70,7 +83,7 @@ export default function Navbar(props) {
                   <li>Cab Trip</li>
                 </ul>
               )}
-            </div>
+            </div> */}
             <div
               id="ourservices"
               onMouseEnter={() => handleMouseEnter(setShow2)}
@@ -88,16 +101,17 @@ export default function Navbar(props) {
                   onMouseEnter={() => handleMouseEnter(setShow2)}
                   onMouseLeave={() => handleMouseLeave(setShow2)}
                 >
-                  <li>Service 1</li>
-                  <li>Service 2</li>
-                  <li>Service 3</li>
-                  <li>Service 4</li>
+                  <Link to="/service/service1"><li>Service 1</li></Link>
+                  <Link to="/service/service2"><li>Service 2</li></Link>
+                  <Link to="/service/service3"><li>Service 3</li></Link>
+               
+                  
                 </ul>
               )}
             </div>
 
             <li>
-              <a href="">Contact Us</a>
+              <Link to="/contact">Contact Us</Link>
             </li>
           </div>
           {/* account dashboard */}
@@ -115,15 +129,22 @@ export default function Navbar(props) {
                 onMouseEnter={() => handleMouseEnter(setShow3)}
                 onMouseLeave={() => handleMouseLeave(setShow3)}
               >
-                <li>Dashboard</li>
-                <li>Emergency Contact Information</li>
-                <li>Assistance Request History</li>
-                <li>User Preferences</li>
-                <li>Logout</li>
+                <li><Link to="/dashboard">Dashboard</Link></li>
+                <li><Link to="/dashboard/emergency">Emergency Contact Information</Link></li>
+                <li><a href="">Assistance Request History</a></li>
+                <li><a href="">User Preferences</a></li>
+                <li><Link to="dashboard/supportandcomplaint">Support & Complaint</Link></li>
+                <li><a href="">Logout</a></li>
               </ul>
             )}
           </div>
         </div>
+        {/* <div className="search" style={{width:'100vw'}}>
+              
+              <input type="text" placeholder="Search Here" style={{width:'70vw'}}/>
+              <button type="submit">Search</button>
+            </div> */}
+        
       </nav>
     </>
   );

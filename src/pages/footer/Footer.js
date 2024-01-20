@@ -101,7 +101,7 @@ export default function Footer() {
             </a>
           </div>
         </div>
-        <div id="tripplannerf">
+        {/* <div id="tripplannerf">
           <div style={style}>Trip Planner</div>
           <div>
             <a href=" ">
@@ -130,7 +130,7 @@ export default function Footer() {
               Manage Your Trip
             </a>
           </div>
-        </div>
+        </div> */}
         <div id="contactf">
           <div style={style}>Contact Us</div>
           <div>
