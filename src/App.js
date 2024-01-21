@@ -9,7 +9,6 @@ import Service1 from "./services/service1/Service1";
 import Service2 from "./services/service2/Service2";
 import Service3 from "./services/service3/Service3";
 
-
 function App() {
   return (
     <Router>
@@ -40,7 +39,7 @@ function App() {
               <Route path="/service3" element={<Service3 />} />
             </Routes>
           }
-        />
+        />{" "}
       </Routes>
     </Router>
   );

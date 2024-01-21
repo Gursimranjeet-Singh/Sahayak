@@ -4,7 +4,9 @@ html {
 
 #homecontent {
   overflow-y: scroll;
-  
+  /* filter: grayscale(100%); */
+  /* filter: contrast(30%); */
+   /* filter: brightness(50%);  */
 }
 /* scroll bar */
 ::-webkit-scrollbar {

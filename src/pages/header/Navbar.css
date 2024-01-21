@@ -7,7 +7,7 @@ html {
   font-size: 62.5%;
 }
 /* body{
-    filter: invert();
+    filter: invert(0.7);
 } */
 
 #navbar {
@@ -221,6 +221,32 @@ input[type="text"]:hover {
 
 #rightbottomnav ul li a:hover {
  color: white !important;
+}
+
+
+/* change mode */
+#changemode{
+  position: absolute;
+  top: 10rem;
+  width: 5rem;
+  height: 5rem;
+  background-color: red;
+  z-index: 200;
+  border: none;
+}
+
+.showmodebtn{
+  width: 25vw;
+  border: none;
+  background-color: #005fa7;
+  color: white;
+  font-size: 2rem;
+  font-weight: 600;
+  font-family: garamond;
+}
+.showmodebtn:hover{
+  cursor: pointer;
+  background-color: #005fa7df;
 }
 /* responsiveness */
 
