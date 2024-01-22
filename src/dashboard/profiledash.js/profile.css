@@ -1,5 +1,5 @@
 #headingprofile{
-    color: rgb(0, 0, 0);
+    color: #005fa7;
     font-family: UberMove, UberMoveText, system-ui, "Helvetica Neue", Helvetica, Arial, sans-serif;
     font-weight: 700;
     font-size: 36px;
@@ -19,7 +19,7 @@
 }
 #basicinfo{
     
-    color: rgb(0, 0, 0);
+    color: #005fa7;
     font-family: UberMove, UberMoveText, system-ui, "Helvetica Neue", Helvetica, Arial, sans-serif;
     font-weight: 700;
     font-size: 24px;
@@ -28,7 +28,7 @@
 
 }
 .infoabout{
-    color: rgb(0, 0, 0);
+    color: #005fa7;
     font-family: UberMoveText, system-ui, "Helvetica Neue", Helvetica, Arial, sans-serif;
     font-weight: 500;
     font-size: 1.6rem;

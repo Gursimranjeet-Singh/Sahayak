@@ -226,11 +226,11 @@ input[type="text"]:hover {
 
 /* change mode */
 #changemode{
-  position: absolute;
+  position: fixed;
   top: 10rem;
   width: 5rem;
   height: 5rem;
-  background-color: red;
+  background-image: url(../../../public/formbg.jpg);
   z-index: 200;
   border: none;
 }

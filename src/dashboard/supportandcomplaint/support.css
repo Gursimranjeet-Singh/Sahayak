@@ -3,9 +3,10 @@ body{
 }
 #supporth1 {
   margin: 15px 0;
-  font-weight: 400;
+  
   font-size: 4rem;
   font-weight: 700;
+  color: #005fa7;
 }
 #supportp{
     color:#745b5b;

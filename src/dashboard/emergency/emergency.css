@@ -1,5 +1,5 @@
 #headingemergency{
-    color: rgb(0, 0, 0);
+    color: #005fa7;
     font-family: UberMove, UberMoveText, system-ui, "Helvetica Neue", Helvetica, Arial, sans-serif;
     font-weight: 700;
     font-size: 36px;
@@ -9,7 +9,7 @@
 }
 .basicinfoemercontact{
     
-    color: rgb(0, 0, 0);
+    color: #005fa7;
     font-family: UberMove, UberMoveText, system-ui, "Helvetica Neue", Helvetica, Arial, sans-serif;
     font-weight: 700;
     font-size: 24px;
@@ -20,7 +20,7 @@
 }
 
 .emercontactname{
-    color: rgb(0, 0, 0);
+    color: #005fa7;
     font-family: UberMoveText, system-ui, "Helvetica Neue", Helvetica, Arial, sans-serif;
     font-weight: 500;
     font-size: 2rem;
@@ -56,5 +56,5 @@ a{
 }
 a:hover,a:link,a:visited,a:active{
     text-decoration: none;
-    color:white;
+    color:white !important;
 }
