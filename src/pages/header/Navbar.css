@@ -221,6 +221,7 @@ input[type="text"]:hover {
 
 #rightbottomnav ul li a:hover {
  color: white !important;
+ text-decoration: none;
 }
 
 

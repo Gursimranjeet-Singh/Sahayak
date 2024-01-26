@@ -20,6 +20,8 @@ export default function Home() {
     newcurrent((current - 1 + imgarr.length) % imgarr.length);
   };
 
+  
+
   return (
     <>
       <div id="homecontent">

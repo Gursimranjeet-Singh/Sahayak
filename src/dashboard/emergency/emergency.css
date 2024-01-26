@@ -51,10 +51,10 @@ hr{
 button:hover{
     background-color: red;
 }
-a{
+.astyleemer{
     color: white;
 }
-a:hover,a:link,a:visited,a:active{
+.astyleemer:hover,.astyleemer:link,.astyleemer:visited,.astyleemer:active{
     text-decoration: none;
-    color:white !important;
+    color:white ;
 }

@@ -21,7 +21,7 @@ export default function Navbar(props) {
 
   return (
     <>
-      <nav id="navbar" className="graymode">
+      <nav id="navbar" >
         {/* top nav bar */}
         <div id="topnav">
           {/* log and image */}
@@ -49,7 +49,7 @@ export default function Navbar(props) {
           {/* home etc */}
           <div id="leftbottomnav">
             <li>
-              <Link to="/">Home</Link>
+              <Link className="astylenavbar" to="/">Home</Link>
             </li>
             {/* <div
               id="plan"
@@ -92,13 +92,13 @@ export default function Navbar(props) {
                   onMouseEnter={() => handleMouseEnter(setShow2)}
                   onMouseLeave={() => handleMouseLeave(setShow2)}
                 >
-                  <Link to="/service/service1">
+                  <Link className="astylenavbar" to="/service/service1">
                     <li>Service 1</li>
                   </Link>
-                  <Link to="/service/service2">
+                  <Link className="astylenavbar" to="/service/service2">
                     <li>Service 2</li>
                   </Link>
-                  <Link to="/service/service3">
+                  <Link className="astylenavbar" to="/service/service3">
                     <li>Service 3</li>
                   </Link>
                 </ul>
@@ -106,7 +106,7 @@ export default function Navbar(props) {
             </div>
 
             <li>
-              <Link to="/contact">Contact Us</Link>
+              <Link className="astylenavbar" to="/contact">Contact Us</Link>
             </li>
           </div>
           {/* account dashboard */}
@@ -133,7 +133,7 @@ export default function Navbar(props) {
                   </Link>
                 </li>
                 <li>
-                  <a href="">Assistance Request History</a>
+                  <a  href="">Assistance Request History</a>
                 </li>
                 <li>
                   <a href="">User Preferences</a>
@@ -157,9 +157,9 @@ export default function Navbar(props) {
             </div> */}
       </nav>
       <div>
-        <button id="changemode" className="graymode" onClick={handleShowMode}></button>
+        <button id="changemode"  onClick={handleShowMode}></button>
       </div>
-      {showmode && <div className="graymode" style={{display:'flex',justifyContent:"center"}}>
+      {showmode && <div  style={{display:'flex',justifyContent:"center"}}>
         <div><button className="showmodebtn" onClick={Graymode}>Gray Mode</button></div>
         <div><button  className="showmodebtn" onClick={Darkmode}>Dark Mode</button></div>
         <div><button  className="showmodebtn" onClick={Brightmode}>Bright Mode</button></div>

@@ -13,7 +13,7 @@ function Emergency() {
         let listitems = info.map((items) => (
           <Fragment key={items.id}>
             <div className="emercontactname">{items.nameofdept}</div>
-            <div className="emercontactphoneno"><button className="emergencybtn"><a href={"tel:+"+items.valueofitem}>Contact Here</a></button></div>
+            <div className="emercontactphoneno"><button className="emergencybtn"><a className="astyleemer" href={"tel:+"+items.valueofitem}>Contact Here</a></button></div>
             <hr />
           </Fragment>
         ));
@@ -32,7 +32,7 @@ function Emergency() {
           </div>
           <div className="emercontactphoneno">
             <button className="emergencybtn">
-              <a href="tel:+1234567890">Contact Here</a>
+              <a className="astyleemer" href="tel:+1234567890">Contact Here</a>
             </button>
           </div>
           <hr />
@@ -45,7 +45,7 @@ function Emergency() {
 
           <div className="emercontactphoneno">
             <button className="emergencybtn">
-              <a href="tel:+1234567890">Contact Here</a>
+              <a className="astyleemer" href="tel:+1234567890">Contact Here</a>
             </button>
           </div>
           <hr />
