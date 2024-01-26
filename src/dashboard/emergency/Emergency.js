@@ -31,7 +31,7 @@ function Emergency() {
             <p>Gursimranjeet Singh</p>
           </div>
           <div className="emercontactphoneno">
-            <button className="emergencybtn">
+            <button className="emergencybtn ">
               <a className="astyleemer" href="tel:+1234567890">Contact Here</a>
             </button>
           </div>

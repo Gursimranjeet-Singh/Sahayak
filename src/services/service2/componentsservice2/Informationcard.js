@@ -1,6 +1,8 @@
 import React, { Component } from "react";
+import './informationcard.css'
 export default class Informationcard extends Component {
   render() {
+        
     return (
       <>
         <div
@@ -13,52 +15,68 @@ export default class Informationcard extends Component {
         </div>
 
         <div
-          id="header"
-          style={{ display: "flex", gap: "1rem", padding: "8px 16px 8px 16px" }}
+          
+          style={{ display: "flex", gap: "1rem",
+           padding: "8px 16px 8px 16px",
+         marginTop:'2rem'
+        }}
         >
           <div>
-            <img src="" alt="erroe" />
+            <img src="" alt="error" height={20} width={20}/>
           </div>
           <div >
             <div style={{ display: "flex"}}>
-              <h3>details.properties.name</h3>
-              <h3>| ವಿಜಯನಗರ</h3>
+              <p style={{fontSize:'2rem',color:"black"}}>details.properties.name</p>
+                <button id="closecard" >
+                  <i
+                    className="fa-solid fa-x"
+                    style={{
+                      color: "#c8c5ca",
+                      backgroundColor: "white !important"
+                      
+                    }}
+                  ></i>
+                </button>
+              
             </div>
             <div style={{ display: "flex" }}>
-              <h4>type</h4>
-              <button style={{margin:'auto'}}>
-                <i
-                  class="fa-solid fa-x"
-                  style={{
-                    color: "#e3e1e5",
-                    backgroundColor: "white !important",
-                  }}
-                ></i>
-              </button>
+              <p style={{fontSize:'1.6rem',
+            color:'black'}}>type</p>
             </div>
           </div>
         </div>
 
-        <h2>Fully wheelchair accessible</h2>
+        <p style={{backgroundColor:'rgb(251, 250, 249)',
+    border: '2px solid rgba(206, 210, 215, 0.7)',
+    color:'rgb(70, 117, 0)',
+    fontWeight:'700',
+    width:'90%',
+    textAlign:'center',
+    padding:'1rem',
+    marginBottom:'3rem'
+    }}>
+        Fully wheelchair accessible</p>
 
         <div id="addninf">
-          <h3>Address here</h3>
+          <p style={{fontSize:'1.1rem',
+        color:'black'
+        }}>Address hereAddress hereAddress hereAddress hereAddress hereAddress hereAddress hereAddress hereAddress hereAddress hereAddress hereAddress hereAddress here</p>
           
         </div>
 
-        <div id="features" style={{ display: "flex", flexDirection: "column" }}>
+        <div id="features" >
           
-          <a href="">Report Problem</a>
-          <a
+          <a className="featureslist" href="" >Report Problem</a>
+          <a className="featureslist"
             href={`https://www.google.com/maps?q=${12.9709559},${77.5374044}`}
             target="_blank"
           >
             Open in Google Maps
           </a>
-          <a href="">Report Problem</a>
+          <a className="featureslist" href="">Report Problem</a>
         </div>
        
-        <h3>Licence</h3>
+        <p style={{fontSize:'1.2rem'}}>Licence</p>
       </>
     );
   }

@@ -48,7 +48,7 @@ hr{
     font-weight: 600;
     
 }
-button:hover{
+#emergencybtn:hover{
     background-color: red;
 }
 .astyleemer{

@@ -10,17 +10,7 @@ import Service2 from "./services/service2/Service2";
 import Service3 from "./services/service3/Service3";
 
 function App() {
-  // const [TITLE,setTITLE]=useState("We Work For People In Need");
-  // setInterval(()=>{
-  //   if(TITLE==="We Work For People In Need"){
-  //     setTITLE("Shayak Foundation");
-  //     document.title=TITLE;
-  //   }
-  //   else if(TITLE==="Shayak Foundation"){
-  //     setTITLE("Shayak Foundation");
-  //     document.title=TITLE;
-  //   }
-  // },1000);
+
 
   const [TITLE, setTITLE] = useState("Sahayak Foundation");
 
