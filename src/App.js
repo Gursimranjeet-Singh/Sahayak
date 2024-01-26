@@ -43,9 +43,10 @@ function App() {
   return (
     <Router>
       <Routes>
-        <Route path="dashboard/*" element={<Dashboard />} /> {/* for route dashboard and all components inside it*/}
+        <Route path="dashboard/*" element={<Dashboard />} />{" "}
+        {/* for route dashboard and all components inside it*/}
         <Route
-          path="/*"  /* for all components having link like /somethingh*/
+          path="/*" /* for all components having link like /somethingh*/
           element={
             <>
               <Navbar />
@@ -54,19 +55,22 @@ function App() {
                 <Route path="contact" element={<Contact />} />
               </Routes>
               <Footer />
+              
             </>
           }
         />
-        <Route
-          path="/service/*"
-          element={
-            <Routes>
-              {/* <Route path="/service1" element={<Service1 />} />
-        <Route path="/service2" element={<Service2 />} />
-        <Route path="/service3" element={<Service3 />} /> */}
-            </Routes>
-          }
-        />
+        
+                <Route
+                  path="service/*"
+                  element={
+                    <Routes>
+                      {/* <Route path="/service1" element={<Service1 />} /> */}
+                      <Route path="/service2" element={<Service2 />} />
+                      {/* <Route path="/service3" element={<Service3 />} /> */}
+                    </Routes>
+                  }
+                />
+              
       </Routes>
     </Router>
   );

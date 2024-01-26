@@ -95,7 +95,7 @@ export default function Navbar(props) {
                   <Link className="astylenavbar" to="/service/service1">
                     <li>Service 1</li>
                   </Link>
-                  <Link className="astylenavbar" to="/service/service2">
+                  <Link className="astylenavbar" to="service/service2">
                     <li>Service 2</li>
                   </Link>
                   <Link className="astylenavbar" to="/service/service3">
