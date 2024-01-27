@@ -4,28 +4,19 @@ import "leaflet/dist/leaflet.css";
 import Informationcard from "./Informationcard";
 import Search from "./Search";
 
-//custom marker
-const customIcon = new L.Icon({
-  iconUrl: "path/to/your/icon.png", // Specify the path to your custom icon image
-  iconSize: [32, 32], // Set the size of the icon
-  iconAnchor: [16, 32], // Set the anchor point of the icon
-  popupAnchor: [0, -32], // Set the popup anchor point
-});
-
 const MapComponent = ({ initialCenter }) => {
+  
   const [locations, setLocations] = useState([
     { id: 1, lat: 20.5937, lng: 78.9629, name: "Location 1" },
-    {id: 1, lat: 20, lng: 78.29, name: "Location 2"},
-    {id: 1, lat: 20.57, lng: 77.9, name: "Location 3***"},
+    { id: 2, lat: 20, lng: 78.29, name: "Location 2" },
+    { id: 3, lat: 20.57, lng: 77.9, name: "Location 3***" },
     // Add more locations as needed
   ]);
-  const [newMap, setNewMap] = useState(null);
 
   const handleMarkerClick = (location) => {
-    // logic for handling marker click here
     console.log("Marker clicked:", location);
-    // Example: Open an information card for the clicked location
     document.getElementById("service2").style.display = "block";
+    // Add your logic for handling marker click here
   };
 
   useEffect(() => {
@@ -34,9 +25,14 @@ const MapComponent = ({ initialCenter }) => {
     const baseUrl = `https://maps.geoapify.com/v1/tile/osm-bright/{z}/{x}/{y}.png?apiKey=${apiKey}`;
     const retinaUrl = `https://maps.geoapify.com/v1/tile/osm-bright/{z}/{x}/{y}@2x.png?apiKey=${apiKey}`;
 
-    // Create a new map instance and store it in the state
+    const customIcon = new L.Icon({
+      iconUrl: `${process.env.PUBLIC_URL}/MapMarker.png`,
+      iconSize: [32, 32],
+      iconAnchor: [16, 32],
+      popupAnchor: [0, -32],
+    });
+
     const map = L.map("my-map").setView(initialCenter || [20.5937, 78.9629], 10);
-    setNewMap(map);
 
     L.tileLayer(isRetina ? retinaUrl : baseUrl, {
       attribution: 'Powered by <a href="https://www.geoapify.com/" target="_blank">Geoapify</a> | <a href="https://openmaptiles.org/" target="_blank">© OpenMapTiles</a> <a href="https://www.openstreetmap.org/copyright" target="_blank">© OpenStreetMap</a> contributors',
@@ -44,22 +40,27 @@ const MapComponent = ({ initialCenter }) => {
       id: 'osm-bright',
     }).addTo(map);
 
-    // Check if newMap is not null before adding markers
     if (map) {
       locations.forEach((location) => {
-        const marker = L.marker([location.lat, location.lng])
+        const marker = L.marker([location.lat, location.lng], { icon: customIcon })
           .addTo(map)
           .on("click", () => handleMarkerClick(location));
+
+        // marker.bindPopup(`<b>${location.name}</b><br>Lat: ${location.lat}, Lng: ${location.lng}`);
       });
     }
 
-    // Cleanup when the component unmounts
     return () => {
       if (map) {
         map.remove();
       }
     };
   }, [initialCenter, locations]);
+
+  function closeInfoCard() {
+    console.log("Close button clicked");
+    document.getElementById("service2").style.display = "none";
+  }
 
   return (
     <>
@@ -68,7 +69,7 @@ const MapComponent = ({ initialCenter }) => {
           <Search />
         </div>
         <div id="infsevice2">
-          <Informationcard />
+          <Informationcard closeInfoCard={closeInfoCard}/>
         </div>
       </div>
       <div id="my-map" style={{ height: "90vh", width: "100vw", zIndex: 1 }} />
@@ -77,5 +78,3 @@ const MapComponent = ({ initialCenter }) => {
 };
 
 export default MapComponent;
-
-
