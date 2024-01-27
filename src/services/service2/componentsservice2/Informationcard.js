@@ -1,8 +1,12 @@
 import React, { Component } from "react";
 import './informationcard.css'
 export default class Informationcard extends Component {
+ 
   render() {
-        
+    const{name,type,accessibility,address,coordinatedlat,coordinatedlong,license,closeInfoCard}=this.props
+      
+    
+    // details.properties.name Fully wheelchair accessible Address Open in Google Maps(coordinates) Licence  type
     return (
       <>
         <div
@@ -22,12 +26,12 @@ export default class Informationcard extends Component {
         }}
         >
           <div>
-            <img src="" alt="error" height={20} width={20}/>
+            <img src="" alt="error" height={20} width={20}/>{/*logic must be based on the type of place*/}
           </div>
           <div >
             <div style={{ display: "flex"}}>
               <p style={{fontSize:'2rem',color:"black"}}>details.properties.name</p>
-                <button id="closecard" >
+                <button id="closecard" onClick={this.props.closeInfoCard} >
                   <i
                     className="fa-solid fa-x"
                     style={{

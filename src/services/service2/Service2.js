@@ -7,12 +7,17 @@ import Map from './componentsservice2/Maps2';
 import Informationcard from './componentsservice2/Informationcard';
 
 function Service2() {
+// to close information card when cross icon is clicked
+  function closeInfoCard(){
+    document.getElementById('infsevice2').style.display='none';
+  }
+
   return (
     <>
     <NavBarSer2/>
     <div id='contetnservice2' >
       <div id='mapsevice2'><Map/></div>
-      <div id='infsevice2'><Informationcard/></div>
+      <div id='infsevice2'><Informationcard closeInfoCard={closeInfoCard}/></div>
     
     </div>
    
