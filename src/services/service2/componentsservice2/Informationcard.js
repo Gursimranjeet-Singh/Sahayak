@@ -6,17 +6,9 @@ export default class Informationcard extends Component {
     const{name,type,accessibility,address,coordinatedlat,coordinatedlong,license,closeInfoCard}=this.props
       
     
-    // details.properties.name Fully wheelchair accessible Address Open in Google Maps(coordinates) Licence  type
     return (
       <>
-        <div
-          className="search"
-          style={{ display: "flex", alignItems: "center", width: "90%" }}
-        >
-          <i className="fa fa-search" />
-          <input type="text" placeholder="Search Here" />
-          <button type="submit">Search</button>
-        </div>
+        
 
         <div
           
@@ -30,7 +22,7 @@ export default class Informationcard extends Component {
           </div>
           <div >
             <div style={{ display: "flex"}}>
-              <p style={{fontSize:'2rem',color:"black"}}>details.properties.name</p>
+              <p style={{fontSize:'2rem',color:"black"}}>{this.props.name+'name'}</p>
                 <button id="closecard" onClick={this.props.closeInfoCard} >
                   <i
                     className="fa-solid fa-x"
@@ -45,7 +37,7 @@ export default class Informationcard extends Component {
             </div>
             <div style={{ display: "flex" }}>
               <p style={{fontSize:'1.6rem',
-            color:'black'}}>type</p>
+            color:'black'}}>{this.props.type+'type'}</p>
             </div>
           </div>
         </div>
@@ -59,12 +51,12 @@ export default class Informationcard extends Component {
     padding:'1rem',
     marginBottom:'3rem'
     }}>
-        Fully wheelchair accessible</p>
+        {this.props.accessibility+'accessibility'}</p>
 
         <div id="addninf">
           <p style={{fontSize:'1.1rem',
         color:'black'
-        }}>Address hereAddress hereAddress hereAddress hereAddress hereAddress hereAddress hereAddress hereAddress hereAddress hereAddress hereAddress hereAddress here</p>
+        }}>{this.props.address+'address'}{this.props.address+'address'}{this.props.address+'address'}{this.props.address+'address'}{this.props.address+'address'}</p>
           
         </div>
 
@@ -80,7 +72,7 @@ export default class Informationcard extends Component {
           <a className="featureslist" href="">Report Problem</a>
         </div>
        
-        <p style={{fontSize:'1.2rem'}}>Licence</p>
+        <p style={{fontSize:'1.2rem'}}>{this.props.report+'report'}</p>
       </>
     );
   }
