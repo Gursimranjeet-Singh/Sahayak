@@ -3,7 +3,7 @@ import './informationcard.css'
 export default class Informationcard extends Component {
  
   render() {
-    const{name,type,accessibility,address,coordinatedlat,coordinatedlong,license,closeInfoCard}=this.props
+    // const{name,type,accessibility,address,coordinatedlat,coordinatedlong,license,closeInfoCard}=this.props
       
     
     return (
