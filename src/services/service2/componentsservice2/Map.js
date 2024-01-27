@@ -4,7 +4,7 @@ import "leaflet/dist/leaflet.css";
 import Informationcard from "./Informationcard";
 import Search from "./Search";
 
-const MapComponent = ({ initialCenter }) => {
+const MapComponent = ({ initialCenter,valuesearch }) => {
   
   const [locations, setLocations] = useState([
     { id: 1, lat: 20.5937, lng: 78.9629, name: "Location 1" },
@@ -57,19 +57,14 @@ const MapComponent = ({ initialCenter }) => {
     };
   }, [initialCenter, locations]);
 
-  function closeInfoCard() {
-    console.log("Close button clicked");
-    document.getElementById("service2").style.display = "none";
-  }
-
   return (
     <>
       <div id="service2" style={{ position: "absolute", top: 0, left: 0, zIndex: 1000, width: "100%" }}>
         <div id="searchservice2">
-          <Search />
+        <Search valuesearch={valuesearch} />
         </div>
         <div id="infsevice2">
-          <Informationcard closeInfoCard={closeInfoCard}/>
+          <Informationcard />
         </div>
       </div>
       <div id="my-map" style={{ height: "90vh", width: "100vw", zIndex: 1 }} />
