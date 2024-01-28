@@ -33,29 +33,30 @@ default:
             display: "flex",
             gap: "1rem",
             padding: "8px 16px 8px 16px",
-            marginTop: "2rem",
+            marginTop: "1rem",
           }}
         >
-          <div>
+          <div >
             <img
               src={`${process.env.PUBLIC_URL}/${this.logopath()}`}
               alt="error"
-              height={20}
-              width={20}
+              height={40}
+              width={60}
             />
             {/* logic must be based on the type of place */}
           </div>
-          <div>
+          <div style={{width:'100%'}}>
             <div style={{ display: "flex" }}>
-              <p style={{ fontSize: "2rem", color: "black" }}>
+              <p style={{ fontSize: "2rem", color: "black",fontFamily:'garamond',fontWeight:'700' }}>
                 {markerdetails.name}
               </p>
-              <button id="closecard" onClick={closeInfoCard}>
+              <button id="closecard" onClick={closeInfoCard} style={{marginLeft: "auto",}}>
                 <i
                   className="fa-solid fa-x"
                   style={{
                     color: "#c8c5ca",
                     backgroundColor: "white !important",
+                    
                   }}
                 ></i>
               </button>
@@ -72,19 +73,20 @@ default:
           style={{
             backgroundColor: "rgb(251, 250, 249)",
             border: "2px solid rgba(206, 210, 215, 0.7)",
-            color: "rgb(70, 117, 0)",
+            color: markerdetails.accessibility === 'wheelchair.yes' ?"rgb(70, 117, 0)":'#ff000099',
             fontWeight: "700",
             width: "90%",
             textAlign: "center",
-            padding: "1rem",
-            marginBottom: "3rem",
+            margin:'auto',
+            padding: "0.5rem",
+            marginBottom: "1rem",
           }}
         >
           {markerdetails.accessibility === 'wheelchair.yes' ? "Fully Wheelchair Accessible" : "Partial Wheelchair Accessible"}
         </p>
   
         <div id="addninf">
-          <p style={{ fontSize: "1.1rem", color: "black" }}>
+          <p style={{ fontSize: "1.3rem", color: "black" }}>
             {markerdetails.address}
           </p>
         </div>
@@ -105,9 +107,7 @@ default:
           </a>
         </div>
   
-        <p style={{ fontSize: "1.2rem" }}>
-          {markerdetails.licence + "report"}
-        </p>
+        
       </>
     );
   }

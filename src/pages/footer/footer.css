@@ -1,4 +1,4 @@
-#socialmedia {
+#socialmedi.styleafooter{
   margin-top: 2rem;
   background-color: #005fa7;
   display: flex;
@@ -13,7 +13,7 @@
   justify-content: center;
   margin-bottom: 2rem;
 }
-#socialmedia a {
+#socialmedi.styleafooter.styleafooter{
   font-size: 2.5rem;
 }
 #profilef,
@@ -27,15 +27,15 @@
   align-items: center;
   cursor: pointer;
 }
-a {
+.styleafooter{
   font-size: 1.5rem;
 }
- a:link, a:visited {
+.styleafooter:link, .styleafooter:visited {
   text-decoration: none;
   color: black!important;
 }
 /* order matters link visited hover active */
-a:hover,a:active{
+.styleafooter:hover,.styleafooter:active{
   color: #005fa7!important;
   text-decoration: underline ;
 }

@@ -38,7 +38,7 @@ const MapComponent = ({
         lng: element.geometry.coordinates[0],
         name: element.properties.name,
         address:
-          element.properties.address_line1 + element.properties.address_line2,
+          element.properties.address_line1 +" "+ element.properties.address_line2,
         accessibility: element.properties.categories[3],
         type: element.properties.categories[1],
         licence:
@@ -178,7 +178,7 @@ const MapComponent = ({
           />
         </div>
       </div>
-      <div id="my-map" style={{ height: "90vh", width: "100vw", zIndex: 1 }} />
+      <div id="my-map" style={{ height: "93vh", width: "100vw", zIndex: 1 }} />
     </>
   );
 };

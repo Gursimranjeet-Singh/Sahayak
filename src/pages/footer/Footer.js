@@ -9,22 +9,22 @@ export default function Footer() {
   return (
     <div id="footer">
       <div id="socialmedia">
-        <a href="">
+        <a className='styleafooter'href="">
           <i className="fa-brands fa-facebook" style={{ color: "#ffffff" }}></i>
         </a>
 
-        <a href="">
+        <a className='styleafooter'href="">
           <i
             className="fa-brands fa-square-x-twitter"
             style={{ color: "#ffffff" }}
           ></i>
         </a>
 
-        <a href="">
+        <a className='styleafooter'href="">
           <i className="fa-brands fa-linkedin" style={{ color: "#ffffff" }}></i>
         </a>
 
-        <a href="">
+        <a className='styleafooter'href="">
           <i
             className="fa-brands fa-square-github"
             style={{ color: "#ffffff" }}
@@ -35,7 +35,7 @@ export default function Footer() {
         <div id="profilef">
           <div style={style}>Dashboard</div>
           <div>
-            <a href=" ">
+            <a className='styleafooter'href=" ">
               <i
                 className="fa-sharp fa-solid fa-caret-down fa-rotate-270"
                 style={{ color: "#263754" }}
@@ -44,7 +44,7 @@ export default function Footer() {
             </a>
           </div>
           <div>
-            <a href=" ">
+            <a className='styleafooter'href=" ">
               <i
                 className="fa-sharp fa-solid fa-caret-down fa-rotate-270"
                 style={{ color: "#263754" }}
@@ -53,7 +53,7 @@ export default function Footer() {
             </a>
           </div>
           <div>
-            <a href=" ">
+            <a className='styleafooter'href=" ">
               <i
                 className="fa-sharp fa-solid fa-caret-down fa-rotate-270"
                 style={{ color: "#263754" }}
@@ -62,7 +62,7 @@ export default function Footer() {
             </a>
           </div>
           <div>
-            <a href=" ">
+            <a className='styleafooter'href=" ">
               <i
                 className="fa-sharp fa-solid fa-caret-down fa-rotate-270"
                 style={{ color: "#263754" }}
@@ -74,7 +74,7 @@ export default function Footer() {
         <div id="ourservicesf">
           <div style={style}>Service</div>
           <div>
-            <a href="">
+            <a className='styleafooter'href="">
               <i
                 className="fa-sharp fa-solid fa-caret-down fa-rotate-270"
                 style={{ color: "#263754" }}
@@ -83,7 +83,7 @@ export default function Footer() {
             </a>
           </div>
           <div>
-            <a href="">
+            <a className='styleafooter'href="">
               <i
                 className="fa-sharp fa-solid fa-caret-down fa-rotate-270"
                 style={{ color: "#263754" }}
@@ -92,7 +92,7 @@ export default function Footer() {
             </a>
           </div>
           <div>
-            <a href="">
+            <a className='styleafooter'href="">
               <i
                 className="fa-sharp fa-solid fa-caret-down fa-rotate-270"
                 style={{ color: "#263754" }}
@@ -104,7 +104,7 @@ export default function Footer() {
         {/* <div id="tripplannerf">
           <div style={style}>Trip Planner</div>
           <div>
-            <a href=" ">
+            <a className='styleafooter'href=" ">
               <i
                 className="fa-sharp fa-solid fa-caret-down fa-rotate-270"
                 style={{ color: "#263754" }}
@@ -113,7 +113,7 @@ export default function Footer() {
             </a>
           </div>
           <div>
-            <a href=" ">
+            <a className='styleafooter'href=" ">
               <i
                 className="fa-sharp fa-solid fa-caret-down fa-rotate-270"
                 style={{ color: "#263754" }}
@@ -122,7 +122,7 @@ export default function Footer() {
             </a>
           </div>
           <div>
-            <a href=" ">
+            <a className='styleafooter'href=" ">
               <i
                 className="fa-sharp fa-solid fa-caret-down fa-rotate-270"
                 style={{ color: "#263754" }}
@@ -134,7 +134,7 @@ export default function Footer() {
         <div id="contactf">
           <div style={style}>Contact Us</div>
           <div>
-            <a href=" ">
+            <a className='styleafooter'href=" ">
               <i
                 className="fa-sharp fa-solid fa-caret-down fa-rotate-270"
                 style={{ color: "#263754" }}
@@ -143,7 +143,7 @@ export default function Footer() {
             </a>
           </div>
           <div>
-            <a href=" ">
+            <a className='styleafooter'href=" ">
               <i
                 className="fa-sharp fa-solid fa-caret-down fa-rotate-270"
                 style={{ color: "#263754" }}
@@ -152,7 +152,7 @@ export default function Footer() {
             </a>
           </div>
           <div>
-            <a href=" ">
+            <a className='styleafooter'href=" ">
               <i
                 className="fa-sharp fa-solid fa-caret-down fa-rotate-270"
                 style={{ color: "#263754" }}
