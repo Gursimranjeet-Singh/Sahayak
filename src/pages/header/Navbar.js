@@ -96,7 +96,7 @@ export default function Navbar(props) {
                     <li>Service 1</li>
                   </Link>
                   <Link className="astylenavbar" to="service/service2">
-                    <li>Service 2</li>
+                    <li>Accessible Locations</li>
                   </Link>
                   <Link className="astylenavbar" to="/service/service3">
                     <li>Service 3</li>
@@ -157,7 +157,7 @@ export default function Navbar(props) {
             </div> */}
       </nav>
       <div>
-        <button id="changemode"  onClick={handleShowMode}></button>
+        <button id="changemode"  onClick={handleShowMode}><i class="fa fa-wheelchair fa-3x" aria-hidden="true" style={{color:"#005fa7"}}></i></button>
       </div>
       {showmode && <div  style={{display:'flex',justifyContent:"center"}}>
         <div><button className="showmodebtn" onClick={Graymode}>Gray Mode</button></div>

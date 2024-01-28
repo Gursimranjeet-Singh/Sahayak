@@ -88,7 +88,8 @@ html {
 #o {
   background-color: #005fa7;
   padding: 2rem;
-  color: white;
+  color: white !important;
+  
   width: 20vw;
   height: 25vh;
   display: flex;
@@ -96,10 +97,23 @@ html {
   justify-content: center;
   align-items: center;
 }
+#v h2,
+#m h2,
+#o h2 {
+  font-size: 1.5rem;
+  color: white !important;
+  font-size: 2rem;
+  font-weight: 700;
+  
+
+}
 #v p,
 #m p,
 #o p {
   font-size: 1.5rem;
+  color: white !important;
+  font-weight: 500;
+
 }
 
 /* what we do container */
@@ -152,12 +166,14 @@ html {
   display: flex;
   justify-content: center;
   gap: 5rem;
+  height: 30rem;
 }
 
 #video {
   display: flex;
   align-items: center;
   flex-direction: column;
+  
 }
 #video video {
   width: 24vw;

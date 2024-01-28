@@ -161,7 +161,7 @@ input[type="text"]:hover {
   padding-bottom: 0.5rem;
   background-color: white;
   font-size: 1.5rem;
-  width: 10rem;
+  width: 15rem;
   text-align: center;
   font-weight: 600;
 }
@@ -212,6 +212,8 @@ input[type="text"]:hover {
 
 #rightbottomnav ul li a{
   padding: 0.5rem;
+  color: black;
+  text-decoration: none;
 }
 #rightbottomnav ul li:hover {
   background-color: #005fa7;
@@ -231,7 +233,7 @@ input[type="text"]:hover {
   top: 10rem;
   width: 5rem;
   height: 5rem;
-  background-image: url(../../../public/formbg.jpg);
+  background:#ffb911;
   z-index: 200;
   border: none;
 }

@@ -3,10 +3,9 @@ import React, { useState } from "react";
 import "./home.css";
 
 const imgarr = [
+  process.env.PUBLIC_URL + "/homeimage2.jpg",
+  process.env.PUBLIC_URL + "/homeimage1.png",
   process.env.PUBLIC_URL + "/demohome.jpg",
-  process.env.PUBLIC_URL + "/logo512.png",
-  process.env.PUBLIC_URL + "/demohome.jpg",
-  process.env.PUBLIC_URL + "/logo512.png",
 ];
 
 export default function Home() {
@@ -41,7 +40,7 @@ export default function Home() {
           <div id="vmo">
             <div id="v">
               <h2>Vision</h2>
-              <p>
+              <p >
                 Embrace the ideals of all people living together harmoniously in
                 a barrier-free world without fear of exclusion and
                 discrimination
@@ -104,7 +103,7 @@ export default function Home() {
             <h2>Awareness</h2>
             <video controls>
               <source
-                src="https://www.youtube.com/embed/VIDEO_ID"
+                src="ttps://www.youtube.com/watch?v=BuHiWKuXiFg&t=234s"
                 type="video/youtube"
               />
               Your browser does not support the video tag.
