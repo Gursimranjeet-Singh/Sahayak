@@ -31,7 +31,7 @@ export default class Maps2 extends Component {
         const { west, south, east, north } = boundingBox;
   
         const response = await fetch(
-          `https://api.geoapify.com/v2/places?categories=public_transport&conditions=wheelchair&filter=rect:${west},${south},${east},${north}&limit=200&country=IN&apiKey=bcd1dd82c5d4489d85f0d5b5936461cd`
+          `https://api.geoapify.com/v2/places?categories=healthcare.hospital,public_transport.train,public_transport.subway,public_transport.bus,healthcare.pharmacy,accommodation.hotel,catering.restaurant&conditions=wheelchair&filter=rect:${west},${south},${east},${north}&limit=200&country=IN&apiKey=bcd1dd82c5d4489d85f0d5b5936461cd`
         );
         
   

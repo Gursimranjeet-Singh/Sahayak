@@ -4,8 +4,11 @@ import "leaflet/dist/leaflet.css";
 import Informationcard from "./Informationcard";
 import Search from "./Search";
 
-const MapComponent = ({ initialCenter = [20.5937, 78.9629], valuesearch, apidata }) => {
-
+const MapComponent = ({
+  initialCenter = [20.5937, 78.9629],
+  valuesearch,
+  apidata,
+}) => {
   const handlecloseinfocard = () => {
     document.getElementById("service2").style.display = "none";
   };
@@ -16,11 +19,13 @@ const MapComponent = ({ initialCenter = [20.5937, 78.9629], valuesearch, apidata
 
   const handleMarkerClick = (location) => {
     console.log("Marker clicked:", location);
+    console.log("Marker clicked:", location);
     document.getElementById("service2").style.display = "block";
+    document.getElementById("infsevice2").style.display = "block";
     console.log("location details are ");
     console.log(location);
     setSelectedMarker(location);
-    
+
     // Add your logic for handling marker click here
   };
 
@@ -32,11 +37,14 @@ const MapComponent = ({ initialCenter = [20.5937, 78.9629], valuesearch, apidata
         lat: element.geometry.coordinates[1],
         lng: element.geometry.coordinates[0],
         name: element.properties.name,
-        address:element.properties.address_line1+element.properties.address_line2,
-        accessibility:element.properties.categories[3],
-        type:element.properties.categories[0],
-        licence:element.properties.datasource.licence+" "+element.properties.datasource.attribution,
-        
+        address:
+          element.properties.address_line1 + element.properties.address_line2,
+        accessibility: element.properties.categories[3],
+        type: element.properties.categories[1],
+        licence:
+          element.properties.datasource.licence +
+          " " +
+          element.properties.datasource.attribution,
       }));
     } else {
       console.error("Invalid apidata format:", apidata);
@@ -68,10 +76,16 @@ const MapComponent = ({ initialCenter = [20.5937, 78.9629], valuesearch, apidata
       popupAnchor: [0, -32],
     });
 
-    const bounds = locations.length > 0 ? L.latLngBounds(locations.map(loc => [loc.lat, loc.lng])) : null;
+    const bounds =
+      locations.length > 0
+        ? L.latLngBounds(locations.map((loc) => [loc.lat, loc.lng]))
+        : null;
 
     // Create the map and store the reference
-    mapRef.current = L.map("my-map").setView(initialCenter || [20.5937, 78.9629], 5);
+    mapRef.current = L.map("my-map").setView(
+      initialCenter || [20.5937, 78.9629],
+      5
+    );
 
     if (bounds) {
       // Fit the map to the bounds with padding
@@ -92,9 +106,45 @@ const MapComponent = ({ initialCenter = [20.5937, 78.9629], valuesearch, apidata
       console.log("Adding Markers to Map");
       locations.forEach((location) => {
         console.log("Adding Marker:", location);
-        const marker = L.marker([location.lat, location.lng], { icon: customIcon })
+        // Inside the useEffect block
+        const mapTypeToDisplay = (type) => {
+          const typeMap = {
+            "healthcare.hospital": "Hospital",
+            "healthcare.pharmacy": "Pharmacy",
+            "accommodation.hotel": "Hotel",
+            "public_transport": "Public Transport",
+            "public_transport.subway": "Subway",
+            "public_transport.train": "Train",
+            "public_transport.bus": "Bus",
+            "catering.restaurant": "Restaurant",
+            "catering": "Catering",
+            "building.transportation": "Transportation",
+            "wheelchair": "Hospital",
+            "commercial.health": "Health",
+            "commercial.health_and_beauty.health": "Health and Beauty",
+            // Add more mappings as needed
+          };
+
+          // Use the mapping or return the original type if not found
+          return typeMap[type] || type;
+        };
+
+        // Inside the useEffect block
+        const marker = L.marker([location.lat, location.lng], {
+          icon: customIcon,
+        })
           .addTo(mapRef.current)
           .on("click", () => handleMarkerClick(location));
+
+        // Format the type for display using the mapping function
+        const formattedType = mapTypeToDisplay(location.type);
+
+        // Add a Tooltip to the marker to display the formatted type on hover
+        marker.bindTooltip(formattedType, {
+          permanent: false, // Set to false to show on hover
+          direction: "top",
+          opacity: 0.7,
+        });
       });
     }
 
@@ -121,14 +171,14 @@ const MapComponent = ({ initialCenter = [20.5937, 78.9629], valuesearch, apidata
         <div id="searchservice2">
           <Search valuesearch={valuesearch} />
         </div>
-        <div id="infsevice2">
-          <Informationcard closeInfoCard={handlecloseinfocard} markerdetails={selectedMarker} />
+        <div id="infsevice2" style={{ display: "none" }}>
+          <Informationcard
+            closeInfoCard={handlecloseinfocard}
+            markerdetails={selectedMarker}
+          />
         </div>
       </div>
-      <div
-        id="my-map"
-        style={{ height: "90vh", width: "100vw", zIndex: 1 }}
-      />
+      <div id="my-map" style={{ height: "90vh", width: "100vw", zIndex: 1 }} />
     </>
   );
 };
