@@ -3,7 +3,7 @@ import './informationcard.css'
 export default class Informationcard extends Component {
  
   render() {
-    const{closeInfoCard}=this.props
+    const{closeInfoCard,markerdetails}=this.props
       
     
     return (
@@ -22,7 +22,7 @@ export default class Informationcard extends Component {
           </div>
           <div >
             <div style={{ display: "flex"}}>
-              <p style={{fontSize:'2rem',color:"black"}}>{this.props.name+'name'}</p>
+              <p style={{fontSize:'2rem',color:"black"}}>{this.props.markerdetails.name+'name'}</p>
                 <button id="closecard" onClick={this.props.closeInfoCard} >
                   <i
                     className="fa-solid fa-x"
@@ -37,7 +37,7 @@ export default class Informationcard extends Component {
             </div>
             <div style={{ display: "flex" }}>
               <p style={{fontSize:'1.6rem',
-            color:'black'}}>{this.props.type+'type'}</p>
+            color:'black'}}>{this.props.markerdetails.type+'type'}</p>
             </div>
           </div>
         </div>
@@ -51,12 +51,12 @@ export default class Informationcard extends Component {
     padding:'1rem',
     marginBottom:'3rem'
     }}>
-        {this.props.accessibility+'accessibility'}</p>
+        {this.props.markerdetails.accessibility+'accessibility'}</p>
 
         <div id="addninf">
           <p style={{fontSize:'1.1rem',
         color:'black'
-        }}>{this.props.address+'address'}{this.props.address+'address'}{this.props.address+'address'}{this.props.address+'address'}{this.props.address+'address'}</p>
+        }}>{this.props.markerdetails.address}</p>
           
         </div>
 
@@ -64,7 +64,7 @@ export default class Informationcard extends Component {
           
           <a className="featureslist" href="" >Report Problem</a>
           <a className="featureslist"
-            href={`https://www.google.com/maps?q=${12.9709559},${77.5374044}`}
+            href={`https://www.google.com/maps?q=${this.props.markerdetails.lat},${this.props.markerdetails.lng}`}
             target="_blank"
           >
             Open in Google Maps
@@ -72,7 +72,7 @@ export default class Informationcard extends Component {
           <a className="featureslist" href="">Report Problem</a>
         </div>
        
-        <p style={{fontSize:'1.2rem'}}>{this.props.report+'report'}</p>
+        <p style={{fontSize:'1.2rem'}}>{this.props.markerdetails.licence+'report'}</p>
       </>
     );
   }

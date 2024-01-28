@@ -5,12 +5,22 @@ import Informationcard from "./Informationcard";
 import Search from "./Search";
 
 const MapComponent = ({ initialCenter = [20.5937, 78.9629], valuesearch, apidata }) => {
+
+  const handlecloseinfocard = () => {
+    document.getElementById("service2").style.display = "none";
+  };
+
+  const [selectedMarker, setSelectedMarker] = useState(null);
   const [locations, setLocations] = useState([]);
   const mapRef = useRef(); // Create a ref to hold the map instance
 
   const handleMarkerClick = (location) => {
     console.log("Marker clicked:", location);
     document.getElementById("service2").style.display = "block";
+    console.log("location details are ");
+    console.log(location);
+    setSelectedMarker(location);
+    
     // Add your logic for handling marker click here
   };
 
@@ -18,10 +28,15 @@ const MapComponent = ({ initialCenter = [20.5937, 78.9629], valuesearch, apidata
     console.log("apidata in handleapidata");
     if (apidata && Array.isArray(apidata)) {
       return apidata.map((element) => ({
-        id: element.properties.id,
+        id: element.geometry.coordinates[1],
         lat: element.geometry.coordinates[1],
         lng: element.geometry.coordinates[0],
         name: element.properties.name,
+        address:element.properties.address_line1+element.properties.address_line2,
+        accessibility:element.properties.categories[3],
+        type:element.properties.categories[0],
+        licence:element.properties.datasource.licence+" "+element.properties.datasource.attribution,
+        
       }));
     } else {
       console.error("Invalid apidata format:", apidata);
@@ -89,7 +104,7 @@ const MapComponent = ({ initialCenter = [20.5937, 78.9629], valuesearch, apidata
         mapRef.current.remove();
       }
     };
-  }, [initialCenter, locations, handleMarkerClick]); // dependencies can include locations if you want to trigger this effect on location changes
+  }, [initialCenter, locations]); // dependencies can include locations if you want to trigger this effect on location changes
 
   return (
     <>
@@ -107,7 +122,7 @@ const MapComponent = ({ initialCenter = [20.5937, 78.9629], valuesearch, apidata
           <Search valuesearch={valuesearch} />
         </div>
         <div id="infsevice2">
-          <Informationcard />
+          <Informationcard closeInfoCard={handlecloseinfocard} markerdetails={selectedMarker} />
         </div>
       </div>
       <div
