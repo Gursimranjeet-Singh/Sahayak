@@ -6,62 +6,60 @@ export default class Maps2 extends Component {
     super();
     this.state = {
       apidata: [],
-      searchdata: {},
+      boundingBox: {}, // Add a state property to store the bounding box
     };
   }
 
-  handlesearch = (valuesearch) => {
-    console.log("searchdata in maps2");
-    console.log(valuesearch);
-    this.setState({
-      searchdata: valuesearch,
-    });
+  handleSearch = (boundingBox) => {
+    console.log("Bounding box in Maps2", boundingBox);
+    this.setState(
+      {
+        boundingBox,
+      },
+      () => {
+        this.fetchData();
+      }
+    );
   };
 
-  componentDidUpdate(prevProps, prevState) {
-    // Check if the searchdata has changed
-    if (this.state.searchdata !== prevState.searchdata) {
-      console.log("componentDidUpdate");
-      const { searchdata } = this.state;
-      console.log(searchdata);
-
-      // Ensure that searchdata is not empty and has lng and lat properties
-      if (searchdata && searchdata.lng && searchdata.lat) {
-        this.fetchData(searchdata);
-      }
-    }
-  }
-
-  async fetchData(searchdata) {
+  async fetchData() {
     try {
-      const { lng, lat } = searchdata;
-      const radiusMeters = 5000; // Adjust the radius as needed
-
-      const response = await fetch(`https://api.geoapify.com/v2/places?categories=public_transport&conditions=wheelchair&filter=circle:${lng},${lat},${radiusMeters}&limit=200&country=IN&apiKey=bcd1dd82c5d4489d85f0d5b5936461cd`);
-
-      const apidata = await response.json();
-      console.log("bangalore");
-      console.log(apidata);
-
-      // Check if apidata has features property before setting it
-      if (apidata && apidata.features) {
-        this.setState({
-          apidata: apidata.features,
-        });
+      const { boundingBox } = this.state;
+  
+      // Check if boundingBox is available
+      if (boundingBox && boundingBox.west && boundingBox.south && boundingBox.east && boundingBox.north) {
+        const { west, south, east, north } = boundingBox;
+  
+        const response = await fetch(
+          `https://api.geoapify.com/v2/places?categories=public_transport&conditions=wheelchair&filter=rect:${west},${south},${east},${north}&limit=200&country=IN&apiKey=bcd1dd82c5d4489d85f0d5b5936461cd`
+        );
+        
+  
+        const apidata = await response.json();
+        console.log("Fetched data:", apidata);
+  
+        // Check if apidata has features property before setting it
+        if (apidata && apidata.features) {
+          this.setState({
+            apidata: apidata.features,
+          });
+        }
+      } else {
+        console.error("Bounding box is not properly defined");
       }
     } catch (error) {
       console.error("Error fetching data:", error);
     }
   }
+  
 
   render() {
     const { apidata } = this.state;
-    console.log('filtered api data');
-    console.log(apidata);
+    console.log("Filtered API data", apidata);
 
     return (
       <>
-        <Map valuesearch={this.handlesearch} apidata={apidata} />
+        <Map valuesearch={this.handleSearch} apidata={apidata} />
       </>
     );
   }

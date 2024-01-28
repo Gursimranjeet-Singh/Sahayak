@@ -10,7 +10,7 @@ const MapComponent = ({ initialCenter = [20.5937, 78.9629], valuesearch, apidata
     document.getElementById("service2").style.display = "none";
   };
 
-  const [selectedMarker, setSelectedMarker] = useState(null);
+  const [selectedMarker, setSelectedMarker] = useState([]);
   const [locations, setLocations] = useState([]);
   const mapRef = useRef(); // Create a ref to hold the map instance
 
