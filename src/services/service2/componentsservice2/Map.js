@@ -1,5 +1,4 @@
-// Map.js
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import L from "leaflet";
 import "leaflet/dist/leaflet.css";
 import Informationcard from "./Informationcard";
@@ -7,6 +6,7 @@ import Search from "./Search";
 
 const MapComponent = ({ initialCenter = [20.5937, 78.9629], valuesearch, apidata }) => {
   const [locations, setLocations] = useState([]);
+  const mapRef = useRef(); // Create a ref to hold the map instance
 
   const handleMarkerClick = (location) => {
     console.log("Marker clicked:", location);
@@ -53,29 +53,40 @@ const MapComponent = ({ initialCenter = [20.5937, 78.9629], valuesearch, apidata
       popupAnchor: [0, -32],
     });
 
-    const map = L.map("my-map").setView(initialCenter || [20.5937, 78.9629], 5);
+    const bounds = locations.length > 0 ? L.latLngBounds(locations.map(loc => [loc.lat, loc.lng])) : null;
+
+    // Create the map and store the reference
+    mapRef.current = L.map("my-map").setView(initialCenter || [20.5937, 78.9629], 5);
+
+    if (bounds) {
+      // Fit the map to the bounds with padding
+      mapRef.current.fitBounds(bounds, { padding: [50, 50] });
+    } else {
+      // Use a default center and zoom level if no markers are present
+      mapRef.current.setView([20.5937, 78.9629], 5);
+    }
 
     L.tileLayer(isRetina ? retinaUrl : baseUrl, {
       attribution:
         'Powered by <a href="https://www.geoapify.com/" target="_blank">Geoapify</a> | <a href="https://openmaptiles.org/" target="_blank">© OpenMapTiles</a> <a href="https://www.openstreetmap.org/copyright" target="_blank">© OpenStreetMap</a> contributors',
       maxZoom: 20,
       id: "osm-bright",
-    }).addTo(map);
+    }).addTo(mapRef.current);
 
-    if (map) {
+    if (mapRef.current) {
       console.log("Adding Markers to Map");
       locations.forEach((location) => {
         console.log("Adding Marker:", location);
         const marker = L.marker([location.lat, location.lng], { icon: customIcon })
-          .addTo(map)
+          .addTo(mapRef.current)
           .on("click", () => handleMarkerClick(location));
       });
     }
 
     return () => {
       console.log("Cleaning up Map");
-      if (map) {
-        map.remove();
+      if (mapRef.current) {
+        mapRef.current.remove();
       }
     };
   }, [initialCenter, locations, handleMarkerClick]); // dependencies can include locations if you want to trigger this effect on location changes
@@ -108,5 +119,3 @@ const MapComponent = ({ initialCenter = [20.5937, 78.9629], valuesearch, apidata
 };
 
 export default MapComponent;
-
-
