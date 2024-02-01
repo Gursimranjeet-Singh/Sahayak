@@ -3,10 +3,10 @@ import "./contact.css";
 
 const arrr=[{id:0,detail:"name"},{id:1,detail:"email"},{id:2,detail:"subject"}]
 const arrl=[
-{id:"contactinfolef1",h2:"Accessibility Audit",leftp:"We conduct Accessibility Audits. Connect with us and leave it to the experts for making your site universally accessible. Please contact us by sending an email to",lefta1:'Gursimranjeet@gmail.com',lefta2:234567890},
-{id:"contactinfolef2",h2:"Accessibility Audit1",leftp:"We conduct Accessibility Audits. Connect with us and leave it to the experts for making your site universally accessible. Please contact us by sending an email to",lefta1:'Gursimranjeet@gmail.com',lefta2:234567890},
-{id:"contactinfolef3",h2:"Social Media",leftp:"We conduct Accessibility Audits. Connect with us and leave it to the experts for making your site universally accessible. Please contact us by sending an email to",lefta1:null,lefta2:null},
-{id:"contactinfolef4",h2:"For Press and Media Enquiries",leftp:"We conduct Accessibility Audits. Connect with us and leave it to the experts for making your site universally accessible. Please contact us by sending an email to",lefta1:'Gursimranjeet@gmail.com',lefta2:null}
+{id:"contactinfolef1",h2:"Accessibility Audit",leftp:"We conduct Accessibility Audits. Connect with us and leave it to the experts for making your site universally accessible. Please contact us by sending an email to",lefta1:'Gursimranjeet@gmail.com',lefta2:234567890,img:'img1'},
+{id:"contactinfolef2",h2:"Unity in Action",leftp:"Join our movement toward universal accessibility. We celebrate milestones, creating inclusive locations and transport services that foster connections and shared achievements.",lefta1:'Gursimranjeet@gmail.com',lefta2:234567890,img:'img2'},
+{id:"contactinfolef3",h2:"Social Media",leftp:"We conduct Accessibility Audits. Connect with us and leave it to the experts for making your site universally accessible. Please contact us by sending an email to",lefta1:null,lefta2:null,img:'img3'},
+{id:"contactinfolef4",h2:"For Press and Media Enquiries",leftp:"We conduct Accessibility Audits. Connect with us and leave it to the experts for making your site universally accessible. Please contact us by sending an email to",lefta1:'Gursimranjeet@gmail.com',lefta2:null,img:'img4'}
 ]
 
                  
@@ -16,7 +16,7 @@ function Contactinfoleft() {
   let listitems=arrl.map(items=><Fragment key={items.id}>
    <div  id={items.id}>
                 <div className="logoandhead">
-                  <div className="img1"></div>
+                  <div className={items.img}></div>
                   <h2>{items.h2}</h2>
                 </div>
                 <div>
