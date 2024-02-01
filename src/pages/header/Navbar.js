@@ -92,14 +92,14 @@ export default function Navbar(props) {
                   onMouseEnter={() => handleMouseEnter(setShow2)}
                   onMouseLeave={() => handleMouseLeave(setShow2)}
                 >
-                  <Link className="astylenavbar" to="/service/service1">
-                    <li>Service 1</li>
+                  <Link className="astylenavbar" to="/service/service2">
+                    <li>Transportation Guider</li>
                   </Link>
                   <Link className="astylenavbar" to="service/service2">
                     <li>Accessible Locations</li>
                   </Link>
-                  <Link className="astylenavbar" to="/service/service3">
-                    <li>Service 3</li>
+                  <Link className="astylenavbar" to="/service/service2">
+                    <li>Assistance for Transportation</li>
                   </Link>
                 </ul>
               )}
