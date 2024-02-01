@@ -47,7 +47,7 @@ default:
           </div>
           <div style={{width:'100%'}}>
             <div style={{ display: "flex" }}>
-              <p style={{ fontSize: "2rem", color: "black",fontFamily:'garamond',fontWeight:'700' }}>
+              <p style={{ fontSize: "2rem", color: "black",fontFamily:'garamond',fontWeight:'800',textDecoration:'underline' }}>
                 {markerdetails.name}
               </p>
               <button id="closecard" onClick={closeInfoCard} style={{marginLeft: "auto",}}>
@@ -62,7 +62,7 @@ default:
               </button>
             </div>
             <div style={{ display: "flex" }}>
-              <p style={{ fontSize: "1.6rem", color: "black" }}>
+              <p style={{ fontSize: "1.6rem", color: "black" ,fontWeight:700}}>
                 {markerdetails.type ? markerdetails.type.split(".")[1].toUpperCase() : 'undefined'}
               </p>
             </div>
@@ -92,9 +92,9 @@ default:
         </div>
   
         <div id="features">
-          <a className="featureslist" href="">
-            Report Problem
-          </a>
+          {/* <a className="featureslist" href="">
+            
+          </a> */}
           <a
             className="featureslist"
             href={`https://www.google.com/maps?q=${markerdetails.lat},${markerdetails.lng}`}
@@ -106,6 +106,7 @@ default:
             Report Problem
           </a>
         </div>
+        <div style={{marginTop:'auto'}}>{markerdetails.licence}</div>
   
         
       </>

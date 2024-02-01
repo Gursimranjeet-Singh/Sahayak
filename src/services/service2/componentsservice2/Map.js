@@ -10,7 +10,7 @@ const MapComponent = ({
   apidata,
 }) => {
   const handlecloseinfocard = () => {
-    document.getElementById("service2").style.display = "none";
+    document.getElementById("infsevice2").style.display = "none";
   };
 
   const [selectedMarker, setSelectedMarker] = useState([]);
@@ -42,8 +42,7 @@ const MapComponent = ({
         accessibility: element.properties.categories[3],
         type: element.properties.categories[1],
         licence:
-          element.properties.datasource.licence +
-          " " +
+           
           element.properties.datasource.attribution,
       }));
     } else {
