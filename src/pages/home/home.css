@@ -133,13 +133,14 @@ html {
 #iconandheading2 {
   display: flex;
   gap: 2rem;
+ 
 }
 /* for icon left box */
 #iconandheadingl div {
   background: url("../../../public/wwd1.png") no-repeat 0 0;
   width: 4vw;
   height: 4vw;
-  background-size: cover;
+  background-size: contain;
 }
 
 /* for icon right box */
@@ -147,18 +148,21 @@ html {
   background: url("../../../public/wwd2.png") no-repeat 0 0;
   width: 3.5vw;
   height: 3.5vw;
-  background-size: cover;
+  background-size: contain;
 }
 /* for heading of left box and right box repectively*/
 #iconandheadingl p,
 #iconandheading2 p {
   font-size: 2rem;
+  color: #43474a;
+  font-weight: 700;
 }
 
-#contentl,
-#content2 {
+#contentl, #content2 {
   font-size: 1.5rem;
-  margin-left: 5vw; /*equla to length of logo + gap between logo and heading*/
+  margin-left: 5vw;
+  color: #666d72;
+  font-weight: 600;
 }
 
 #videoandwherewework {

@@ -1,9 +1,12 @@
-#socialmedi.styleafooter{
+#socialmedia{
   margin-top: 2rem;
   background-color: #005fa7;
   display: flex;
   gap: 4rem;
   justify-content: center;
+}
+.styleafooteri{
+  font-size: 2rem;
 }
 
 #links {
@@ -13,7 +16,7 @@
   justify-content: center;
   margin-bottom: 2rem;
 }
-#socialmedi.styleafooter.styleafooter{
+#socialmedia,.styleafooter,.styleafooter{
   font-size: 2.5rem;
 }
 #profilef,
@@ -37,7 +40,7 @@
 /* order matters link visited hover active */
 .styleafooter:hover,.styleafooter:active{
   color: #005fa7!important;
-  text-decoration: underline ;
+  text-decoration: none;
 }
 #contact div:contains("Contact Us") {
   font-size: 2rem;

@@ -27,12 +27,12 @@ export default function Navbar(props) {
           {/* log and image */}
           <div id="lefttopnav">
             <img
-              src={process.env.PUBLIC_URL + "/logo512.png"}
+              src={process.env.PUBLIC_URL + "/logo.png"}
               alt="error"
               height={10}
               width={10}
             />
-            <p href="">{props.webpagename}</p>
+            <p href="" >{props.webpagename} </p>
           </div>
           {/* search bar */}
           <div id="righttopnav">

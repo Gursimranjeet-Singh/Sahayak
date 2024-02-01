@@ -19,7 +19,7 @@ function App() {
           path="/*"
           element={
             <>
-              <Navbar />
+              <Navbar  webpagename="Sahayak"/>
               <Routes>
                 <Route index element={<Home />} />
                 <Route path="contact" element={<Contact />} />

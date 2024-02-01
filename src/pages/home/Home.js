@@ -19,8 +19,6 @@ export default function Home() {
     newcurrent((current - 1 + imgarr.length) % imgarr.length);
   };
 
-  
-
   return (
     <>
       <div id="homecontent">
@@ -40,7 +38,7 @@ export default function Home() {
           <div id="vmo">
             <div id="v">
               <h2>Vision</h2>
-              <p >
+              <p>
                 Embrace the ideals of all people living together harmoniously in
                 a barrier-free world without fear of exclusion and
                 discrimination
@@ -69,31 +67,30 @@ export default function Home() {
           <div id="homewwdleft">
             <div id="iconandheadingl">
               <div></div>
-              <p>National Centre for Accessible Environments</p>
+              <p>Accessible Travel, Achievable Dreams </p>
             </div>
             <p id="contentl">
-              lorem ipsum dolor sit amet, consectetur adipiscing elit, lorem
-              ipsum dolor sit amet, consectetur adipiscing elit,lorem ipsum
-              dolor sit amet, consectetur adipiscing elit,lorem ipsum dolor sit
-              amet, \
-              <a>
+              Celebrating milestones! Our commitment to accessibility triumphs
+              in providing inclusive locations and transport services.
+              Empowering communities, fostering connection, and making every
+              journey a shared achievement
+              {/* <a>
                 <i className="fa fa-arrow-circle-right"></i>
-              </a>
+              </a> */}
             </p>
           </div>
           <div id="homewwdright">
             <div id="iconandheading2">
               <div></div>
-              <p>National Centre for Accessible Environments</p>
+              <p>Inclusivity in Motion</p>
             </div>
             <p id="content2">
-              lorem ipsum dolor sit amet, consectetur adipiscing elit,lorem
-              ipsum dolor sit amet, consectetur adipiscing elit,lorem ipsum
-              dolor sit amet, consectetur adipiscing elit,lorem ipsum dolor sit
-              amet, \
-              <a>
+              Join our movement toward universal accessibility. We celebrate
+              milestones, creating inclusive locations and transport services
+              that foster connections and shared achievements.
+              {/* <a>
                 <i className="fa fa-arrow-circle-right"></i>
-              </a>
+              </a> */}
             </p>
           </div>
         </div>
@@ -102,10 +99,7 @@ export default function Home() {
           <div id="video">
             <h2>Awareness</h2>
             <video controls>
-              <source
-                src="ttps://www.youtube.com/watch?v=BuHiWKuXiFg&t=234s"
-                type="video/youtube"
-              />
+              <source src="" type="video/youtube" />
               Your browser does not support the video tag.
             </video>
           </div>
