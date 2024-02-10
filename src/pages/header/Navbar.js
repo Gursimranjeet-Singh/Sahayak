@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import "./Navbar.css";
 import PropTypes from "prop-types";
+import Mode from "../accessibility/Modes";
 import { Link } from "react-router-dom";
 
 export default function Navbar(props) {
@@ -156,53 +157,9 @@ export default function Navbar(props) {
               <button type="submit">Search</button>
             </div> */}
       </nav>
-      <div>
-        <button id="changemode"  onClick={handleShowMode}><i class="fa fa-wheelchair fa-3x" aria-hidden="true" style={{color:"#005fa7"}}></i></button>
-      </div>
-      {showmode && <div  style={{display:'flex',justifyContent:"center"}}>
-        <div><button className="showmodebtn" onClick={Graymode}>Gray Mode</button></div>
-        <div><button  className="showmodebtn" onClick={Darkmode}>Dark Mode</button></div>
-        <div><button  className="showmodebtn" onClick={Brightmode}>Bright Mode</button></div>
-        <div><button  className="showmodebtn" onClick={Lightmode}>Light Mode</button></div>
-        
-        </div>}
+      <Mode/>
     </>
   );
-}
-function Graymode() {
-  const currentFilter = document.body.style.filter;
-  if (currentFilter.includes('grayscale')) {
-    document.body.style.filter = 'grayscale(0%)';
-  } else {
-    document.body.style.filter = 'grayscale(100%)';
-  }
-}
-
-function Darkmode() {
-  const currentFilter = document.body.style.filter;
-  if (currentFilter.includes('invert')) {
-    document.body.style.filter = 'invert(0%)';
-  } else {
-    document.body.style.filter = 'invert(100%)';
-  }
-}
-
-function Brightmode() {
-  const currentFilter = document.body.style.filter;
-  if (currentFilter.includes('brightness')) {
-    document.body.style.filter = 'brightness(100%)';
-  } else {
-    document.body.style.filter = 'brightness(150%)';
-  }
-}
-
-function Lightmode() {
-  const currentFilter = document.body.style.filter;
-  if (currentFilter.includes('opacity')) {
-    document.body.style.filter = 'opacity(100%)';
-  } else {
-    document.body.style.filter = 'opacity(70%)';
-  }
 }
 
 

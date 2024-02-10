@@ -1,53 +1,10 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import "./navbar.css";
+import Mode from "../../../pages/accessibility/Modes.js";
 
 export default class NavBarSer2 extends Component {
-  handleShowMode = () => {
-    this.setState((prevState) => ({ showmode: !prevState.showmode }));
-  };
 
-  Graymode() {
-    const currentFilter = document.body.style.filter;
-    if (currentFilter.includes("grayscale")) {
-      document.body.style.filter = "grayscale(0%)";
-    } else {
-      document.body.style.filter = "grayscale(100%)";
-    }
-  }
-
-  Darkmode() {
-    const currentFilter = document.body.style.filter;
-    if (currentFilter.includes("invert")) {
-      document.body.style.filter = "invert(0%)";
-    } else {
-      document.body.style.filter = "invert(100%)";
-    }
-  }
-
-  Brightmode() {
-    const currentFilter = document.body.style.filter;
-    if (currentFilter.includes("brightness")) {
-      document.body.style.filter = "brightness(100%)";
-    } else {
-      document.body.style.filter = "brightness(150%)";
-    }
-  }
-
-  Lightmode() {
-    const currentFilter = document.body.style.filter;
-    if (currentFilter.includes("opacity")) {
-      document.body.style.filter = "opacity(100%)";
-    } else {
-      document.body.style.filter = "opacity(70%)";
-    }
-  }
-  constructor() {
-    super();
-    this.state = {
-      showmode: false,
-    };
-  }
 
   render() {
     return (
@@ -147,39 +104,8 @@ export default class NavBarSer2 extends Component {
             </Link>
           </div>
         </div>
-        <div>
-          <button id="changemode" onClick={this.handleShowMode}>
-            <i
-              class="fa fa-wheelchair fa-3x"
-              aria-hidden="true"
-              style={{ color: "#005fa7", left: "97vw" }}
-            ></i>
-          </button>
-        </div>
-        {this.state.showmode && (
-          <div style={{ display: "flex", justifyContent: "center" }}>
-            <div>
-              <button className="showmodebtn" onClick={this.Graymode}>
-                Gray Mode
-              </button>
-            </div>
-            <div>
-              <button className="showmodebtn" onClick={this.Darkmode}>
-                Dark Mode
-              </button>
-            </div>
-            <div>
-              <button className="showmodebtn" onClick={this.Brightmode}>
-                Bright Mode
-              </button>
-            </div>
-            <div>
-              <button className="showmodebtn" onClick={this.Lightmode}>
-                Light Mode
-              </button>
-            </div>
-          </div>
-        )}
+       
+        <Mode/>
       </>
     );
   }

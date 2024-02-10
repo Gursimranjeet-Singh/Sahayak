@@ -4,26 +4,30 @@ import "./dashboard.css";
 import Profile from "./profiledash.js/Profile.js";
 import Emergency from "./emergency/Emergency.js";
 import Support from "./supportandcomplaint/Support.js";
+import Mode from "../pages/accessibility/Modes";
 
 export default function Dashboard() {
   return (
     <>
       <div id="headdash">
         <span>Sahayak Account</span>
-        <div style={{marginLeft:'auto'}}>
-        <Link className="homedashbtn" to="/">
-         Home
-        </Link>
-        <Link className="homedashbtn" to="/contact">
-         Contact
-        </Link>
-        <Link className="homedashbtn" to="/service/service2">
-         Service1
-        </Link>
-        <Link className="homedashbtn" to="/service/service2">
-        Service2
-        </Link>
+        <div style={{ marginLeft: "auto" }}>
+          <Link className="homedashbtn" to="/">
+            Home
+          </Link>
+          <Link className="homedashbtn" to="/contact">
+            Contact
+          </Link>
+          <Link className="homedashbtn" to="/service/service2">
+            Service1
+          </Link>
+          <Link className="homedashbtn" to="/service/service2">
+            Service2
+          </Link>
         </div>
+      </div>
+      <div style={{marginTop:'1rem'}}>
+        <Mode />
       </div>
       <div id="maincontent">
         <div id="leftnavdash">
