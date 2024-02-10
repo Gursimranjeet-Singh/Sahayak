@@ -1,13 +1,19 @@
 import React, { Component } from "react";
 import Map from "./Map";
+import Search from "./Search2";
 
 export default class Maps2 extends Component {
+
   constructor() {
     super();
     this.state = {
       apidata: [],
       boundingBox: {}, // Add a state property to store the bounding box
     };
+  }
+
+  handlecloseinfocard = () => {
+    document.getElementById("infsevice2").style.display = "none";
   }
 
   handleSearch = (boundingBox) => {
@@ -60,6 +66,20 @@ export default class Maps2 extends Component {
     return (
       <>
         <Map valuesearch={this.handleSearch} apidata={apidata} />
+        <div
+        style={{
+          position: "absolute",
+          top: 0,
+          left: 0,
+          zIndex: 1000,
+          width: "100%",
+        }}
+      >
+        {/* search component is placed here so that the searched data direclty comes to maps2 component where api call for locations can be made */}
+        <div id="searchservice2">
+          <Search valuesearch={this.handleSearch} />
+        </div>
+      </div>
       </>
     );
   }

@@ -2,7 +2,7 @@ import React, { useEffect, useState, useRef } from "react";
 import L from "leaflet";
 import "leaflet/dist/leaflet.css";
 import Informationcard from "./Informationcard";
-import Search from "./Search";
+import Search from "./Search2";
 
 const MapComponent = ({
   initialCenter = [20.5937, 78.9629],
@@ -167,9 +167,9 @@ const MapComponent = ({
           width: "100%",
         }}
       >
-        <div id="searchservice2">
+        {/* <div id="searchservice2">
           <Search valuesearch={valuesearch} />
-        </div>
+        </div> */}
         <div id="infsevice2" style={{ display: "none" }}>
           <Informationcard
             closeInfoCard={handlecloseinfocard}
