@@ -132,15 +132,15 @@ form label {
   color: white;
   font-weight: 700;
 }
-input[type="text"],
-input[type="email"]
+.textcontact,
+.textcontact
  {
   width: 37vw;
   height: 4vh;
   font-size: 1.5rem;
 }
-input[type="text"]:hover,
-input[type="email"]:hover,
+.textcontact:hover,
+.textcontact:hover,
 textarea:hover
 {
   border: 3px solid #005fa7;

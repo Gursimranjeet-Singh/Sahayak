@@ -79,11 +79,11 @@ html {
   border-radius: 0.5rem;
   font-size: 1.7rem;
 }
-input[type="text"] {
+.textNavbar {
   width: 25vw;
   border: none;
 }
-input[type="text"]:hover {
+.textNavbar:hover {
  
   border: none!important;
 }

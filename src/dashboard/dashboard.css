@@ -12,21 +12,19 @@
     font-family: garamond;
     font-weight: 700;
 }
-#homedash{
-    margin-left:auto ;
-    margin-right: 2rem;
-}
-#homedash button{
-    background-color: whitesmoke;
-    color: #005fa7;
+
+.homedashbtn{
+    
     border: none;
-    font-size: 1.6rem;
-    font-family: UberMoveText, system-ui, "Helvetica Neue", Helvetica, Arial, sans-serif;
-    font-weight: 700;
-    padding: 0.8rem 1.6rem;
-    border-radius: 0.7rem;
-    margin-right: 1.6rem;
-    cursor: pointer;
+    background-color: white;
+    color:  #005fa7;
+    text-decoration: none;
+    padding: 0.5rem;
+    border-radius: 1rem;
+    font-size: 1.5rem;
+    margin-right: 1rem;
+    padding-right: 1rem;
+    
 }
 #maincontent{
     display: flex;

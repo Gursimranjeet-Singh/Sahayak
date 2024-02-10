@@ -1,7 +1,7 @@
 import React, { useEffect, useState, useRef } from "react";
 import L from "leaflet";
 import "leaflet/dist/leaflet.css";
-import Informationcard from "./Informationcard";
+import Informationcard from "./Informationcard2";
 import Search from "./Search2";
 
 const MapComponent = ({

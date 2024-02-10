@@ -1,35 +1,37 @@
 import React, { useState } from 'react';
-import { MapContainer, TileLayer, Marker, Popup, Circle, Polyline, useMapEvents } from 'react-leaflet';
+import Informationcard1 from './componentsservice1/Informationcard1';
+import './service1.css';
+import Search1 from "./componentsservice1/Search1"
+import NavBarSer1 from "../service2/componentsservice2/NavBar";
+export default function Service1(){
+  return(
+    <>
+    <NavBarSer1 description='Find shortest transportation accessible path between locations ' service="Service2" />
 
-const Service1 = () => {
-  const markerPosition = [51.505, -0.09]; // Define the position here
-
-  // function LocationMarker() {
-  //   const [position, setPosition] = useState(null);
-  //   const map = useMapEvents({
-  //     click() {
-  //       map.locate();
-  //     },
-  //     locationfound(e) {
-  //       setPosition(e.latlng);
-  //       map.flyTo(e.latlng, map.getZoom());
-  //     },
-  //   });
-
-  //   return position === null ? null : (
-  //     <Marker position={position}>
-  //       <Popup>You are here</Popup>
-  //     </Marker>
-  //   );
-  // }
-
-  return (
-    <></>
+      <div
+        id="service1"
+        style={{
+          position: "absolute",
+          top: 0,
+          left: 0,
+          zIndex: 1000,
+          width: "100%",
+        }}
+      >
+        
+          <Search1/>
+        
+        
+        <div id="infsevice1"
+        //  style={{ display: "none" }}
+         >
+          <Informationcard1/>
+        </div>
+      </div>
+      </>
+   
   );
-};
-
-export default Service1;
-
+}
 
 
 

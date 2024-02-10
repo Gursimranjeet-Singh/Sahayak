@@ -38,7 +38,7 @@ export default function Navbar(props) {
           <div id="righttopnav">
             <div className="search">
               <i className="fa fa-search" />
-              <input type="text" placeholder="Search Here" />
+              <input type="text" className="textNavbar" placeholder="Search Here" />
               <button type="submit">Search</button>
             </div>
           </div>
@@ -92,7 +92,7 @@ export default function Navbar(props) {
                   onMouseEnter={() => handleMouseEnter(setShow2)}
                   onMouseLeave={() => handleMouseLeave(setShow2)}
                 >
-                  <Link className="astylenavbar" to="/service/service2">
+                  <Link className="astylenavbar" to="/service/service1">
                     <li>Transportation Guider</li>
                   </Link>
                   <Link className="astylenavbar" to="service/service2">

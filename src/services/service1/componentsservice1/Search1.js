@@ -1,6 +1,5 @@
 import { useState } from "react";
 import OpenCageGeocode from "opencage-api-client";
-
 export default function Search1() {
   const [searchdata1, setsearchdata1] = useState("");
   const [searchdata2, setsearchdata2] = useState("");
@@ -22,19 +21,18 @@ export default function Search1() {
         key: apiKey,
       });
       const search2 = await OpenCageGeocode.geocode({
-        q: searchdata2,
+        q: searchdata1,
         key: apiKey,
       });
 
       if (
         search1.results &&
         search2.results &&
-        search1.results.length > 0 &&
-        search2.results.length > 0
+        search1.results > 0 &&
+        search2.results > 0
       ) {
-        const bounds1 = search1.results[0].bounds;
-        const bounds2 = search2.results[0].bounds;
-
+        const bounds1 = search1.results.bounds;
+        const bounds2 = search2.results.bounds;
         if (bounds1 && bounds2) {
           const boundingBoxObj1 = {
             north: bounds1.northeast.lat,
@@ -50,10 +48,8 @@ export default function Search1() {
           };
 
           // *********************************
-          // Remember to send the above data to the parent component
-          // using a function to change their search state
+          //remember to send the above data to parent component using function to change their search state
           // ************************************
-
         } else {
           console.error("Proper Boundary lat and long not available");
         }
@@ -65,25 +61,61 @@ export default function Search1() {
       console.error("Error fetching bounding box:", error);
     }
   };
-
   return (
     <>
-      <input
-        type="text"
-        onChange={search1handleOnChange}
-        value={searchdata1}
-        placeholder="Search Destination"
-      />
-      <input
-        type="text"
-        onChange={search2handleOnChange}
-        value={searchdata2}
-        placeholder="Search Start"
-      />
-      <button type="submit" onClick={handleSearchData}>
+      <div id="searchservice1">
+      <div style={{   display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',}}>  
+        <div
+          className="search "
+          style={{
+            display: "flex",
+            alignItems: "center",
+            width: "90%",
+            width: "15vw",
+          }}
+        >
+          <i className="fa fa-search" />
+          <input
+            type="text"
+            onChange={search2handleOnChange}
+            value={searchdata2}
+            placeholder="Enter Start"
+          />
+        </div>
+
+        <div
+          className="search"
+          style={{
+            display: "flex",
+            alignItems: "center",
+            width: "90%",
+            width: "15vw",
+          }}
+        >
+          <i className="fa fa-search" />
+          <input
+            type="text"
+            onChange={search1handleOnChange}
+            value={searchdata1}
+            placeholder="Enter Destination"
+          />
+        </div>
+      </div>  
+      <div style={{display:'flex',justifyContent:"center",marginTop:'1rem'}}>
+      <button  type="submit" onClick={handleSearchData} style={{ border: 'none',
+  backgroundColor: '#005fa7',
+  color: 'white',
+  padding: '0.3rem',
+  height: '3rem',
+  width: '7rem',
+  fontSize: '1.5rem',}}>
         Search
       </button>
+      </div>
+      
+      </div>
     </>
   );
 }
-

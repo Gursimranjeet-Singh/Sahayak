@@ -117,10 +117,10 @@ input[type="date"]::-webkit-calendar-picker-indicator {
   background-color: #0666a3;
 }
 @media (min-width: 568px) {
-  input {
+  /* input {
     width: calc(35% - 20px);
     margin: 0 0 0 8px;
-  }
+  } */
   select {
     width: calc(50% - 8px);
     margin: 0 0 10px 8px;

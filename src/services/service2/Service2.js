@@ -2,7 +2,7 @@
 
 import React, { useState } from "react";
 import "./service2.css"; // Import your CSS file for styling
-import NavBarSer2 from "./componentsservice2/NavBarSer2";
+import NavBarSer2 from "./componentsservice2/NavBar";
 import Map from "./componentsservice2/Maps2";
 
 import { array } from "prop-types";
@@ -18,7 +18,7 @@ function Service2() {
 
   return (
     <>
-      <NavBarSer2 />
+      <NavBarSer2 description='Find wheelchair accessible places at your desired location' service="Service1" />
       <div id="contetnservice2">
         <div id="mapsevice2">
           <Map />

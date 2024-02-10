@@ -41,7 +41,7 @@ function Forminput() {
   let listitems=arrr.map(items=> <Fragment key={items.id}>
     <label htmlFor={items.detail}>{items.detail.toUpperCase()}</label>
    <br />
-   <input type="text" id={items.detail} name={items.detail} required />
+   <input className="textcontact" type="text" id={items.detail} name={items.detail} required />
    <br />
    <br />
    <br /></Fragment>)

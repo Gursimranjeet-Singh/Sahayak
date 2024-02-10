@@ -32,6 +32,7 @@ function App() {
           path="service/*"
           element={
             <Routes>
+              <Route path="/service1" element={<Service1 />} />
               <Route path="/service2" element={<Service2 />} />
             </Routes>
           }
