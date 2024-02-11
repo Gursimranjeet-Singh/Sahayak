@@ -1,10 +1,22 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import "./Navbar.css";
 import PropTypes from "prop-types";
 import Mode from "../accessibility/Modes";
 import { Link } from "react-router-dom";
 
 export default function Navbar(props) {
+  const navigate = useNavigate();
+  const  [searchdata,setsearchdata]=useState("");
+  const handleonChange=(e)=>{
+    setsearchdata(e.target.value);
+    console.log(e.target.value);
+  }
+  const handleSearchData=()=>{
+    console.log("sdhfkjsdahfkjsdh");
+    navigate(searchresult(searchdata));
+    
+  }
   // const [show1, setShow1] = useState(false);
   const [showmode,setshowmode]=useState(false);
   function handleShowMode(){
@@ -39,8 +51,8 @@ export default function Navbar(props) {
           <div id="righttopnav">
             <div className="search">
               <i className="fa fa-search" />
-              <input type="text" className="textNavbar" placeholder="Search Here" />
-              <button type="submit">Search</button>
+              <input type="text" className="textNavbar" placeholder="Search Here" onChange={handleonChange} />
+              <button type="submit" onClick={handleSearchData}>Search</button>
             </div>
           </div>
         </div>
@@ -160,6 +172,45 @@ export default function Navbar(props) {
       <Mode/>
     </>
   );
+}
+
+function searchresult(searchdata) {
+  console.log('inside component 2');
+
+  if (searchdata.trim() !== "") {
+    searchdata = searchdata.toLowerCase().trim();
+    //remove spaces and convert to lowercase
+
+    if (/service/.test(searchdata) || /ser.+1/.test(searchdata)||/tran.+/.test(searchdata)) {
+      // for service and service1
+      return "/service/service1";
+    }
+    else if(/ser.+2/.test(searchdata)||/access.+/.test(searchdata)||/loc.+/.test(searchdata)){
+      return "/service/service2";
+    }
+    else if(/cont.+/.test(searchdata)){
+      return "/contact";
+    }
+    else if (/da.+|pr.+/.test(searchdata)) {
+      return "/dashboard";
+    }
+    else if(/emer.+/){
+      return "/dashboard/emergency";
+    }
+    else if(/su.+/){
+      return "dashboard/supportandcomplaint";
+    }
+    else if(/comp.+/){
+      return "dashboard/supportandcomplaint";
+    }
+     else {
+      console.error("No matching case found");
+      return "";
+    }
+  } else {
+    console.error("Empty value, nothing to search");
+    return "";
+  }
 }
 
 
