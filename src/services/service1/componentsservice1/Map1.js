@@ -1,36 +1,38 @@
 import React, { useEffect, useState, useRef } from "react";
 import L from "leaflet";
 import "leaflet/dist/leaflet.css";
-import Informationcard from "./Informationcard2";
-import Search from "./Search2";
+import Informationcard from "./Informationcard1";
+
 
 const MapComponent = ({
   initialCenter = [20.5937, 78.9629],
   valuesearch,
   apidata,
 }) => {
+  
+  const [selectedMarker, setSelectedMarker] = useState([]);
+  const [locations, setLocations] = useState([]);
+  const mapRef = useRef(); // ref to hold the map instance
+  
+  //function  to close information card
   const handlecloseinfocard = () => {
     document.getElementById("infsevice2").style.display = "none";
   };
-
-  const [selectedMarker, setSelectedMarker] = useState([]);
-  const [locations, setLocations] = useState([]);
-  const mapRef = useRef(); // Create a ref to hold the map instance
-
+  //function to process clicked marker
   const handleMarkerClick = (location) => {
-    console.log("Marker clicked:", location);
-    console.log("Marker clicked:", location);
-    document.getElementById("service2").style.display = "block";
+    // console.log("Marker clicked:", location);
+   
+  
     document.getElementById("infsevice2").style.display = "block";
-    console.log("location details are ");
-    console.log(location);
+    // console.log("location details are ");
+    // console.log(location);
     setSelectedMarker(location);
 
-    // Add your logic for handling marker click here
+
   };
 
   const handleapidata = (apidata) => {
-    console.log("apidata in handleapidata");
+    // console.log("apidata in handleapidata");
     if (apidata && Array.isArray(apidata)) {
       return apidata.map((element) => ({
         id: element.geometry.coordinates[1],
@@ -42,7 +44,6 @@ const MapComponent = ({
         accessibility: element.properties.categories[3],
         type: element.properties.categories[1],
         licence:
-           
           element.properties.datasource.attribution,
       }));
     } else {
@@ -55,13 +56,13 @@ const MapComponent = ({
   useEffect(() => {
     console.log("apidata changed");
     if (apidata) {
-      const newLocations = handleapidata(apidata);
+      const newLocations = handleapidata(apidata);//handleapidata returns an object
       setLocations(newLocations);
     }
   }, [apidata]);
 
   useEffect(() => {
-    console.log("Map Component - useEffect");
+    // console.log("Map Component - useEffect");
 
     const apiKey = "bcd1dd82c5d4489d85f0d5b5936461cd";
     const isRetina = L.Browser.retina;
@@ -128,7 +129,7 @@ const MapComponent = ({
           return typeMap[type] || type;
         };
 
-        // Inside the useEffect block
+        
         const marker = L.marker([location.lat, location.lng], {
           icon: customIcon,
         })
@@ -138,7 +139,7 @@ const MapComponent = ({
         // Format the type for display using the mapping function
         const formattedType = mapTypeToDisplay(location.type);
 
-        // Add a Tooltip to the marker to display the formatted type on hover
+        
         marker.bindTooltip(formattedType, {
           permanent: false, // Set to false to show on hover
           direction: "top",
@@ -153,7 +154,8 @@ const MapComponent = ({
         mapRef.current.remove();
       }
     };
-  }, [initialCenter, locations]); // dependencies can include locations if you want to trigger this effect on location changes
+  }, [initialCenter, locations]); 
+  // locations changes when api data is changed since handleapidata updates the locations
 
   return (
     <>
@@ -167,9 +169,7 @@ const MapComponent = ({
           width: "100%",
         }}
       >
-        {/* <div id="searchservice2">
-          <Search valuesearch={valuesearch} />
-        </div> */}
+        
         <div id="infsevice2" style={{ display: "none" }}>
           <Informationcard
             closeInfoCard={handlecloseinfocard}

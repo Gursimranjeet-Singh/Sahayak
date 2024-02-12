@@ -8,12 +8,15 @@ import Dashboard from "./dashboard/Dashboard";
 import Service1 from "./services/service1/Service1";
 import Service2 from "./services/service2/Service2";
 import Service3 from "./services/service3/Service3";
+import Login from "./pages/loginandsignup/Login"
+import Signup from "./pages/loginandsignup/Signup"
 
 function App() {
 
   return (
     <Router>
       <Routes>
+      
         <Route path="dashboard/*" element={<Dashboard />} />
         <Route
           path="/*"

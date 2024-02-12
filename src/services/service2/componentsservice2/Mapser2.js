@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import Map from "./Map";
+import Map from "./Map2";
 import Search from "./Search2";
 
 export default class Maps2 extends Component {
@@ -51,7 +51,7 @@ export default class Maps2 extends Component {
           });
         }
       } else {
-        console.error("Bounding box is not properly defined");
+        console.error("Bounding box is not properly defined or no data for the information from api");
       }
     } catch (error) {
       console.error("Error fetching data:", error);
@@ -65,7 +65,7 @@ export default class Maps2 extends Component {
 
     return (
       <>
-        <Map valuesearch={this.handleSearch} apidata={apidata} />
+        <Map  apidata={apidata} />
         <div
         style={{
           position: "absolute",

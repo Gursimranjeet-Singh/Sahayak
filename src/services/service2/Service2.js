@@ -3,9 +3,11 @@
 import React, { useState } from "react";
 import "./service2.css"; // Import your CSS file for styling
 import NavBarSer2 from "./componentsservice2/NavBar";
-import Map from "./componentsservice2/Maps2";
-
+import Map from "./componentsservice2/Mapser2";
+import Login from "../../pages/loginandsignup/Login"
 import { array } from "prop-types";
+import Signup from "../../pages/loginandsignup/Signup"
+
 
 function Service2() {
   //sample data for information card
@@ -18,13 +20,15 @@ function Service2() {
 
   return (
     <>
-      <NavBarSer2 description='Find wheelchair accessible places at your desired location' service="Service1" />
+      {/* <NavBarSer2 description='Find wheelchair accessible places at your desired location' service="Service1" />
       <div id="contetnservice2">
         <div id="mapsevice2">
           <Map />
         </div>
         
-      </div>
+      </div> */}
+      <Login/>
+      {/* <Signup/> */}
     </>
   );
 }

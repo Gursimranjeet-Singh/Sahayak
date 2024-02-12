@@ -47,7 +47,7 @@ export default function Mode(){
        <div>
           <button id="changemode" onClick={handleShowMode}>
             <i
-              class="fa fa-wheelchair fa-3x"
+              className="fa fa-wheelchair fa-3x"
               aria-hidden="true"
               style={{ color: "#005fa7", left: "97vw" }}
             ></i>

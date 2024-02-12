@@ -1,6 +1,6 @@
 import { useState } from "react";
 import OpenCageGeocode from "opencage-api-client";
-export default function Search1() {
+export default function Search1({handleSearch}) {
   const [searchdata1, setsearchdata1] = useState("");
   const [searchdata2, setsearchdata2] = useState("");
 
@@ -47,9 +47,12 @@ export default function Search1() {
             west: bounds2.southwest.lng,
           };
 
+          handleSearch(boundingBoxObj1,boundingBoxObj2);
           // *********************************
           //remember to send the above data to parent component using function to change their search state
           // ************************************
+       
+
         } else {
           console.error("Proper Boundary lat and long not available");
         }

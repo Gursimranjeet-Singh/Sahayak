@@ -82,7 +82,7 @@ export default class Search extends Component {
           <input
             type="text"
             placeholder="Search Here"
-            
+            style={{width: "90%" }}
             onChange={this.handleInputChange}
           />
           <button type="submit" onClick={this.handleSearchClick}>
