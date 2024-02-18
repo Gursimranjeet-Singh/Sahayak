@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container">
+            <div class="logo">Sahayak</div>
+            <ul class="nav-list">
+                <li><a href="#">Contact</a></li>
+                <li><a href="#" id="loginLink">login</a></li>
+                <li><a href="#" id="signupLink">Sign Up</a></li>
+            </ul>
+        </div>
+    </nav>
+    <div class="body_container">
+        <div class="image">
+            <img src="image.png" alt="image" class="img">
+        </div>
+        <div class="login" id="loginForm">
+            <form action="" id="form">
+                <h3 class="heading">Login</h3><br><br>
+                <label for="name" class="name">Name</label><br>
+                <input type="text" class="inName"><br><br>
+                <label for="Email" class="email">Email</label><br>
+                <input type="email" class="inEmail" required><br><br>
+                <input type="submit" value="Let's Go" class="submit">
+            </form>
+        </div>
+        <div class="login" id="signupForm" style="display: none;">
+            <form action="" id="signupForm">
+                <h3 class="heading">Sign Up</h3><br><br>
+                <label for="signupName" class="name">Name</label><br>
+                <input type="text" class="inName" id="signupName" required><br><br>
+                <label for="signupEmail" class="email">Email</label><br>
+                <input type="email" class="inEmail" id="signupEmail" required><br><br>
+                <label for="signupPassword" class="password">Password</label><br>
+                <input type="password" class="inPassword" id="signupPassword" required><br><br>
+                <label for="confirmPassword" class="Cpassword">Confirm Password</label><br>
+                <input type="password" class="confirmPassword" id="confirmPassword" required><br><br>
+                <input type="submit" value="Sign Up" class="submit">
+            </form>
+        </div>
+    </div>
+</body>
+<script>
+    function adjustLayout() {
+        var windowWidth = window.innerWidth;
+        if (windowWidth < 600) {
+            // Adjustments for small screens
+            document.querySelector('.image img').style.marginLeft = '10%';
+            document.querySelector('.login').style.width = '80%';
+            document.querySelector('.login').style.marginLeft = 'auto';
+            document.querySelector('.login').style.marginRight = 'auto';
+        } else {
+            // Reset styles for larger screens
+            document.querySelector('.image img').style.marginLeft = '100px';
+            document.querySelector('.login').style.width = '400px';
+            document.querySelector('.login').style.marginLeft = '200px';
+            document.querySelector('.login').style.marginRight = 'auto';
+        }
+    }
+    document.getElementById('signupLink').addEventListener('click', function() {
+        document.getElementById('loginForm').style.display = 'none';
+        document.getElementById('signupForm').style.display = 'block';
+    });
+    document.getElementById('loginLink').addEventListener('click', function() {
+        document.getElementById('loginForm').style.display = 'block';
+        document.getElementById('signupForm').style.display = 'none';
+    });
+    window.addEventListener('resize', function () {
+        adjustLayout();
+    });
+
+
+    adjustLayout();
+</script>
+</html>
