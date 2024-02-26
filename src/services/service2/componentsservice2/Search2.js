@@ -67,7 +67,7 @@ export default function Search(props) {
           style={{ width: "90%" }}
           onChange={handleInputChange}
         />
-        <button type="submit" onClick={() => handleSearchClick()}>
+        <button type="submit" onClick={() => handleSearchClick("public_transport.subway,public_transport.bus,catering.restaurant,amenity.toilet,healthcare.hospital,education,accommodation.hotel,healthcare.pharmacy")}>
           Search
         </button>
       </div>
@@ -79,7 +79,7 @@ export default function Search(props) {
             handleSearchClick("public_transport.subway");
           }}
         >
-          <img src={`${process.env.PUBLIC_URL}/"metrologo.png"}`} /> Metro
+          <img src={process.env.PUBLIC_URL + "/metrologo.png"} /> Metro
         </button>
         <button
           className="search2btn"
@@ -87,7 +87,7 @@ export default function Search(props) {
             handleSearchClick("public_transport.bus");
           }}
         >
-          <img src={`${process.env.PUBLIC_URL}/"buslogo.png"}`} />
+          <img src={process.env.PUBLIC_URL + "/buslogo.png"} />
           Bus
         </button>
         <button
@@ -96,7 +96,7 @@ export default function Search(props) {
             handleSearchClick("catering.restaurant");
           }}
         >
-          <img src={`${process.env.PUBLIC_URL}/"resturantlogo.png"}`} />
+          <img src={process.env.PUBLIC_URL + "/resturantlogo.png"} />
           Restaurant
         </button>
         <button
@@ -105,7 +105,7 @@ export default function Search(props) {
             handleSearchClick("amenity.toilet");
           }}
         >
-          <img src={`${process.env.PUBLIC_URL}/"metrologo.png"}`} />
+          <img src={process.env.PUBLIC_URL + "/restroomlogo.png"} />
           Toilet
         </button>
       </div>
@@ -116,7 +116,7 @@ export default function Search(props) {
             handleSearchClick("healthcare.hospital");
           }}
         >
-          <img src={`${process.env.PUBLIC_URL}/"metrologo.png"}`} />
+          <img src={process.env.PUBLIC_URL + "/hospitallogo.png"}/>
           Hospital
         </button>
         <button
@@ -125,7 +125,7 @@ export default function Search(props) {
             handleSearchClick("education");
           }}
         >
-          <img src={`${process.env.PUBLIC_URL}/"metrologo.png"}`} />
+          <img src={process.env.PUBLIC_URL + "/educationlogo.png"} />
           Education
         </button>
         <button
@@ -134,7 +134,7 @@ export default function Search(props) {
             handleSearchClick("accommodation.hotel");
           }}
         >
-          <img src={`${process.env.PUBLIC_URL}/"metrologo.png"}`} />
+          <img src={process.env.PUBLIC_URL + "/hotellogo.png"} />
           Hotel
         </button>
         <button
@@ -143,7 +143,7 @@ export default function Search(props) {
             handleSearchClick("healthcare.pharmacy");
           }}
         >
-          <img src={`${process.env.PUBLIC_URL}/"metrologo.png"}`} />
+          <img src={process.env.PUBLIC_URL + "/pharmacylogo.png"} />
           Pharmacy
         </button>
       </div>

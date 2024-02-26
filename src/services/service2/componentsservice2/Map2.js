@@ -37,19 +37,32 @@ const MapComponent = ({
     if (apidata && Array.isArray(apidata)) {
       return apidata
       //filtering unknown values
-      .filter(element => element.properties.categories[1] !== 'wheelchair')
+      .filter(element => {
+        const allowedCategories = [
+          "healthcare.hospital",
+          "healthcare.pharmacy",
+          "accommodation.hotel",
+          "public_transport.subway",
+          "public_transport.bus",
+          "catering.restaurant",
+          "amenity.toilet",
+          "education.school"
+          
+        ];
+        const categoryAtIndex1 = element.properties.categories[1];
+        return allowedCategories.includes(categoryAtIndex1);
+      } )
        .map((element) => ({
-        
+
         id: element.geometry.coordinates[1],
         lat: element.geometry.coordinates[1],
         lng: element.geometry.coordinates[0],
-        name: element.properties.name,
+        name:element.properties.name?element.properties.name: element.properties.address_line1,
         address:
           element.properties.address_line1 +" "+ element.properties.address_line2,
-        accessibility: element.properties.categories[3],
+        accessibility: element.properties.categories[element.properties.categories.length-1],
         type: element.properties.categories[1],
-        licence:
-          element.properties.datasource.attribution,
+
       }));
     } else {
       console.error("Invalid apidata format:", apidata);
@@ -79,29 +92,25 @@ const MapComponent = ({
       switch(type){
         
         case "Hospital":
-             mark="Hospital";break;
+             mark="hospital";break;
         case "Pharmacy":
-          mark="Pharmacy";break;
+          mark="pharma";break;
         case "Hotel":
-          mark="Hotel";break;
-        case "Public Transport":
-          mark=" train";break;
+          mark="hotel";break;
+        case "Education":
+          mark="education";break;
         case "Subway":
-          mark="Subway";break;
-        case"Train":
-        mark="Train";break;
+          mark="train";break;
+        case"Toilet":
+        mark="toilet";break;
         case "Bus":
-          mark="Bus";break;
+          mark="bus";break;
         case "Restaurant":
-          mark="Restaurant";break;
-        case "Health Specialist":
-          mark="HealthSpecialist";break;
-        case "Transportation":
-          mark="Transportation";break;
-        case "Hospital":
-          mark="Hospital";break;
-        case "Health and Beauty":
-          mark="healthandbeauty";break;
+          mark="restaurant";break;
+          case "Hotel":
+          mark="hotel";break;
+        
+        
       }
       return `${process.env.PUBLIC_URL}/Markers/${mark}.png`
       
@@ -155,28 +164,20 @@ const MapComponent = ({
         const mapTypeToDisplay = (type) => {
           const typeMap = {
             "healthcare.hospital": "Hospital",
+            // "commercial.health_and_beauty.pharmacy":"Pharmacy",
             "healthcare.pharmacy": "Pharmacy",
-            "healthcare.clinic_or_praxis.paediatrics": "Health Specialist",
-            "healthcare.clinic_or_praxis.gynaecology": "Health Specialist",
-            "health.specialist": "Health Specialist",
             "accommodation.hotel": "Hotel",
-            "public_transport": "Train",
             "public_transport.subway": "Subway",
-            "public_transport.train": "Train",
             "public_transport.bus": "Bus",
             "catering.restaurant": "Restaurant",
-            "building.transportation": "Subway",
-            "building.healthcare": "Health Specialist",
-            "building.office": "Train",
-            "building.commercial": "Train",
-            "wheelchair": "Hospital",
-            "commercial.health": "Health",
-            "commercial.health_and_beauty.pharmacy": "Pharmacy",
+            "amenity.toilet": "Toilet",
+            "education.school": "Education",
+            "education.school": "Education",
             // Add more mappings as needed
           };
 
           // Use the mapping or return the original type if not found
-          return typeMap[type] || type;
+          return typeMap[type] ;
         };
 
         

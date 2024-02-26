@@ -14,3 +14,7 @@
     background-color: rgb(176, 209, 241);
     color:rgb(73, 78, 83);
 }
+.search2btn>img{
+    height: 3rem;
+    width: 3rem;
+}
