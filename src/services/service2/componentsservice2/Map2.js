@@ -33,8 +33,13 @@ const MapComponent = ({
 
   const handleapidata = (apidata) => {
     // console.log("apidata in handleapidata");
+    
     if (apidata && Array.isArray(apidata)) {
-      return apidata.map((element) => ({
+      return apidata
+      //filtering unknown values
+      .filter(element => element.properties.categories[1] !== 'wheelchair')
+       .map((element) => ({
+        
         id: element.geometry.coordinates[1],
         lat: element.geometry.coordinates[1],
         lng: element.geometry.coordinates[0],
@@ -69,12 +74,47 @@ const MapComponent = ({
     const baseUrl = `https://maps.geoapify.com/v1/tile/osm-bright/{z}/{x}/{y}.png?apiKey=${apiKey}`;
     const retinaUrl = `https://maps.geoapify.com/v1/tile/osm-bright/{z}/{x}/{y}@2x.png?apiKey=${apiKey}`;
 
-    const customIcon = new L.Icon({
-      iconUrl: `${process.env.PUBLIC_URL}/MapMarker.png`,
+    const iconclassify=(type)=>{
+      let mark="MapMarker";
+      switch(type){
+        
+        case "Hospital":
+             mark="Hospital";break;
+        case "Pharmacy":
+          mark="Pharmacy";break;
+        case "Hotel":
+          mark="Hotel";break;
+        case "Public Transport":
+          mark=" train";break;
+        case "Subway":
+          mark="Subway";break;
+        case"Train":
+        mark="Train";break;
+        case "Bus":
+          mark="Bus";break;
+        case "Restaurant":
+          mark="Restaurant";break;
+        case "Health Specialist":
+          mark="HealthSpecialist";break;
+        case "Transportation":
+          mark="Transportation";break;
+        case "Hospital":
+          mark="Hospital";break;
+        case "Health and Beauty":
+          mark="healthandbeauty";break;
+      }
+      return `${process.env.PUBLIC_URL}/Markers/${mark}.png`
+      
+    }
+    //icon to add custom marker
+    const customIcon =(type)=> new L.Icon({
+      iconUrl: iconclassify(type),
       iconSize: [32, 32],
       iconAnchor: [16, 32],
       popupAnchor: [0, -32],
     });
+
+    
 
     const bounds =
       locations.length > 0
@@ -82,10 +122,15 @@ const MapComponent = ({
         : null;
 
     // Create the map and store the reference
-    mapRef.current = L.map("my-map").setView(
+    mapRef.current = L.map("my-map", {
+      zoomControl: false // Disable default zoom control
+  }).setView(
       initialCenter || [20.5937, 78.9629],
       5
-    );
+  );
+    L.control.zoom({
+      position: 'bottomright' // Position the zoom control on the top right corner
+  }).addTo(mapRef.current);
 
     if (bounds) {
       // Fit the map to the bounds with padding
@@ -111,17 +156,22 @@ const MapComponent = ({
           const typeMap = {
             "healthcare.hospital": "Hospital",
             "healthcare.pharmacy": "Pharmacy",
+            "healthcare.clinic_or_praxis.paediatrics": "Health Specialist",
+            "healthcare.clinic_or_praxis.gynaecology": "Health Specialist",
+            "health.specialist": "Health Specialist",
             "accommodation.hotel": "Hotel",
-            "public_transport": "Public Transport",
+            "public_transport": "Train",
             "public_transport.subway": "Subway",
             "public_transport.train": "Train",
             "public_transport.bus": "Bus",
             "catering.restaurant": "Restaurant",
-            "catering": "Catering",
-            "building.transportation": "Transportation",
+            "building.transportation": "Subway",
+            "building.healthcare": "Health Specialist",
+            "building.office": "Train",
+            "building.commercial": "Train",
             "wheelchair": "Hospital",
             "commercial.health": "Health",
-            "commercial.health_and_beauty.health": "Health and Beauty",
+            "commercial.health_and_beauty.pharmacy": "Pharmacy",
             // Add more mappings as needed
           };
 
@@ -131,7 +181,7 @@ const MapComponent = ({
 
         
         const marker = L.marker([location.lat, location.lng], {
-          icon: customIcon,
+          icon: customIcon(mapTypeToDisplay(location.type)),
         })
           .addTo(mapRef.current)
           .on("click", () => handleMarkerClick(location));

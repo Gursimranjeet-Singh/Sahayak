@@ -20,14 +20,14 @@ function Service2() {
 
   return (
     <>
-      {/* <NavBarSer2 description='Find wheelchair accessible places at your desired location' service="Service1" />
+      <NavBarSer2 description='Find wheelchair accessible places at your desired location' service="Service1" />
       <div id="contetnservice2">
         <div id="mapsevice2">
           <Map />
         </div>
         
-      </div> */}
-      <Login/>
+      </div>
+      {/* <Login/> */}
       {/* <Signup/> */}
     </>
   );

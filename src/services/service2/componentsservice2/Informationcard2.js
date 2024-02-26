@@ -1,8 +1,10 @@
 import React, { Component } from "react";
 import "./informationcard2.css";
-export default class Informationcard extends Component {
-  logopath() {
-    switch (this.props.markerdetails.type) {
+
+export default function Informationcard ({markerdetails,closeInfoCard}) {
+  function logopath() {
+    
+    switch (markerdetails.type) {
       case "healthcare.hospital":
         return "hospitallogo.png";
       case "healthcare.pharmacy":
@@ -19,15 +21,15 @@ export default class Informationcard extends Component {
         return "restaurantlogo.jpeg";
         case "accommodation.hotel":
           return "hotellogo.png";
-default:
+  default:
   return "hospitallogo.png"
     }
   }
-  render() {
-    const { closeInfoCard, markerdetails } = this.props;
+  
   
     return (
       <>
+        
         <div
           style={{
             display: "flex",
@@ -38,7 +40,7 @@ default:
         >
           <div >
             <img
-              src={`${process.env.PUBLIC_URL}/${this.logopath()}`}
+              src={`${process.env.PUBLIC_URL}/${logopath()}`}
               alt="error"
               height={40}
               width={60}
@@ -112,4 +114,5 @@ default:
       </>
     );
   }
-}  
+  
+

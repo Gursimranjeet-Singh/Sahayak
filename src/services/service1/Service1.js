@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
 import Informationcard1 from './componentsservice1/Informationcard1';
 import './service1.css';
-import Search1 from "./componentsservice1/Search1"
+
 import NavBarSer1 from "../service2/componentsservice2/NavBar";
+import Mapser1 from './componentsservice1/Mapser1';
 export default function Service1(){
   return(
     <>
@@ -19,7 +20,7 @@ export default function Service1(){
         }}
       >
         
-          <Search1/>
+          <Mapser1/>
         
         
         <div id="infsevice1"

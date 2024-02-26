@@ -1,6 +1,7 @@
 import { useState } from "react";
+import axios from "axios";
 import OpenCageGeocode from "opencage-api-client";
-export default function Search1({handleSearch}) {
+export default function Search1({setoriginanddest}) {
   const [searchdata1, setsearchdata1] = useState("");
   const [searchdata2, setsearchdata2] = useState("");
 
@@ -10,60 +11,40 @@ export default function Search1({handleSearch}) {
 
   const search2handleOnChange = (e) => {
     setsearchdata2(e.target.value);
+  
   };
 
   const handleSearchData = async () => {
-    const apiKey = "40fd0b6abd2445e8a61504acc6c59ad0";
 
+  if(searchdata1&&searchdata2){
     try {
-      const search1 = await OpenCageGeocode.geocode({
-        q: searchdata1,
-        key: apiKey,
-      });
-      const search2 = await OpenCageGeocode.geocode({
-        q: searchdata1,
-        key: apiKey,
-      });
-
-      if (
-        search1.results &&
-        search2.results &&
-        search1.results > 0 &&
-        search2.results > 0
-      ) {
-        const bounds1 = search1.results.bounds;
-        const bounds2 = search2.results.bounds;
-        if (bounds1 && bounds2) {
-          const boundingBoxObj1 = {
-            north: bounds1.northeast.lat,
-            south: bounds1.southwest.lat,
-            east: bounds1.northeast.lng,
-            west: bounds1.southwest.lng,
-          };
-          const boundingBoxObj2 = {
-            north: bounds2.northeast.lat,
-            south: bounds2.southwest.lat,
-            east: bounds2.northeast.lng,
-            west: bounds2.southwest.lng,
-          };
-
-          handleSearch(boundingBoxObj1,boundingBoxObj2);
-          // *********************************
-          //remember to send the above data to parent component using function to change their search state
-          // ************************************
+      const searcheddata1= await axios.get(`https://api.opencagedata.com/geocode/v1/json?q=${searchdata1}&key=40fd0b6abd2445e8a61504acc6c59ad0&countrycode=in&limit=1`);
+      const searcheddata2= await axios.get(`https://api.opencagedata.com/geocode/v1/json?q=${searchdata2}&key=40fd0b6abd2445e8a61504acc6c59ad0&countrycode=in&limit=1`);
+      
+ 
+      if(searcheddata1.data.results.length>0&&searcheddata2.data.results.length>0){
+        let origin=searcheddata1.data.results[0].geometry
+        let destination=searcheddata2.data.results[0].geometry
+        //for setting value in parent component
+       setoriginanddest(origin,destination);
        
-
-        } else {
-          console.error("Proper Boundary lat and long not available");
-        }
-      } else {
-        window.alert("Please Enter valid locations");
-        console.error("Invalid results in response search object");
       }
-    } catch (error) {
+      else{
+        window.alert("Please enter valid location Try using full address")
+      }
+          
+  
+    } 
+    catch (error) {
       console.error("Error fetching bounding box:", error);
     }
+  }
+  else{
+    window.alert("Please donot leave field empty!!")
+  }  
   };
+
+
   return (
     <>
       <div id="searchservice1">
@@ -82,8 +63,8 @@ export default function Search1({handleSearch}) {
           <i className="fa fa-search" />
           <input
             type="text"
-            onChange={search2handleOnChange}
-            value={searchdata2}
+            onChange={search1handleOnChange}
+            value={searchdata1}
             placeholder="Enter Start"
           />
         </div>
@@ -100,8 +81,8 @@ export default function Search1({handleSearch}) {
           <i className="fa fa-search" />
           <input
             type="text"
-            onChange={search1handleOnChange}
-            value={searchdata1}
+            onChange={search2handleOnChange}
+            value={searchdata2}
             placeholder="Enter Destination"
           />
         </div>
