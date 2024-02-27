@@ -1,31 +1,39 @@
-#headingprofile{
+#headingprofile {
     color: #005fa7;
     font-family: UberMove, UberMoveText, system-ui, "Helvetica Neue", Helvetica, Arial, sans-serif;
     font-weight: 700;
     font-size: 36px;
     line-height: 44px;
     margin-top: 3rem;
-    margin-bottom: 3rem;
+    margin-bottom: 2rem;
+    text-align: center;
 }
-#profileimage{
+
+#profileimage {
     border-radius: 50%;
     box-sizing: border-box;
     display: block;
     height: 96px;
     width: 96px;
-   background-image: url("../../../public/defaultprofile.jpg");
-   background-size: cover;
-   margin-bottom: 3rem;
+    background-image: url("../../../public/defaultprofile.jpg");
+    background-size: cover;
+    margin: 0 auto;
+    margin-bottom: 2rem;
+    border: 3px solid#000000;
+    /* transition: border-color 0.3s ease; */
 }
-#basicinfo{
-    
+
+/* #profileimage:hover {
+    border-color: #f00;
+} */
+#basicinfo {
     color: #005fa7;
     font-family: UberMove, UberMoveText, system-ui, "Helvetica Neue", Helvetica, Arial, sans-serif;
     font-weight: 700;
     font-size: 24px;
     line-height: 32px;
-    margin-bottom:3rem ;
-
+    margin-bottom: 1rem;
+    text-align: center;
 }
 .infoabout{
     color: #005fa7;

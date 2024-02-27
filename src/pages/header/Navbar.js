@@ -117,7 +117,11 @@ export default function Navbar(props) {
                 </ul>
               )}
             </div>
-
+            {/* <li>
+              <Link className="astylenavbar" to="/services/serivce1">Transportation Guider</Link>
+            </li><li>
+              <Link className="astylenavbar" to="/services/serivce2">Accessible Locations</Link>
+            </li> */}
             <li>
               <Link className="astylenavbar" to="/contact">Contact Us</Link>
             </li>

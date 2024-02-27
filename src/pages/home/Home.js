@@ -3,9 +3,9 @@ import React, { useState } from "react";
 import "./home.css";
 
 const imgarr = [
-  process.env.PUBLIC_URL + "/homeimage2.jpg",
+  process.env.PUBLIC_URL + "/homePageImages/ConductingAccessibilityAudits.png",
   process.env.PUBLIC_URL + "/homeimage1.png",
-  process.env.PUBLIC_URL + "/demohome.jpg",
+  process.env.PUBLIC_URL + "/homePageImages/trainAT1.jpg",
 ];
 
 export default function Home() {
@@ -33,7 +33,7 @@ export default function Home() {
 
         <div id="homevmo">
           <div id="vmoh2">
-            <h2>Welcome to Shayak</h2>
+            <h2>Welcome to Sahayak</h2>
           </div>
           <div id="vmo">
             <div id="v">
@@ -67,7 +67,7 @@ export default function Home() {
           <div id="homewwdleft">
             <div id="iconandheadingl">
               <div></div>
-              <p>Accessible Travel, Achievable Dreams </p>
+              <p id="headingleft">Accessible Travel, Achievable Dreams </p>
             </div>
             <p id="contentl">
               Celebrating milestones! Our commitment to accessibility triumphs
@@ -82,7 +82,7 @@ export default function Home() {
           <div id="homewwdright">
             <div id="iconandheading2">
               <div></div>
-              <p>Inclusivity in Motion</p>
+              <p id="headingright">Inclusivity in Motion</p>
             </div>
             <p id="content2">
               Join our movement toward universal accessibility. We celebrate

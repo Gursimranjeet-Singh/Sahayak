@@ -23,6 +23,15 @@ export default function Support() {
           <input type="text" name="name" placeholder="Last" />
         </div>
         <div className="item">
+          <p>Gender</p>
+          <select name="gender" required>
+            <option value="" disabled selected>Select your gender</option>
+            <option value="male">Male</option>
+            <option value="female">Female</option>
+            <option value="others">Others</option>
+          </select>
+        </div>
+        <div className="item">
           <p>Email</p>
           <input type="text" name="name" />
         </div>

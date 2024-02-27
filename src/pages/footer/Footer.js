@@ -89,7 +89,7 @@ export default function Footer() {
                 className="fa-sharp fa-solid fa-caret-down fa-rotate-270"
                 style={{ color: "#263754" }}
               ></i>
-              Service1
+              Transportation Guider
             </Link>
           </div>
           <div>
@@ -98,7 +98,7 @@ export default function Footer() {
                 className="fa-sharp fa-solid fa-caret-down fa-rotate-270"
                 style={{ color: "#263754" }}
               ></i>
-              Service2
+              Accessible Locations
             </Link>
           </div>
           <div>
