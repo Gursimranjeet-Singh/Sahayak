@@ -1,0 +1,20 @@
+.search2btn{
+   border: none;
+   height: 5rem;
+   width: 5rem;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content:center;
+    align-items: center;
+    font-size: 1rem;
+    font-weight: 600;
+}
+.search2btn:hover{
+    background-color: rgb(176, 209, 241);
+    color:rgb(73, 78, 83);
+}
+.search2btn>img{
+    height: 3rem;
+    width: 3rem;
+}

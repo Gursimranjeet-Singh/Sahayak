@@ -1,0 +1,32 @@
+#infsevice1 {
+    height: 400px;
+    width: 400px;
+    position: fixed;
+    top: 216px;
+    background-color: rgb(218 214 210 / 40%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0.5rem;
+    margin: 0px 10px 10px 10px;
+    border-radius: 1rem;
+}
+#searchservice1 {
+    width: 500px;
+    position: fixed;
+    top: 50px;
+    background-color: rgb(218 214 210 / 40%);
+    padding: 0.5rem;
+    margin: 0px 10px 10px 10px;
+    border-radius: 1rem;
+}
+
+
+/* for search1 component */
+.searchservice1{
+    background-color: white;
+    box-shadow: 0 0 40px rgba(51, 51, 51, 0.1);
+    border: 2px solid #d6d4d4;
+    border-radius: 0.3rem;
+    padding: 0.3rem;
+}

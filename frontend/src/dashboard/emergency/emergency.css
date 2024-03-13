@@ -1,0 +1,60 @@
+#headingemergency{
+    color: #005fa7;
+    font-family: UberMove, UberMoveText, system-ui, "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-weight: 700;
+    font-size: 36px;
+    line-height: 44px;
+    margin-top: 3rem;
+    
+}
+.basicinfoemercontact{
+    
+    color: #005fa7;
+    font-family: UberMove, UberMoveText, system-ui, "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 32px;
+    margin-bottom:3rem ;
+    margin-top: 3rem;
+
+}
+
+.emercontactname{
+    color: #005fa7;
+    font-family: UberMoveText, system-ui, "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-weight: 500;
+    font-size: 2rem;
+   
+}
+.emercontactphoneno{
+    color: rgb(84, 84, 84);
+    font-family: UberMoveText, system-ui, "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-weight: 500;
+    font-size: 2rem;
+    
+}
+p{
+    font-size: 2rem;
+    color:#8b8585;
+}
+hr{
+    width: 20vw;
+}
+.emergencybtn{
+    border: none;
+    background-color: rgba(255, 0, 0, 0.765);
+    border-radius: 1rem;
+    padding: 0rem 1rem;
+    font-weight: 600;
+    
+}
+#emergencybtn:hover{
+    background-color: red;
+}
+.astyleemer{
+    color: white;
+}
+.astyleemer:hover,.astyleemer:link,.astyleemer:visited,.astyleemer:active{
+    text-decoration: none;
+    color:white ;
+}

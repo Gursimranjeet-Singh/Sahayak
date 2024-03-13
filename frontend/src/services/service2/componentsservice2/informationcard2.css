@@ -1,0 +1,30 @@
+#closecard{
+    background-color: transparent;
+    margin-left: 3rem;
+    height:3rem;
+    width:3rem;
+    border:none;
+    border-radius:2rem;
+}
+#features{
+    width: 100%;
+    margin-top: 0.5rem;
+    margin-bottom: 1rem;
+}
+.featureslist{
+    color:rgb(73, 78, 83);
+    width:100%;
+    text-align:center;
+    display:block;
+    font-size:1.6rem;
+    padding:1rem;
+    font-weight: 600;
+   
+}
+.featureslist:hover{
+   background-color:rgb(176, 209, 241) ;
+   text-decoration: none;
+}
+#closecard:hover{
+ background-color: rgb(238, 158, 158);
+}
