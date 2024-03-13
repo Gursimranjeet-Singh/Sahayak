@@ -1,5 +1,6 @@
 import React, { useState } from "react";
-
+import Navbar from "../header/Navbar";
+import Footer from "../footer/Footer";
 import "./home.css";
 
 const imgarr = [
@@ -21,6 +22,7 @@ export default function Home() {
 
   return (
     <>
+      <Navbar  webpagename="Sahayak"/>
       <div id="homecontent">
         <div id="homeimage">
           <div
@@ -109,6 +111,7 @@ export default function Home() {
           </div>
         </div>
       </div>
+      <Footer/>
     </>
   );
 }

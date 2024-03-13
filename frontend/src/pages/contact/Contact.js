@@ -1,5 +1,7 @@
 import React, { Fragment } from "react";
 import "./contact.css";
+import Navbar from "../header/Navbar";
+import Footer from "../footer/Footer";
 
 const arrr=[{id:0,detail:"name"},{id:1,detail:"email"},{id:2,detail:"subject"}]
 const arrl=[
@@ -63,6 +65,7 @@ function handleFormSubmission(token) {
 export default function Contact() {
   return (
     <>
+    <Navbar  webpagename="Sahayak"/>
       <div id="contactcontent">
         <h2>Contact Us</h2>
         <hr />
@@ -97,6 +100,7 @@ export default function Contact() {
           </div>
         </div>
       </div>
+      <Footer/>
     </>
   );
 }

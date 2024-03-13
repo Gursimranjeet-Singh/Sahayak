@@ -127,10 +127,10 @@ export default function Login() {
             padding: "0.5rem",
           }}
         >
-          SignIn
+          SigIn
         </button>
         <hr style={{color:"rgb(111 112 114)"}}/>
-        <Link to="" style={{fontWeight:"600",fontSize:"1.5rem",color:"black",textDecoration:"none  "}}>Don't have an account?</Link>
+        <Link to="/signup" style={{fontWeight:"600",fontSize:"1.5rem",color:"black",textDecoration:"none  "}}>Don't have an account?</Link>
       </div>
       <div style={{backgroundColor:"rgb(61,81,181)",color:"white",fontWeight:"500"}}>Copyright © 2024 Samarthyam India. All Rights Reserved. Powered By Gursimranjeet Web Pvt Ltd.</div>
    
