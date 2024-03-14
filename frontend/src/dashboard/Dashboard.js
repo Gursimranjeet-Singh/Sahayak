@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState,useEffect } from "react";
 import { Routes, Route, Navigate, Link } from "react-router-dom";
 import "./dashboard.css";
 import Profile from "./profiledash.js/Profile.js";
@@ -10,14 +10,25 @@ import Login from "../pages/loginandsignup/Login.js";
 import Signup from "../pages/loginandsignup/Signup.js";
 
 export default function Dashboard() {
-  const [isLoggedIn, setIsLoggedIn] = useState(true);
- 
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [loginData, setLoginData] = useState({});
 
-  function handleisLoggedIn() {
-    setIsLoggedIn(!isLoggedIn);
-  }
+  const handleisLoggedIn = () => {
+    console.log("isLoggedIn"+"  "+isLoggedIn)
+    setIsLoggedIn(true);
+    localStorage.setItem("isLoggedIn", true); // Store isLoggedIn state in localStorage
+  };
 
- 
+  const setLoginDataForRender = (data) => {
+    setLoginData(data);
+  };
+
+  useEffect(() => {
+    const storedIsLoggedIn = localStorage.getItem("isLoggedIn");
+    if (storedIsLoggedIn) {
+      setIsLoggedIn(true);
+    }
+  }, []);
 
   return (
     <div>
@@ -41,21 +52,20 @@ export default function Dashboard() {
             </div>
             <div id="rightcontentdash">
               <Routes>
-                <Route path="/" element={<Profile />} />
+                <Route path="/" element={<Profile renderdata={loginData}/>} />
                 {/* <Route path="/" element={<Profile />} /> for preferences*/}
                 {/* <Route path="/" element={<Profile />} /> for assistance request history */}
                 <Route path="/supportandcomplaint" element={<Support />} />
-                <Route path="/emergency" element={<Emergency />} />
+                <Route path="/emergency" element={<Emergency renderdata={loginData}/>} />
               </Routes>
             </div>
           </div>
         </div>
       ) : (
-            <Routes>
-              <Route path="/" element={<Navigate to="/login" />} />
-              <Route path="/login" element={<Login />} />
-              <Route path="/signup" element={<Signup />} />
-            </Routes>
+        
+        <Login  handleisLoggedIn={handleisLoggedIn} setLoginDataForRender={setLoginDataForRender}  />
+      
+      
       )}
     </div>
   );

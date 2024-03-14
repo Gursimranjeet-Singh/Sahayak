@@ -105,15 +105,15 @@ export default function Navbar(props) {
                   onMouseEnter={() => handleMouseEnter(setShow2)}
                   onMouseLeave={() => handleMouseLeave(setShow2)}
                 >
-                  <Link className="astylenavbar" to="/service1">
+                  {/* <Link className="astylenavbar" to="/service1">
                     <li>Transportation Guider</li>
-                  </Link>
+                  </Link> */}
                   <Link className="astylenavbar" to="/service2">
                     <li>Accessible Locations</li>
                   </Link>
-                  <Link className="astylenavbar" to="/service2">
+                  {/* <Link className="astylenavbar" to="/service2">
                     <li>Assistance for Transportation</li>
-                  </Link>
+                  </Link> */}
                 </ul>
               )}
             </div>
@@ -145,12 +145,12 @@ export default function Navbar(props) {
                     Emergency Contact Information
                   </Link>
                 </li>
-                <li>
+                {/* <li>
                   <a  href="">Assistance Request History</a>
-                </li>
-                <li>
+                </li> */}
+                {/* <li>
                   <a href="">User Preferences</a>
-                </li>
+                </li> */}
                 <li>
                   <Link to="dashboard/supportandcomplaint">
                     Support & Complaint

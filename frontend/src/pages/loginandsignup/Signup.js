@@ -1,10 +1,34 @@
 import { React, useState } from "react";
-import { Link } from "react-router-dom";
+import axios from "axios";
+import { Link} from "react-router-dom";
 import "./loginandsignup.css";
-export default function Signup() {
-  const [firstname, setfirstname] = useState(" ");
-  const [lastname, setlastname] = useState(" ");
+import { func } from "prop-types";
+export default function Signup({}) {
 
+  
+  const handlesignupsubmit = async (e) => {
+    e.preventDefault();
+    const formData = new FormData(e.target);
+    const params = new URLSearchParams(formData); // Convert FormData to URLSearchParams
+    try {
+      const data = await axios.post("http://localhost:3000/signup-form", params, {
+        headers: {
+          "Content-Type": "application/x-www-form-urlencoded",
+        },
+      });
+      // if (data.data.s === true) {
+        
+      
+      // } else {
+      //   // window.alert("Please Enter valid password and Emailid");
+      // }
+      
+    } catch (err) {
+      console.error(err);
+      window.alert("Please Try Again");
+    }
+  };
+  
   return (
     <div
       id="logincontent"
@@ -32,10 +56,10 @@ export default function Signup() {
         <div
           style={{
             display: "flex",
-            gap: "1rem",
+            gap: "0.7rem",
             justifyContent: "center",
             alignItems: "center",
-            margin: "2rem",
+            marginTop: "1.5rem",
           }}
         >
           <img
@@ -44,13 +68,19 @@ export default function Signup() {
             height={35}
             width={35}
           />
-          <h3 style={{ fontWeight: "600", fontSize: "2rem" }}>SAHAYAK</h3>
+          <h3
+            style={{
+              color: "rgb(61,81,181)",
+              fontWeight: "900",
+              fontSize: "2rem",
+            }}
+          >
+            SAHAYAK
+          </h3>
         </div>
         <h2 style={{ color: "rgb(61,81,181)", fontWeight: "600" }}>Sign up</h2>
-        <h4 style={{ color: "rgb(111 112 114)" }}>
-          Enter your credentials to continue
-        </h4>
-        <form action="" method="POST">
+
+        <form onSubmit={handlesignupsubmit} id="my-form" action="/signup-form" method="post">
           <div style={{ display: "flex", gap: "1rem" }}>
             <div
               style={{
@@ -64,14 +94,14 @@ export default function Signup() {
               }}
             >
               <label htmlFor="flname" style={{ color: "rgb(111 112 114)" }}>
-                 Name
+                Name
               </label>
 
               <input
                 type="text"
                 id="flname"
-                name="namesignup"
-                class="username"
+                name="Name"
+                className="username"
                 style={{
                   border: "none",
                   backgroundColor: "rgb(238,242,246)",
@@ -100,8 +130,8 @@ export default function Signup() {
 
               <input
                 type="tel"
-                class="username"
-                name="contactnumber_signup"
+                className="username"
+                name="Contact_Number"
                 id="lname"
                 style={{
                   border: "none",
@@ -117,6 +147,7 @@ export default function Signup() {
 
           <div
             style={{
+              marginTop: "1rem",
               backgroundColor: "rgb(238,242,246)",
               border: "2px solid black",
               width: "90%",
@@ -126,15 +157,15 @@ export default function Signup() {
               borderRadius: "0.5rem",
             }}
           >
-            <label htmlFor="emailuser" style={{ color: "rgb(111 112 114)" }}>
-              Email Id / Username
+            <label htmlFor="email" style={{ color: "rgb(111 112 114)" }}>
+              Email Id
             </label>
 
             <input
               type="text"
-              class="username"
-              id="emailuser"
-              name="EmailId"
+              className="username"
+              id="email"
+              name="Email_Id"
               style={{
                 border: "none",
                 backgroundColor: "rgb(238,242,246)",
@@ -148,6 +179,7 @@ export default function Signup() {
 
           <div
             style={{
+              marginTop: "1rem",
               backgroundColor: "rgb(238,242,246)",
               border: "2px solid black",
               width: "90%",
@@ -164,6 +196,7 @@ export default function Signup() {
             <input
               type="text"
               id="Password"
+              name="Password"
               style={{
                 border: "none",
                 backgroundColor: "rgb(238,242,246)",
@@ -174,7 +207,7 @@ export default function Signup() {
               required
             />
           </div>
-          <div style={{ display: "flex", gap: "1rem" }}>
+          <div style={{ marginTop: "1rem", display: "flex", gap: "1rem" }}>
             <div
               style={{
                 backgroundColor: "rgb(238,242,246)",
@@ -186,15 +219,15 @@ export default function Signup() {
                 borderRadius: "0.5rem",
               }}
             >
-              <label htmlFor="flname" style={{ color: "rgb(111 112 114)" }}>
-                 Name
+              <label htmlFor="emrc1" style={{ color: "rgb(111 112 114)" }}>
+                Emergency Contact 1
               </label>
 
               <input
                 type="text"
-                id="flname"
-                name="namesignup"
-                class="username"
+                id="emrc1"
+                name="Emergency_Contact1"
+                className="username"
                 style={{
                   border: "none",
                   backgroundColor: "rgb(238,242,246)",
@@ -217,15 +250,15 @@ export default function Signup() {
                 borderRadius: "0.5rem",
               }}
             >
-              <label htmlFor="cn" style={{ color: "rgb(111 112 114)" }}>
-                Contact No
+              <label htmlFor="emrc2" style={{ color: "rgb(111 112 114)" }}>
+                Emergency Contact 2
               </label>
 
               <input
                 type="tel"
-                class="username"
-                name="contactnumber_signup"
-                id="lname"
+                className="username"
+                name="Emergency_Contact2"
+                id="emrc2"
                 style={{
                   border: "none",
                   backgroundColor: "rgb(238,242,246)",
@@ -237,7 +270,6 @@ export default function Signup() {
               />
             </div>
           </div>
-          
         </form>
         <div style={{ display: "flex", width: "100%" }}>
           <div style={{ display: "flex", marginLeft: "5%", gap: "0.4rem" }}>
@@ -249,6 +281,8 @@ export default function Signup() {
         </div>
 
         <button
+          type="submit"
+          form="my-form"
           style={{
             backgroundColor: "rgb(61,81,181)",
             color: "white",
@@ -256,7 +290,7 @@ export default function Signup() {
             padding: "0.5rem",
           }}
         >
-          SignIn
+          SignUp
         </button>
         <hr style={{ color: "rgb(111 112 114)" }} />
         <Link
@@ -278,7 +312,7 @@ export default function Signup() {
           fontWeight: "500",
         }}
       >
-        Copyright © 2024 Samarthyam India. All Rights Reserved. Powered By
+        Copyright © 2024 Sahayak India. All Rights Reserved. Powered By
         Gursimranjeet Web Pvt Ltd.
       </div>
     </div>

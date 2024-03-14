@@ -25,3 +25,6 @@ yarn-error.log*
 
 # it has to be modified in future
 Locatedpages.js
+
+# 
+/backend/.env
