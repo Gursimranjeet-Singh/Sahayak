@@ -1,14 +1,21 @@
-import React from "react";
+import React,{useEffect} from "react";
 import axios from "axios"
-import {Link} from "react-router-dom"
+import {Link,useNavigate} from "react-router-dom"
 export default function DashHeader() {
+  const navigate=useNavigate()
   const handleLogout=async()=>{
     try{
-      const status=await axios.post("/user/Logout");
-
+      console.log("making request")
+      const response=await axios.post("/logout");
+      console.log("after requ")
+      localStorage.removeItem("accesstoken")
+      console.log("cleared localStorage")
+      window.alert(response.data.message)
+      console.log("navigating")
+      navigate("/")
     }
     catch(err){
-      console.error("error occured "+err)
+      window.alert("Error logging out!!")
     }
   }
   return (

@@ -3,9 +3,7 @@ import axios from "axios";
 import Dashboard from "../../dashboard/Dashboard";
 import { Link,useNavigate } from "react-router-dom";
 import "./loginandsignup.css";
-export default function Login({handleisLoggedIn,setLoginDataForRender}) {
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
-  const [loginData, setLoginData] = useState({});
+export default function Login() {
   const Navigate=useNavigate();
 
   const handleloginsubmit=async(e)=>{
@@ -17,6 +15,7 @@ export default function Login({handleisLoggedIn,setLoginDataForRender}) {
 
         localStorage.setItem("accesstoken",response.data.accesstoken);
         window.alert(response.data.message)
+        Navigate("/dashboard")
       
       
     }
@@ -27,7 +26,7 @@ export default function Login({handleisLoggedIn,setLoginDataForRender}) {
 
 
   return (
-     !isLoggedIn ? (
+     
       <div
         id="logincontent"
         style={{
@@ -95,7 +94,7 @@ export default function Login({handleisLoggedIn,setLoginDataForRender}) {
                 type="text"
                 id="email"
                 className="username"
-                name="email"
+                name="Email_Id"
                 style={{
                   border: "none",
                   backgroundColor: "rgb(238,242,246)",
@@ -126,7 +125,7 @@ export default function Login({handleisLoggedIn,setLoginDataForRender}) {
               <input
                 type="text"
                 id="Password"
-                name="password"
+                name="Password"
                 style={{
                   border: "none",
                   backgroundColor: "rgb(238,242,246)",
@@ -194,9 +193,7 @@ export default function Login({handleisLoggedIn,setLoginDataForRender}) {
           Gursimranjeet Web Pvt Ltd.
         </div>
       </div>
-    ) 
-    :
-    <Dashboard loginData={loginData}/>
+    
 
     
     

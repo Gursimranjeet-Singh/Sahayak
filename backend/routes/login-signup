@@ -2,11 +2,11 @@ const express=require("express");
 const router=express.Router();
 const {createUser}=require("../controllers/signup-controller.js")
 const {loginUser}=require("../controllers/login-controller.js")
-const {logoutUser}=require("../controllers/Logout.js")
+
 
 
 router.post("/signup-form",createUser)
 router.post("/login-form",loginUser)
-router.post("/Logout",logoutUser)
+
 
 module.exports=router;
