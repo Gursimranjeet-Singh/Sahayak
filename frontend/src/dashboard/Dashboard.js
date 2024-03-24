@@ -1,4 +1,4 @@
-import { useState,useEffect } from "react";
+import React  from "react";
 import { Routes, Route, Navigate, Link } from "react-router-dom";
 import "./dashboard.css";
 import Profile from "./profiledash.js/Profile.js";
@@ -6,33 +6,13 @@ import Emergency from "./emergency/Emergency.js";
 import Support from "./supportandcomplaint/Support.js";
 import Mode from "../pages/accessibility/Modes";
 import Header from "./DashHeader.js";
-import Login from "../pages/loginandsignup/Login.js";
-import Signup from "../pages/loginandsignup/Signup.js";
 
-export default function Dashboard() {
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
-  const [loginData, setLoginData] = useState({});
 
-  const handleisLoggedIn = () => {
-    console.log("isLoggedIn"+"  "+isLoggedIn)
-    setIsLoggedIn(true);
-    localStorage.setItem("isLoggedIn", true); // Store isLoggedIn state in localStorage
-  };
-
-  const setLoginDataForRender = (data) => {
-    setLoginData(data);
-  };
-
-  useEffect(() => {
-    const storedIsLoggedIn = localStorage.getItem("isLoggedIn");
-    if (storedIsLoggedIn) {
-      setIsLoggedIn(true);
-    }
-  }, []);
-
+export default function Dashboard({loginData}) {
+ 
   return (
     <div>
-      {isLoggedIn ? (
+     
         <div>
           <Header />
           <div style={{ marginTop: '1rem' }}>
@@ -61,12 +41,9 @@ export default function Dashboard() {
             </div>
           </div>
         </div>
-      ) : (
+    
         
-        <Login  handleisLoggedIn={handleisLoggedIn} setLoginDataForRender={setLoginDataForRender}  />
-      
-      
-      )}
+       
     </div>
   );
 }

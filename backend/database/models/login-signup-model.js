@@ -3,13 +3,14 @@ const mongoose=require("mongoose");
 const userSchema = new mongoose.Schema({
     Name: {
         type: String,
-        required: true,
+        required:[true, "Name cannot be omitted"],
         trim: true
     },
     Contact_Number: {
         type: String,
-        required: true,
-        trim: true
+        required: [true,"Conatact number cant be omitted"],
+        trim: true,
+        match:[/^[789]\d{9}$/,"Please enter a valid mobile number"]
     },
     Email_Id: {
         type: String,
@@ -22,17 +23,21 @@ const userSchema = new mongoose.Schema({
     Password: {
         type: String,
         required: true,
-        minlength: 8 
+        minlength: 8 ,
+        
     },
     Emergency_Contact1: {
         type: String,
-        trim: true
+        trim: true,
+        match:[/^[789]\d{9}$/,"Please enter a valid emergency number"],
+        required:true
     },
     Emergency_Contact2: {
         type: String,
-        trim: true
+        trim: true,
+        match:[/^[789]\d{9}$/,"Please enter a valid emergency number"],
+        required:true
     }
 });
-
 
 module.exports=mongoose.model("SignUpData",userSchema)

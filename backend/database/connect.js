@@ -6,7 +6,3 @@ const connectDB=async(url)=>{
 }
 
 module.exports=connectDB
-// mongoose
-//   .connect(connectString)
-//   .then(()=>{console.log("connected successfully to db")})
-//   .catch((err)=>{console.log(err)})

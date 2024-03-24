@@ -8,24 +8,20 @@ export default function Signup({}) {
   
   const handlesignupsubmit = async (e) => {
     e.preventDefault();
-    const formData = new FormData(e.target);
+   
+    const formData = new FormData(e.target); // Access form data from the event target
+    
+  
     const params = new URLSearchParams(formData); // Convert FormData to URLSearchParams
+   
     try {
-      const data = await axios.post("http://localhost:3000/signup-form", params, {
-        headers: {
-          "Content-Type": "application/x-www-form-urlencoded",
-        },
-      });
-      // if (data.data.s === true) {
-        
+      const response = await axios.post("/user/signup-form", params);
       
-      // } else {
-      //   // window.alert("Please Enter valid password and Emailid");
-      // }
+      window.alert(response.data.message)
+    
       
-    } catch (err) {
-      console.error(err);
-      window.alert("Please Try Again");
+    } catch (error) {
+      window.alert(error.response.data.message)
     }
   };
   
@@ -141,6 +137,8 @@ export default function Signup({}) {
                   fontWeight: "500",
                 }}
                 required
+                pattern="[0-9]{10}" 
+                title="Please enter a 10-digit phone number"
               />
             </div>
           </div>
@@ -194,7 +192,7 @@ export default function Signup({}) {
             </label>
 
             <input
-              type="text"
+              type="password"
               id="Password"
               name="Password"
               style={{
@@ -236,6 +234,8 @@ export default function Signup({}) {
                   fontWeight: "500",
                 }}
                 required
+                pattern="[0-9]{10}" 
+                title="Please enter a 10-digit phone number"
               />
             </div>
 
@@ -267,6 +267,8 @@ export default function Signup({}) {
                   fontWeight: "500",
                 }}
                 required
+                pattern="[0-9]{10}" 
+                title="Please enter a 10-digit phone number"
               />
             </div>
           </div>
