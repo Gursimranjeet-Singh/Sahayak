@@ -75,6 +75,10 @@ html {
   margin: auto;
 }
 /* container for containers of vision mission and objective */
+#o:hover, #v:hover, #m:hover {
+  transform: scale(1.1); /* Enlarge the element to 110% of its original size on hover */
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.5); /* Increase the shadow on hover for a more pronounced effect */
+}
 #vmo {
   margin-top: 2rem;
   display: flex;
@@ -126,7 +130,10 @@ html {
 
 #homewwdleft,
 #homewwdright {
+  padding: 2rem;
   width: 30vw;
+  background-color: #e3e6e947;
+  color: black;
 }
 /* for heading and icon left box and right box repectively */
 #iconandheadingl,

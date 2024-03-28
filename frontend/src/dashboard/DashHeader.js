@@ -1,23 +1,18 @@
-import React,{useEffect} from "react";
-import axios from "axios"
-import {Link,useNavigate} from "react-router-dom"
+import React, { useEffect } from "react";
+import axios from "axios";
+import { Link, useNavigate } from "react-router-dom";
 export default function DashHeader() {
-  const navigate=useNavigate()
-  const handleLogout=async()=>{
-    try{
-      console.log("making request")
-      const response=await axios.post("/logout");
-      console.log("after requ")
-      localStorage.removeItem("accesstoken")
-      console.log("cleared localStorage")
-      window.alert(response.data.message)
-      console.log("navigating")
-      navigate("/")
+  const navigate = useNavigate();
+  const handleLogout = async () => {
+    try {
+      const response = await axios.post("/logout");
+      localStorage.removeItem("accesstoken");
+      window.alert(response.data.message);
+      navigate("/");
+    } catch (err) {
+      window.alert("Error logging out!!");
     }
-    catch(err){
-      window.alert("Error logging out!!")
-    }
-  }
+  };
   return (
     <div id="headdash">
       <span>Sahayak Account</span>

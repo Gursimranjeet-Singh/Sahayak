@@ -36,7 +36,7 @@ export default function Footer() {
         <div id="profilef">
           <div style={style}>Dashboard</div>
           <div>
-            <Link className='styleafooter' to="dashboard">
+            <Link className='styleafooter' to="/dashboard">
               <i
                 className="fa-sharp fa-solid fa-caret-down fa-rotate-270"
                 style={{ color: "#263754" }}
@@ -71,37 +71,29 @@ export default function Footer() {
               User Preference
             </Link>
           </div>
-          <div>
-            <a className='styleafooter'href=" ">
-              <i
-                className="fa-sharp fa-solid fa-caret-down fa-rotate-270"
-                style={{ color: "#263754" }}
-              ></i>
-              Logout
-            </a>
-          </div>
+          
         </div>
         <div id="ourservicesf">
           <div style={style}>Service</div>
           <div>
-            <Link className='styleafooter' to="/service/service1">
+            <Link className='styleafooter' to="/service1">
               <i
                 className="fa-sharp fa-solid fa-caret-down fa-rotate-270"
                 style={{ color: "#263754" }}
               ></i>
-              Service1
+              Volunteer !Help Others
             </Link>
           </div>
           <div>
-            <Link className='styleafooter' to="service/service2">
+            <Link className='styleafooter' to="/service2">
               <i
                 className="fa-sharp fa-solid fa-caret-down fa-rotate-270"
                 style={{ color: "#263754" }}
               ></i>
-              Service2
+              Accessible Locations Finder
             </Link>
           </div>
-          <div>
+          {/* <div>
             <Link className='styleafooter' to="/service/service3">
               <i
                 className="fa-sharp fa-solid fa-caret-down fa-rotate-270"
@@ -109,7 +101,7 @@ export default function Footer() {
               ></i>
               Service3
             </Link>
-          </div>
+          </div> */}
         </div>
         {/* <div id="tripplannerf">
           <div style={style}>Trip Planner</div>

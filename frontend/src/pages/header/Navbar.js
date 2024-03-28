@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import "./Navbar.css";
 import PropTypes from "prop-types";
@@ -7,19 +8,18 @@ import { Link } from "react-router-dom";
 
 export default function Navbar(props) {
   const navigate = useNavigate();
-  const  [searchdata,setsearchdata]=useState("");
-  const handleonChange=(e)=>{
+  const [searchdata, setsearchdata] = useState("");
+  const handleonChange = (e) => {
     setsearchdata(e.target.value);
     console.log(e.target.value);
-  }
-  const handleSearchData=()=>{
+  };
+  const handleSearchData = () => {
     console.log("sdhfkjsdahfkjsdh");
     navigate(searchresult(searchdata));
-    
-  }
+  };
   // const [show1, setShow1] = useState(false);
-  const [showmode,setshowmode]=useState(false);
-  function handleShowMode(){
+  const [showmode, setshowmode] = useState(false);
+  function handleShowMode() {
     setshowmode(!showmode);
   }
   const [show2, setShow2] = useState(false);
@@ -32,9 +32,20 @@ export default function Navbar(props) {
     setshow(false);
   }
 
+  const handleLogout = async () => {
+    try {
+      const response = await axios.post("/logout");
+      localStorage.removeItem("accesstoken");
+      window.alert(response.data.message);
+      navigate("/");
+    } catch (err) {
+      window.alert("Error logging out!!");
+    }
+  };
+
   return (
     <>
-      <nav id="navbar" >
+      <nav id="navbar">
         {/* top nav bar */}
         <div id="topnav">
           {/* log and image */}
@@ -45,14 +56,21 @@ export default function Navbar(props) {
               height={10}
               width={10}
             />
-            <p href="" >{props.webpagename} </p>
+            <p href="">{props.webpagename} </p>
           </div>
           {/* search bar */}
           <div id="righttopnav">
             <div className="search">
               <i className="fa fa-search" />
-              <input type="text" className="textNavbar" placeholder="Search Here" onChange={handleonChange} />
-              <button type="submit" onClick={handleSearchData}>Search</button>
+              <input
+                type="text"
+                className="textNavbar"
+                placeholder="Search Here"
+                onChange={handleonChange}
+              />
+              <button type="submit" onClick={handleSearchData}>
+                Search
+              </button>
             </div>
           </div>
         </div>
@@ -62,7 +80,9 @@ export default function Navbar(props) {
           {/* home etc */}
           <div id="leftbottomnav">
             <li>
-              <Link className="astylenavbar" to="/">Home</Link>
+              <Link className="astylenavbar" to="/">
+                Home
+              </Link>
             </li>
             {/* <div
               id="plan"
@@ -119,7 +139,9 @@ export default function Navbar(props) {
             </div>
 
             <li>
-              <Link className="astylenavbar" to="/contact">Contact Us</Link>
+              <Link className="astylenavbar" to="/contact">
+                Contact Us
+              </Link>
             </li>
           </div>
           {/* account dashboard */}
@@ -138,7 +160,7 @@ export default function Navbar(props) {
                 onMouseLeave={() => handleMouseLeave(setShow3)}
               >
                 <li>
-                  <Link to="/login">Dashboard</Link>
+                  <Link to="/dashboard">Dashboard</Link>
                 </li>
                 <li>
                   <Link to="/dashboard/emergency">
@@ -157,7 +179,7 @@ export default function Navbar(props) {
                   </Link>
                 </li>
                 <li>
-                  <a href="">Logout</a>
+                  <button onClick={handleLogout}>Logout</button>
                 </li>
               </ul>
             )}
@@ -169,41 +191,46 @@ export default function Navbar(props) {
               <button type="submit">Search</button>
             </div> */}
       </nav>
-      <Mode/>
+      <Mode />
     </>
   );
 }
 
 function searchresult(searchdata) {
-  console.log('inside component 2');
+  console.log("inside component 2");
 
   if (searchdata.trim() !== "") {
     searchdata = searchdata.toLowerCase().trim();
     //remove spaces and convert to lowercase
 
-    if (/service/.test(searchdata) || /ser.+1/.test(searchdata)||/tran.+/.test(searchdata)) {
+    if (
+      /^service/.test(searchdata) ||
+      /^ser.+1/.test(searchdata) ||
+      /^volu.+/.test(searchdata)
+    ) {
       // for service and service1
-      return "/service/service1";
-    }
-    else if(/ser.+2/.test(searchdata)||/access.+/.test(searchdata)||/loc.+/.test(searchdata)){
-      return "/service/service2";
-    }
-    else if(/cont.+/.test(searchdata)){
+      return "/service1";
+    } else if (
+      /^ser.+2/.test(searchdata) ||
+      /^access.+/.test(searchdata) ||
+      /^loc.+/.test(searchdata)
+    ) {
+      return "/service2";
+    } else if (/^cont.+/.test(searchdata)) {
       return "/contact";
-    }
-    else if (/da.+|pr.+/.test(searchdata)) {
+    } else if (/^da.+|pr.+/.test(searchdata)) {
       return "/dashboard";
-    }
-    else if(/emer.+/){
+    } else if (/^emer.+/) {
       return "/dashboard/emergency";
-    }
-    else if(/su.+/){
+    } else if (/^su.+/) {
       return "dashboard/supportandcomplaint";
-    }
-    else if(/comp.+/){
+    } else if (/^comp.+/) {
       return "dashboard/supportandcomplaint";
-    }
-     else {
+    } else if (/^login.+/) {
+      return "/login";
+    } else if (/^sign.+/) {
+      return "/signup";
+    } else {
       console.error("No matching case found");
       return "";
     }
@@ -212,9 +239,6 @@ function searchresult(searchdata) {
     return "";
   }
 }
-
-
-
 
 Navbar.defaultProps = {
   logo: "Enter url here",

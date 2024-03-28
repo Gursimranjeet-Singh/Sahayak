@@ -219,7 +219,7 @@ html {
   color: black;
   text-decoration: none;
 }
-#rightbottomnav ul li:hover {
+#rightbottomnav ul li:hover,#rightbottomnav ul li button:hover {
   background-color: #005fa7;
   color: white!important;
   cursor: pointer;
@@ -228,6 +228,16 @@ html {
 #rightbottomnav ul li a:hover {
  color: white !important;
  text-decoration: none;
+}
+
+#rightbottomnav ul li button{
+  padding: 0.5rem;
+  color: black;
+  text-decoration: none;
+  border: none;
+  background-color: white;
+  font-size: 1.5rem;
+  font-weight: 600;
 }
 
 

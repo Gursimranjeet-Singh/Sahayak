@@ -12,7 +12,7 @@ const createRefreshToken=(id)=>{
 const sendAccessToken=(res,accesstoken)=>{
    res.status(201).json({
     accesstoken:accesstoken,
-    message: "Sign in Successful 🥳",
+    message: "Sign in Successful",
     type: "success",
    })
 }

@@ -2,23 +2,21 @@ const express = require("express");
 const path = require("path");
 const app = express();
 const connectDB = require("./database/connect");
-require("dotenv").config()
+require("dotenv").config();
 
-const login_signup_Router=require("./routes/login-signup")
-const auth=require("./routes/auth")
-const refresh=require("./routes/refresh")
-const logoutUser=require("./routes/Logout")
-
+const login_signup_Router = require("./routes/login-signup");
+const auth = require("./routes/auth");
+const refresh = require("./routes/refresh");
+const logoutUser = require("./routes/Logout");
 
 app.use(express.static(path.join(__dirname, "..", "frontend", "build")));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
-
-app.use("/logout",logoutUser)
-app.use("/user",login_signup_Router)
-app.use("/refresh_token",refresh)
-app.use("/protected",auth)
+app.use("/logout", logoutUser);
+app.use("/user", login_signup_Router);
+app.use("/refresh_token", refresh);
+app.use("/protected", auth);
 
 app.get("*", function (req, res) {
   res.sendFile(

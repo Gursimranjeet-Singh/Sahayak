@@ -62,9 +62,11 @@
 #contactinfolef2,
 #contactinfolef3,
 #contactinfolef4 {
-  width: 20vw;
+  
   background-color: #f5f5f559;
-  width: 30vw;
+  border: 2px solid #000000;
+  padding: 1rem; 
+  margin: 1rem; 
   
 }
 .img1 {
