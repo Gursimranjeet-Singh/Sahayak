@@ -8,6 +8,7 @@ const login_signup_Router = require("./routes/login-signup");
 const auth = require("./routes/auth");
 const refresh = require("./routes/refresh");
 const logoutUser = require("./routes/Logout");
+const vol_req=require("./routes/vol-req")
 
 app.use(express.static(path.join(__dirname, "..", "frontend", "build")));
 app.use(express.json());
@@ -17,6 +18,8 @@ app.use("/logout", logoutUser);
 app.use("/user", login_signup_Router);
 app.use("/refresh_token", refresh);
 app.use("/protected", auth);
+// to handle request for volunteering request generation and connection with volunteer
+app.use("/req",vol_req)
 
 app.get("*", function (req, res) {
   res.sendFile(

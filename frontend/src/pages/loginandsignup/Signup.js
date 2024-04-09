@@ -1,30 +1,22 @@
 import { React, useState } from "react";
 import axios from "axios";
-import { Link} from "react-router-dom";
+import { Link } from "react-router-dom";
 import "./loginandsignup.css";
 import { func } from "prop-types";
-export default function Signup({}) {
-
-  
+export default function Signup() {
   const handlesignupsubmit = async (e) => {
     e.preventDefault();
-   
-    const formData = new FormData(e.target); // Access form data from the event target
-    
-  
-    const params = new URLSearchParams(formData); // Convert FormData to URLSearchParams
-   
+    const formData = new FormData(e.target);
+    const params = new URLSearchParams(formData); 
+
     try {
       const response = await axios.post("/user/signup-form", params);
-      
-      window.alert(response.data.message)
-    
-      
+      window.alert(response.data.message);
     } catch (error) {
-      window.alert(error.response.data.message)
+      window.alert(error.response.data.message);
     }
   };
-  
+
   return (
     <div
       id="logincontent"
@@ -76,7 +68,12 @@ export default function Signup({}) {
         </div>
         <h2 style={{ color: "rgb(61,81,181)", fontWeight: "600" }}>Sign up</h2>
 
-        <form onSubmit={handlesignupsubmit} id="my-form" action="/signup-form" method="post">
+        <form
+          onSubmit={handlesignupsubmit}
+          id="my-form"
+          action="/signup-form"
+          method="post"
+        >
           <div style={{ display: "flex", gap: "1rem" }}>
             <div
               style={{
@@ -137,7 +134,7 @@ export default function Signup({}) {
                   fontWeight: "500",
                 }}
                 required
-                pattern="[0-9]{10}" 
+                pattern="[0-9]{10}"
                 title="Please enter a 10-digit phone number"
               />
             </div>
@@ -234,7 +231,7 @@ export default function Signup({}) {
                   fontWeight: "500",
                 }}
                 required
-                pattern="[0-9]{10}" 
+                pattern="[0-9]{10}"
                 title="Please enter a 10-digit phone number"
               />
             </div>
@@ -267,11 +264,23 @@ export default function Signup({}) {
                   fontWeight: "500",
                 }}
                 required
-                pattern="[0-9]{10}" 
+                pattern="[0-9]{10}"
                 title="Please enter a 10-digit phone number"
               />
             </div>
           </div>
+        <div style={{ display: "flex", width: "100%" }}>
+          <div style={{ display: "flex", marginLeft: "5%", gap: "0.4rem" }}>
+            <label htmlFor="client" style={{ color: "rgb(111 112 114)" }}>
+              Client
+            </label>
+            <input type="radio" name="PersonType" value="client" checked id="client"/>
+            <label htmlFor="volun" style={{ color: "rgb(111 112 114)" }}>
+              Volunteer
+            </label>
+            <input type="radio" name="PersonType" value="volunteer" id="volun" />
+          </div>
+        </div>
         </form>
         <div style={{ display: "flex", width: "100%" }}>
           <div style={{ display: "flex", marginLeft: "5%", gap: "0.4rem" }}>

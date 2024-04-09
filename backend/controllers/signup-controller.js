@@ -4,14 +4,14 @@ const { hash } = require("bcryptjs");
 exports.createUser = async (req, res) => {
     
     try {
-        const {Name,Email_Id, Password,Emergency_Contact2,Emergency_Contact1,Contact_Number } = req.body;
+        const {Name,Email_Id, Password,Emergency_Contact2,Emergency_Contact1,Contact_Number,PersonType} = req.body;
     
         const user = await User.findOne({ Email_Id: Email_Id });
 
         if (user) {
             return res.status(409).json({
                 type: "error",
-                message: "User already exists! Try logging in. 😄"
+                message: "User already exists! Try logging in."
             });
         } else {
             
@@ -24,7 +24,8 @@ exports.createUser = async (req, res) => {
                 Contact_Number:Contact_Number,
                 Emergency_Contact2:Emergency_Contact2,
                 Emergency_Contact1:Emergency_Contact1,
-                Name:Name
+                Name:Name,
+                PersonType:PersonType,
 
             });
 
@@ -34,7 +35,7 @@ exports.createUser = async (req, res) => {
            
             res.status(200).json({
                 type: "success",
-                message: "User created successfully! 🥳"
+                message: "User created successfully!"
             });
         }
     } catch (err) {
