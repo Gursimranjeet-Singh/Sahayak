@@ -1,5 +1,8 @@
+//this is used for both making a new request
+// and seeing previous request details which are in the same page in dashboard
+
 // model for request to be saved
-const userRequestModal = require("../database/models/available-request");
+const userRequestModal = require("../database/models/available-model");
 
 exports.requestCreation = async (req, res) => {
   const {
@@ -13,34 +16,51 @@ exports.requestCreation = async (req, res) => {
     Source,
     Destination,
     reqMessage,
-    city,//required for searching the request
+    city, //required for searching the request
   } = req.body;
-
-  // here source refer to locatoin of user
-  const userReq = await userRequestModal.find({ clientName: clientName,clientEmail:clientEmail });
-  if (userReq.length === 5) {
-    res.status(403).json({
-      type: "error",
-      message: "Maximum No of request Reached!!",
-    });
-  } else {
-    const reqNumber=Math.floor(Math.random()*10000)
-    const newReq = new userRequestModal({
-      ReqNo:reqNumber,  
+  try {
+    // here source refer to locatoin of user
+    const userReq = await userRequestModal.find({
       clientName: clientName,
       clientEmail: clientEmail,
-      reqType: reqType,
-      ScheduledDate: ScheduledDate,
-      postedDate: postedDate,
-      Source: Source,
-      Destination: Destination,
-      reqMessage: reqMessage,
-      city:city
     });
-    await newReq.save();
-    res.status(200).json({
-        type:"success",
-        message:"User Request created Successfully"
-    })
+    if (userReq.length === 5) {
+      res.status(403).json({
+        type: "error",
+        message: "Maximum No of request Reached!!",
+      });
+    } else {
+      const reqNumber = Math.floor(Math.random() * 10000);
+      const newReq = new userRequestModal({
+        ReqNo: reqNumber,
+        clientName: clientName,
+        clientEmail: clientEmail,
+        reqType: reqType,
+        ScheduledDate: ScheduledDate,
+        postedDate: postedDate,
+        Source: Source,
+        Destination: Destination,
+        reqMessage: reqMessage,
+        city: city,
+      });
+
+      // note remember to use same way to create date in frontend since it return data as well as time
+      const curDate = new Date().toISOString().split("T")[0];
+      const activeRequests = await userRequestModal.find({
+        clientEmail: clientEmail,
+        ScheduledDate: { $gt: curDate },
+      });
+      await newReq.save();
+      res.status(200).json({
+        type: "success",
+        ReqData: activeRequests,
+      });
+    }
+  } catch (error) {
+    console.error("Error connecting volunteer to client request:", error);
+    res.status(500).json({
+      type: "error",
+      message: "Internal server error.",
+    });
   }
 };

@@ -6,6 +6,11 @@ const connectUser=mongoose.Schema({
         trim:true,
         required:true
     },
+    emailClient:{
+        type:String,
+        trim:true,
+        required:true
+    },
     contactVol:{
         type:String,
         trim:true,

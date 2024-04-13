@@ -37,6 +37,11 @@ const userSchema = new mongoose.Schema({
         trim: true,
         match:[/^[789]\d{9}$/,"Please enter a valid emergency number"],
         required:true
+    },
+    PersonType:{
+        type:String,
+        trim:true,
+        required:true,
     }
 });
 

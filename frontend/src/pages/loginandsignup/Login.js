@@ -12,10 +12,10 @@ export default function Login() {
     const params = new URLSearchParams(fd);
     try{
       const response=await axios.post("/user/login-form",params);
-
-        localStorage.setItem("accesstoken",response.data.accesstoken);
-        window.alert(response.data.message)
-        Navigate("/dashboard")
+      localStorage.setItem("PersonType",response.data.PersonType);
+      localStorage.setItem("accesstoken",response.data.accesstoken);
+       window.alert(response.data.message)
+      Navigate("/dashboard")
       
       
     }

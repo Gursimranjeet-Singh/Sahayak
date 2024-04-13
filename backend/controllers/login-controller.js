@@ -40,7 +40,7 @@ exports.loginUser = async (req, res) => {
 
     
     sendRefreshToken(res, refreshToken);
-    sendAccessToken(res, accessToken);
+    sendAccessToken(res, accessToken,user.PersonType);
     
     
   } catch (error) {

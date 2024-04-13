@@ -10,6 +10,7 @@ import Service3 from "./services/service3/Service3";
 import Login from "./pages/loginandsignup/Login";
 import Signup from "./pages/loginandsignup/Signup";
 import Locationa from "./Locationa"
+import DashboardVolunteer from "./dashboard/DashboardVolunteer"
 
 function App() {
   return (
@@ -28,6 +29,7 @@ function App() {
                 <Route path="/login" element={<Login />} />
                 <Route path="/signup" element={<Signup />} />
                 <Route path="/location" element={<Locationa />} />
+                <Route path="/dasboardVolunteer" element={<DashboardVolunteer />} />
               </Routes>
             </>
           }

@@ -1,8 +1,8 @@
-const userRequestModal = require("../database/models/available-request");
+const userRequestModal = require("../database/models/available-model");
 
 exports.searchRequest = async (req, res) => {
   const { location } = req.body; // made to include city in it
-  const date = new Date();
+  const curDate = new Date().toISOString().split("T")[0];
 
   if (!location) {
     res.status(400).json({
@@ -13,9 +13,11 @@ exports.searchRequest = async (req, res) => {
   }
 
   try {
+    const activeRequests = await userRequestModal.find({
+      city: location.city,
+      ScheduledDate: { $gt: curDate },
+    });
 
-    const activeRequests = await userRequestModal.find({ city: location.city, ScheduledDate: { $gt: date } });
-    
     if (activeRequests.length === 0) {
       res.status(404).json({
         type: "error",
