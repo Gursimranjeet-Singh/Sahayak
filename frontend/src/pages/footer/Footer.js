@@ -1,5 +1,5 @@
 import React from "react";
-import {Link} from 'react-router-dom'
+import { Link } from "react-router-dom";
 import "./footer.css";
 
 const style = {
@@ -10,24 +10,28 @@ export default function Footer() {
   return (
     <div id="footer">
       <div id="socialmedia">
-        <a className='styleafooteri' href="" target="_blank">
-          <i className="fa-brands fa-facebook" style={{ color: "#ffffff" }}></i>
+        <a className="styleafooteri" href="" target="_blank">
+          <i className="fa-brands fa-facebook" style={{ color: "#ffffff" }}/>
         </a>
 
-        <a className='styleafooteri' href="">
+        <a className="styleafooteri" href="">
           <i
             className="fa-brands fa-square-x-twitter"
             style={{ color: "#ffffff" }}
           ></i>
         </a>
 
-        <a className='styleafooteri' href="" target="_blank">
+        <a className="styleafooteri" href="" target="_blank">
           <i className="fa-brands fa-linkedin" style={{ color: "#ffffff" }}></i>
         </a>
 
-        <a className='styleafooteri' href="https://github.com/Gursimranjeet-Singh/Sahayak" target="_blank">
+        <a
+          className="styleafooteri"
+          href="https://github.com/Gursimranjeet-Singh/Sahayak"
+          target="_blank"
+        >
           <i
-           className="fa-brands fa-square-github"
+            className="fa-brands fa-square-github"
             style={{ color: "#ffffff" }}
           />
         </a>
@@ -36,7 +40,7 @@ export default function Footer() {
         <div id="profilef">
           <div style={style}>Dashboard</div>
           <div>
-            <Link className='styleafooter' to="/dashboard">
+            <Link className="styleafooter" to="/dashboard">
               <i
                 className="fa-sharp fa-solid fa-caret-down fa-rotate-270"
                 style={{ color: "#263754" }}
@@ -45,7 +49,7 @@ export default function Footer() {
             </Link>
           </div>
           <div>
-            <Link className='styleafooter' to="dashboard/emergency">
+            <Link className="styleafooter" to="dashboard/emergency">
               <i
                 className="fa-sharp fa-solid fa-caret-down fa-rotate-270"
                 style={{ color: "#263754" }}
@@ -53,30 +57,30 @@ export default function Footer() {
               Emergency Contact Service
             </Link>
           </div>
+
           <div>
-            <Link className='styleafooter'  to=" ">
+            <Link className="styleafooter" to="/dashboard/requests ">
               <i
                 className="fa-sharp fa-solid fa-caret-down fa-rotate-270"
                 style={{ color: "#263754" }}
               ></i>
-              Assistance Request History
+              Assistance Request
             </Link>
           </div>
-          <div>
-            <Link className='styleafooter' to=" ">
-              <i
-                className="fa-sharp fa-solid fa-caret-down fa-rotate-270"
-                style={{ color: "#263754" }}
-              ></i>
-              User Preference
-            </Link>
-          </div>
-          
         </div>
         <div id="ourservicesf">
           <div style={style}>Service</div>
           <div>
-            <Link className='styleafooter' to="/service1">
+            <Link className="styleafooter" to="/service2">
+              <i
+                className="fa-sharp fa-solid fa-caret-down fa-rotate-270"
+                style={{ color: "#263754" }}
+              ></i>
+              Accessible Locations Finder
+            </Link>
+          </div>
+          <div>
+            <Link className="styleafooter" to="/dasboardVolunteer">
               <i
                 className="fa-sharp fa-solid fa-caret-down fa-rotate-270"
                 style={{ color: "#263754" }}
@@ -85,12 +89,21 @@ export default function Footer() {
             </Link>
           </div>
           <div>
-            <Link className='styleafooter' to="/service2">
+            <Link className="styleafooter" to="/dashboard/requests">
               <i
                 className="fa-sharp fa-solid fa-caret-down fa-rotate-270"
                 style={{ color: "#263754" }}
               ></i>
-              Accessible Locations Finder
+              Create a assistance request
+            </Link>
+          </div>
+          <div>
+            <Link className="styleafooter" to="/dashboard/request/status">
+              <i
+                className="fa-sharp fa-solid fa-caret-down fa-rotate-270"
+                style={{ color: "#263754" }}
+              ></i>
+              Check Status of assistance Request
             </Link>
           </div>
           {/* <div>
@@ -136,7 +149,7 @@ export default function Footer() {
         <div id="contactf">
           <div style={style}>Contact Us</div>
           <div>
-            <Link className='styleafooter' to="contact">
+            <Link className="styleafooter" to="contact">
               <i
                 className="fa-sharp fa-solid fa-caret-down fa-rotate-270"
                 style={{ color: "#263754" }}
@@ -145,7 +158,10 @@ export default function Footer() {
             </Link>
           </div>
           <div>
-            <a className='styleafooter' href="mailto:gursimranjeet2004@email.com">
+            <a
+              className="styleafooter"
+              href="mailto:gursimranjeet2004@email.com"
+            >
               <i
                 className="fa-sharp fa-solid fa-caret-down fa-rotate-270"
                 style={{ color: "#263754" }}
@@ -154,7 +170,7 @@ export default function Footer() {
             </a>
           </div>
           <div>
-            <a className='styleafooter'href="tel:+3423432">
+            <a className="styleafooter" href="tel:+3423432">
               <i
                 className="fa-sharp fa-solid fa-caret-down fa-rotate-270"
                 style={{ color: "#263754" }}
@@ -162,9 +178,25 @@ export default function Footer() {
               Call Us
             </a>
           </div>
-          
+          <div>
+            <a className="styleafooter" href="tel:+3423432">
+              <i
+                className="fa-sharp fa-solid fa-caret-down fa-rotate-270"
+                style={{ color: "#263754" }}
+              ></i>
+              Call Us
+            </a>
+          </div>
+          <div>
+            <Link className="styleafooter" to="/dashboard/supportandcomplaint">
+              <i
+                className="fa-sharp fa-solid fa-caret-down fa-rotate-270"
+                style={{ color: "#263754" }}
+              ></i>
+              Support and Complaint
+            </Link>
+          </div>
         </div>
-        
       </div>
       <div id="copy">
         Copyright © 2024 Samarthyam India. All Rights Reserved. Powered By

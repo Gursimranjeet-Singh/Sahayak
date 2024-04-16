@@ -21,10 +21,6 @@ const connectUser=mongoose.Schema({
         trim:true,
         required:true
     },
-    volMessage:{
-        type:String,
-        trim:true
-    },
     ReqNo:{
         type:Number,
         trim:true,

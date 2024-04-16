@@ -24,6 +24,7 @@ export default function Navbar(props) {
   }
   const [show2, setShow2] = useState(false);
   const [show3, setShow3] = useState(false);
+  const [show4, setShow4] = useState(false);
   function handleMouseEnter(setshow) {
     setshow(true);
   }
@@ -131,9 +132,27 @@ export default function Navbar(props) {
                   <Link className="astylenavbar" to="/service2">
                     <li>Accessible Locations</li>
                   </Link>
-                  {/* <Link className="astylenavbar" to="/service2">
-                    <li>Assistance for Transportation</li>
-                  </Link> */}
+                  <div
+                    onMouseEnter={() => {
+                      handleMouseEnter(setShow4);
+                    }}
+                    onMouseLeave={() => handleMouseLeave(setShow4)}
+                    style={{ margin: "0px", padding: "0px" }}
+                  >
+                    <Link className="astylenavbar" to="/service1">
+                      <li>Volunteer</li>
+                    </Link>
+                    {show4 && (
+                      <>
+                        <Link to="/dashboard/requests">
+                          <li>Request for Help</li>
+                        </Link>
+                        <Link to="/dasboardVolunteer">
+                          <li>Interested in Volunteering?</li>
+                        </Link>
+                      </>
+                    )}
+                  </div>
                 </ul>
               )}
             </div>
@@ -167,9 +186,9 @@ export default function Navbar(props) {
                     Emergency Contact Information
                   </Link>
                 </li>
-                {/* <li>
-                  <a  href="">Assistance Request History</a>
-                </li> */}
+                <li>
+                  <Link  to="/dashboard/requests">Create Request and Check Status</Link>
+                </li>
                 {/* <li>
                   <a href="">User Preferences</a>
                 </li> */}

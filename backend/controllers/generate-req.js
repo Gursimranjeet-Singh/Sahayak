@@ -5,6 +5,7 @@
 const userRequestModal = require("../database/models/available-model");
 
 exports.requestCreation = async (req, res) => {
+  console.log(req.body);
   const {
     clientName,
     clientEmail,
@@ -43,14 +44,17 @@ exports.requestCreation = async (req, res) => {
         reqMessage: reqMessage,
         city: city,
       });
+      await newReq.save();
 
       // note remember to use same way to create date in frontend since it return data as well as time
       const curDate = new Date().toISOString().split("T")[0];
+      console.log(ScheduledDate);
+      console.log(curDate);
       const activeRequests = await userRequestModal.find({
         clientEmail: clientEmail,
         ScheduledDate: { $gt: curDate },
       });
-      await newReq.save();
+      
       res.status(200).json({
         type: "success",
         ReqData: activeRequests,

@@ -2,6 +2,7 @@ const userRequestModal = require("../database/models/available-model");
 const connectReqModal = require("../database/models/connect-model");
 
 exports.connectVoluntClient = async (req, res) => {
+  console.log("inside connect-req")
   const { ReqNo, nameVol, contactVol, mailVol, volMessage } = req.body;
   try {
     const reqInf = await userRequestModal.findOne({ ReqNo: ReqNo });
@@ -18,7 +19,7 @@ exports.connectVoluntClient = async (req, res) => {
       nameVol: nameVol,
       contactVol: contactVol,
       mailVol: mailVol,
-      volMessage: volMessage,
+      
     });
     await newReqConnect.save();
     res.status(200).json({

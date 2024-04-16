@@ -14,35 +14,35 @@ import RequestVolunteerStatus from "./requests/RequestStatus.js"
 export default function Dashboard() {
   const [loginData, setloginData] = useState({});
   const navigate = useNavigate();
-  // useEffect(() => {
-  //   const fetchData = async () => {
-  //     const accessToken = localStorage.getItem("accesstoken");
-  //     if (!accessToken) {
-  //       navigate("/login");
-  //       return;
-  //     }
-  //     try {
-  //       const response = await axios.get("/protected", {
-  //         headers: { authorization: `Bearer ${accessToken}` },
-  //       });
-  //       if(localStorage.getItem("PersonType")==="volunteer"){
-  //         navigate("/dasboardVolunteer",response.data.user) ;
-  //         //to get data for dashboard volunteer you can temp put it in cookies once retrieved then delete it
-  //       }
-  //       else{
-  //         setloginData(response.data.user);
-  //       }
-  //     } catch (error) {
-  //       if (error.response) {
-  //         window.alert(error.response.data.message);
-  //       } else {
-  //         console.error(error);
-  //         window.alert("Network Error: Unable to fetch data");
-  //       }
-  //     }
-  //   };
-  //   fetchData();
-  // }, []);
+  useEffect(() => {
+    const fetchData = async () => {
+      const accessToken = localStorage.getItem("accesstoken");
+      if (!accessToken) {
+        navigate("/login");
+        return;
+      }
+      try {
+        const response = await axios.get("/protected", {
+          headers: { authorization: `Bearer ${accessToken}` },
+        });
+        if(localStorage.getItem("PersonType")==="volunteer"){
+          navigate("/dashboardVolunteer",response.data.user) ;
+          //to get data for dashboard volunteer you can temp put it in cookies once retrieved then delete it
+        }
+        else{
+          setloginData(response.data.user);
+        }
+      } catch (error) {
+        if (error.response) {
+          window.alert(error.response.data.message);
+        } else {
+          console.error(error);
+          window.alert("Network Error: Unable to fetch data");
+        }
+      }
+    };
+    fetchData();
+  }, []);
   return (
     <div>
       <div>
@@ -74,7 +74,7 @@ export default function Dashboard() {
             <Routes>
               <Route path="/" element={<Profile renderdata={loginData} />} />
               <Route path="/requests" element={<RequestVolunteer renderdata={loginData}/>} /> 
-              <Route path="/request/status" element={<RequestVolunteerStatus />} /> 
+              <Route path="/request/status" element={<RequestVolunteerStatus  renderdata={loginData}/>} /> 
               {/* <Route path="/" element={<Profile />} /> for assistance request history */}
               <Route path="/supportandcomplaint" element={<Support />} />
               <Route

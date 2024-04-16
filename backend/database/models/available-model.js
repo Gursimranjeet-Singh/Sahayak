@@ -37,11 +37,13 @@ const availableSchema=mongoose.Schema({
     },
     Source:{
         type:String,
-        trim:true
+        trim:true,
+        default:" "
     },
     Destination:{
         type:String,
-        trim:true
+        trim:true,
+        default:" "
     },
     reqMessage:{
         type:String,

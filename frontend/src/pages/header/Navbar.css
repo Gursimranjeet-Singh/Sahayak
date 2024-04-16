@@ -157,7 +157,7 @@ html {
   flex-direction: column;
   z-index: 5;
   box-shadow: 0 3px 5px 0 rgba(0, 0, 0, 0.2);
-  gap: 1rem;
+  /* gap: 1rem; */
 }
 #plan ul li,
 #ourservices ul li {
@@ -235,7 +235,7 @@ html {
   color: black;
   text-decoration: none;
   border: none;
-  background-color: white;
+  background-color: transparent;
   font-size: 1.5rem;
   font-weight: 600;
 }

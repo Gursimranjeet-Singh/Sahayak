@@ -1,12 +1,13 @@
 import React, { useEffect } from "react";
 import axios from "axios";
 import { Link, useNavigate } from "react-router-dom";
-export default function DashHeader() {
+export default function VolDashHead() {
   const navigate = useNavigate();
   const handleLogout = async () => {
     try {
       const response = await axios.post("/logout");
       localStorage.removeItem("accesstoken");
+      localStorage.removeItem("city");
       localStorage.removeItem("PersonType");
       window.alert(response.data.message);
       navigate("/");
