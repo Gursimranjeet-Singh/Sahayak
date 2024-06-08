@@ -1,42 +1,65 @@
 import React, { useState } from "react";
-import axios from "axios";
 import Map from "./Map1";
 import Search from "./Search1";
+import { func, object } from "prop-types";
 
-export default function Mapser1() {
-  const [origincoord, setorigincoord] = useState(null);
-  const [destcoord, setdestcoord] = useState(null);
+export default function Maps2() {
 
- const setoriginanddest = (or, dest) => {
-    setorigincoord(or);
-    console.log(or)
-    setdestcoord(dest);
-    console.log(dest)
-      handleoriginanddest();
-  };
-  const handleoriginanddest=async()=>{
-    try{
-      const dataorigin=await axios.get(`https://api.geoapify.com/v2/places?categories=public_transport.subway,public_transport.bus&conditions=wheelchair&filter=circle:${origincoord.lng},${origincoord.lat},2000&bias=proximity:77.5909242,12.933659&lang=en&limit=20&apiKey=0876b6ee31314d32bdb95b30155c6ba3`)
-      const datadest=await axios.get(`https://api.geoapify.com/v2/places?categories=public_transport.subway,public_transport.bus&conditions=wheelchair&filter=circle:${destcoord.lng},${destcoord.lat},2000&bias=proximity:77.5909242,12.933659&lang=en&limit=20&apiKey=0876b6ee31314d32bdb95b30155c6ba3`)
-    console.log(dataorigin)
-    console.log(datadest)
-    if(dataorigin.data.features.length>0&&datadest.data.features.length>0){
+const [apidata,setapidata]=useState([]);
+// const [boundingBox,setboundingBox]=useState({});
 
-    }
-    else{
-      window.alert("Sorry we are currently not providing service for desired locations");
-    }
-    
-    }
-    catch(e){
-      console.error(e);
-    }
+
+  const handlecloseinfocard = () => {
+    document.getElementById("infsevice2").style.display = "none";
   }
 
-  return (
-    <>
-      {/* <Map apidata={apidata} /> */}
-      <div
+  const handleSearch = (BoundingBox,category) => {
+   
+    fetchData(BoundingBox,category);
+      
+    
+  };
+
+  async function  fetchData(boundingBox,category) {
+    try {
+      
+      
+      console.log("Bounding box in Maps2", boundingBox);
+      // Check if boundingBox is available
+      if (boundingBox && boundingBox.west && boundingBox.south && boundingBox.east && boundingBox.north) {
+        const { west, south, east, north } = boundingBox;
+
+        const response = await fetch(
+          `https://api.geoapify.com/v2/places?categories=${category}&conditions=wheelchair&filter=rect:${west},${south},${east},${north}&limit=200&country=IN&apiKey=bcd1dd82c5d4489d85f0d5b5936461cd`
+        );
+        
+  
+        const apidata = await response.json();
+        console.log("Fetched data:", apidata);
+  
+        // Check if apidata has features property before setting it
+        if (apidata && apidata.features) {
+          
+            setapidata(apidata.features);
+          
+        }
+      } else {
+        console.error("Bounding box is not properly defined or no data for the information from api");
+      }
+    } catch (error) {
+      console.error("Error fetching data:", error);
+    }
+  }
+  
+
+
+   
+    console.log("Filtered API data", apidata);
+
+    return (
+      <>
+        <Map  apidata={apidata} valuesearch={handleSearch}/>
+        <div
         style={{
           position: "absolute",
           top: 0,
@@ -45,11 +68,12 @@ export default function Mapser1() {
           width: "100%",
         }}
       >
-        
-          {/* Ensure setoriginanddest is passed as a prop */}
-          <Search setoriginanddest={setoriginanddest} />
-        
+        {/* search component is placed here so that the searched data direclty comes to maps2 component where api call for locations can be made */}
+        <div id="searchservice2">
+          <Search valuesearch={handleSearch} />
+        </div>
       </div>
-    </>
-  );
-}
+      </>
+    );
+  }
+

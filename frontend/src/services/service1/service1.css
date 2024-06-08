@@ -1,32 +1,48 @@
-#infsevice1 {
-    height: 400px;
-    width: 400px;
-    position: fixed;
-    top: 216px;
-    background-color: rgb(218 214 210 / 40%);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 0.5rem;
-    margin: 0px 10px 10px 10px;
-    border-radius: 1rem;
+#infsevice2 {
+  /* height: 400px; */
+  width: 350px;
+  position: fixed;
+  top: 316px;
+  background-color: rgb(255, 255, 255);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0.5rem;
+  margin: 0px 10px 10px 10px;
+  border-radius: 1rem;
 }
-#searchservice1 {
-    width: 500px;
-    position: fixed;
-    top: 50px;
-    background-color: rgb(218 214 210 / 40%);
-    padding: 0.5rem;
-    margin: 0px 10px 10px 10px;
-    border-radius: 1rem;
+#searchservice2 {
+  position: fixed;
+  top: 100px;
+  background-color: rgb(255, 255, 255);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0.5rem;
+  margin: 0px 10px 10px 10px;
+  border-radius: 1rem;
+}
+#alert {
+  padding: 5px;
+  border: 1px solid #ddd;
+  background-color: rgb(255 0 0 / 67%);
+  position: relative;
+  margin-bottom: 3px;
+  border-radius: 2.5px;
+  display: flex;
+  align-items: center;
+
+}
+#alert p{
+    color:rgb(255, 255, 255);
+    font-size: 18px;
 }
 
-
-/* for search1 component */
-.searchservice1{
-    background-color: white;
-    box-shadow: 0 0 40px rgba(51, 51, 51, 0.1);
-    border: 2px solid #d6d4d4;
-    border-radius: 0.3rem;
-    padding: 0.3rem;
+.close-btn {
+  position: absolute;
+  top: 14px;
+  right: 16px;
+  font-size: 20px;
+  cursor: pointer;
+  color:rgb(255, 255, 255);
 }

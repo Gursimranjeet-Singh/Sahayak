@@ -1,105 +1,78 @@
-import { useState } from "react";
-import axios from "axios";
+import React, { useState } from "react";
 import OpenCageGeocode from "opencage-api-client";
-export default function Search1({setoriginanddest}) {
-  const [searchdata1, setsearchdata1] = useState("");
-  const [searchdata2, setsearchdata2] = useState("");
+import "./search1.css";
 
-  const search1handleOnChange = (e) => {
-    setsearchdata1(e.target.value);
+export default function Search(props) {
+  //seting state for search data
+  const [searchdata, setsearchdata] = useState("");
+
+  //e is event object reponsible for handling input change so that state can be modified
+  const handleInputChange = (e) => {
+    setsearchdata(e.target.value);
   };
 
-  const search2handleOnChange = (e) => {
-    setsearchdata2(e.target.value);
-  
-  };
+  const handleSearchClick = async (category) => {
+    // OpenCage Geocoding API
+    const apiKey = "40fd0b6abd2445e8a61504acc6c59ad0";
 
-  const handleSearchData = async () => {
-
-  if(searchdata1&&searchdata2){
+    // Use OpenCage Geocoding API to get coordinates for the entered location
     try {
-      const searcheddata1= await axios.get(`https://api.opencagedata.com/geocode/v1/json?q=${searchdata1}&key=40fd0b6abd2445e8a61504acc6c59ad0&countrycode=in&limit=1`);
-      const searcheddata2= await axios.get(`https://api.opencagedata.com/geocode/v1/json?q=${searchdata2}&key=40fd0b6abd2445e8a61504acc6c59ad0&countrycode=in&limit=1`);
-      
- 
-      if(searcheddata1.data.results.length>0&&searcheddata2.data.results.length>0){
-        let origin=searcheddata1.data.results[0].geometry
-        let destination=searcheddata2.data.results[0].geometry
-        //for setting value in parent component
-       setoriginanddest(origin,destination);
-       
+      const response = await OpenCageGeocode.geocode({
+        q: searchdata,
+        key: apiKey,
+      });
+      //execution from here will only follow until you recieve promise from .geocode since you have used await and declaring function as asyn is imp when using await
+
+      // console.log(response);//response format
+
+      // Checking if the response contains results
+      if (response.results && response.results.length > 0) {
+        const result = response.results[0];
+        const boundingBox = result.bounds;
+
+        // Check if the boundingBox property is available
+        if (boundingBox) {
+          const { southwest, northeast } = boundingBox;
+          const boundingBoxObj = {
+            west: southwest.lng,
+            south: southwest.lat,
+            east: northeast.lng,
+            north: northeast.lat,
+          };
+
+          console.log("Bounding Box:", boundingBoxObj); //shows the boundary coordinates
+
+          // Passing the bounding box to the parent component
+          props.valuesearch(boundingBoxObj, category);
+        } else {
+          console.error("Bounding box is undefined");
+        }
+      } else {
+        window.alert("Please enter a valid locatoin");
+
+        console.error("No results found in the response");
       }
-      else{
-        window.alert("Please enter valid location Try using full address")
-      }
-          
-  
-    } 
-    catch (error) {
+    } catch (error) {
       console.error("Error fetching bounding box:", error);
     }
-  }
-  else{
-    window.alert("Please donot leave field empty!!")
-  }  
   };
 
-
   return (
-    <>
-      <div id="searchservice1">
-      <div style={{   display: 'flex',
-    justifyContent: 'center',
-    alignItems: 'center',}}>  
-        <div
-          className="search "
-          style={{
-            display: "flex",
-            alignItems: "center",
-            width: "90%",
-            width: "15vw",
-          }}
-        >
-          <i className="fa fa-search" />
-          <input
-            type="text"
-            onChange={search1handleOnChange}
-            value={searchdata1}
-            placeholder="Enter Start"
-          />
-        </div>
-
-        <div
-          className="search"
-          style={{
-            display: "flex",
-            alignItems: "center",
-            width: "90%",
-            width: "15vw",
-          }}
-        >
-          <i className="fa fa-search" />
-          <input
-            type="text"
-            onChange={search2handleOnChange}
-            value={searchdata2}
-            placeholder="Enter Destination"
-          />
-        </div>
-      </div>  
-      <div style={{display:'flex',justifyContent:"center",marginTop:'1rem'}}>
-      <button  type="submit" onClick={handleSearchData} style={{ border: 'none',
-  backgroundColor: '#005fa7',
-  color: 'white',
-  padding: '0.3rem',
-  height: '3rem',
-  width: '7rem',
-  fontSize: '1.5rem',}}>
-        Search
-      </button>
+    <div style={{ display: "flex", flexDirection: "column" }}>
+      <div className="search" style={{ display: "flex", alignItems: "center" }}>
+        <i className="fa fa-search" />
+        <input
+          type="text"
+          placeholder="Search Here"
+          style={{ width: "90%" }}
+          onChange={handleInputChange}
+        />
+        <button type="submit" onClick={() => handleSearchClick("public_transport.subway,public_transport.bus,catering.restaurant,amenity.toilet,healthcare.hospital,education,accommodation.hotel,healthcare.pharmacy")}>
+          Search
+        </button>
       </div>
+      <hr />
       
-      </div>
-    </>
+    </div>
   );
 }

@@ -1,38 +1,45 @@
-import React, { useState } from 'react';
-import Informationcard1 from './componentsservice1/Informationcard1';
-import './service1.css';
+import React, { useState } from "react";
+import "./service1.css"; // Import your CSS file for styling
+import NavBarSer1 from "./componentsservice1/NavBar";
+import Map from "./componentsservice1/Mapser1";
+import Login from "../../pages/loginandsignup/Login";
+import Signup from "../../pages/loginandsignup/Signup";
 
-import NavBarSer1 from "../service2/componentsservice2/NavBar";
-import Mapser1 from './componentsservice1/Mapser1';
-export default function Service1(){
-  return(
+function Service2() {
+  const [showAlert, setShowAlert] = useState(false);
+  const [alertMessage, setAlertMessage] = useState("");
+
+  const handleShowAlert = (message) => {
+    setAlertMessage(message);
+    setShowAlert(true);
+  };
+
+  const handleCloseAlert = () => {
+    setShowAlert(false);
+  };
+
+  return (
     <>
-    <NavBarSer1 description='Find shortest transportation accessible path between locations ' service="Service2" />
+      <NavBarSer1
+        description="Find wheelchair accessible places at your desired location"
+        service="Service1"
+      />
+      {showAlert && (
+        <div id="alert">
+          <p>{alertMessage}</p>
+          <span className="close-btn" onClick={handleCloseAlert}>&times;</span>
+        </div>
+      )}
 
-      <div
-        id="service1"
-        style={{
-          position: "absolute",
-          top: 0,
-          left: 0,
-          zIndex: 1000,
-          width: "100%",
-        }}
-      >
-        
-          <Mapser1/>
-        
-        
-        <div id="infsevice1"
-        //  style={{ display: "none" }}
-         >
-          <Informationcard1/>
+      <div id="contetnservice2">
+        <div id="mapsevice2">
+          <Map showAlert={handleShowAlert} />
         </div>
       </div>
-      </>
-   
+      {/* <Login/> */}
+      {/* <Signup/> */}
+    </>
   );
 }
 
-
-
+export default Service2;
