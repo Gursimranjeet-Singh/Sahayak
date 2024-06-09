@@ -1,20 +1,56 @@
-.search2btn{
-   border: none;
-   height: 5rem;
-   width: 5rem;
-    background-color: white;
-    display: flex;
-    flex-direction: column;
-    justify-content:center;
-    align-items: center;
-    font-size: 1rem;
+.search-button {
+    width: 100%; /* Set the desired width */
+    margin: 0 auto; /* Center the button horizontally */
+    background-color: #005fa7; /* Blue color */
+    color: white; /* Text color */
+    font-size: 1.5rem; /* Increased font size */
     font-weight: 600;
-}
-.search2btn:hover{
-    background-color: rgb(176, 209, 241);
-    color:rgb(73, 78, 83);
-}
-.search2btn>img{
-    height: 3rem;
-    width: 3rem;
-}
+    padding: 1rem; /* Increased padding */
+    border: none; /* Remove border */
+    border-radius: 8px; /* Add border radius */
+    cursor: pointer;
+    transition: background-color 0.3s; /* Smooth transition for hover effect */
+  }
+  
+  .search-button:hover {
+    background-color: #005fa7; /* Darker shade of blue on hover */
+  }
+  
+  .search-fields {
+    display: flex;
+    flex-wrap: wrap; /* Allow fields to wrap if they exceed container width */
+    justify-content: space-between;
+    margin-bottom: 2rem; /* Increased margin bottom */
+  }
+  
+  .search-field {
+    flex-basis: 48%; /* Distribute space evenly with some gap */
+  }
+  
+  .search-field input {
+    width: 100%; /* Make input fields full width */
+    padding: 1rem; /* Increased padding */
+    font-size: 1.5rem; /* Increased font size */
+    border: 2px solid #ccc; /* Increased border thickness */
+    border-radius: 8px; /* Increased border radius */
+  }
+  
+  /* Hide labels visually but keep them accessible */
+  .search-field label {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    border: 0;
+    padding: 0;
+  }
+  
+  /* Style the "search" text */
+  .search-text {
+    color: blue;
+    font-size: 1.5rem; /* Increased font size */
+    margin-top: 1rem; /* Increased margin top */
+    width: 100%;
+  }

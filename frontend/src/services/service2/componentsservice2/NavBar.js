@@ -26,7 +26,7 @@ export default class NavBarSer2 extends Component {
             alt="error"
             height={40}
             width={40}
-            style={{ marginLeft: "2rem",color:"white" }}
+            style={{ marginLeft: "2rem" }}
           />
           <h1 style={{ fontWeight: "900", fontSize: "3rem", color: "#005fa7" }}>
             Sahayak{" "}

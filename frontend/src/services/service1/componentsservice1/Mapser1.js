@@ -131,7 +131,7 @@ export default function Maps2() {
           if(calculateDistance(origindata.lat,origindata.lng,data.drivers[i].latitude,data.drivers[i].longitude)<value)
             index=i;
           }
-          setcompletedata({origin:origindata,destination:destinationdata,driverdata:{latitude:data.drivers[index].latitude,longitude:data.drivers[index].longitude}})
+          setcompletedata({origin:origindata,destination:destinationdata,driverdata:data.drivers[index]});
        }
 
 

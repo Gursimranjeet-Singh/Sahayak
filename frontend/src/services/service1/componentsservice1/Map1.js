@@ -7,32 +7,32 @@ import Informationcard from "./Informationcard1";
 
 // Define custom icons with example URLs
 const originIcon = new L.Icon({
-  iconUrl: 'https://leafletjs.com/examples/custom-icons/leaf-red.png',
-  iconSize: [38, 95],
+  iconUrl: process.env.PUBLIC_URL + "Markers/origin.png",
+  iconSize: [45, 95],
   iconAnchor: [22, 94],
   popupAnchor: [-3, -76],
-  shadowSize: [50, 64],
-  shadowAnchor: [4, 62]
+  // shadowSize: [50, 64],
+  // shadowAnchor: [4, 62]
 });
 
 const destinationIcon = new L.Icon({
-  iconUrl: 'https://leafletjs.com/examples/custom-icons/leaf-red.png',
+  iconUrl: process.env.PUBLIC_URL + "Markers/origin.png",
   iconSize: [38, 95],
   iconAnchor: [22, 94],
   popupAnchor: [-3, -76],
 
-  shadowSize: [50, 64],
-  shadowAnchor: [4, 62]
+  // shadowSize: [50, 64],
+  // shadowAnchor: [4, 62]
 });
 
 const driverIcon = new L.Icon({
-  iconUrl: 'https://leafletjs.com/examples/custom-icons/leaf-orange.png',
-  iconSize: [38, 95],
+  iconUrl:process.env.PUBLIC_URL + "Markers/driver.png",
+  iconSize: [38, 60],
   iconAnchor: [22, 94],
   popupAnchor: [-3, -76],
 
-  shadowSize: [50, 64],
-  shadowAnchor: [4, 62]
+  // shadowSize: [50, 64],
+  // shadowAnchor: [4, 62]
 });
 
 const MapComponent = ({ initialCenter = [20.5937, 78.9629], mapdata }) => {
@@ -132,8 +132,8 @@ const MapComponent = ({ initialCenter = [20.5937, 78.9629], mapdata }) => {
           width: "100%",
         }}
       >
-        <div id="infsevice2">
-          <Informationcard closeInfoCard={handlecloseinfocard} />
+        <div id="inf2" style={{display:"none"}}>
+          <Informationcard closeInfoCard={handlecloseinfocard} driverdata={mapdata.driverdata} />
         </div>
       </div>
       <div id="my-map" style={{ height: "93vh", width: "100vw", zIndex: 1 }} />
