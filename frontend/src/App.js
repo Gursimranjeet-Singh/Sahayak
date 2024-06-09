@@ -25,8 +25,9 @@ function App() {
                 <Route index element={<Home />} />
                 <Route path="/contact" element={<Contact />} />
                 <Route path="/dashboard/*" element={<Dashboard />} />
-                <Route path="/service1" element={<Service1 />} />
-                <Route path="/service2" element={<Service2 />} />
+                <Route path="/service1" element={<Service2 />} />
+                <Route path="/service2" element={<Service1 />} />
+                <Route path="/service3" element={<DashboardVolunteer />} />
                 <Route path="/login" element={<Login />} />
                 <Route path="/signup" element={<Signup />} />
                 <Route path="/location" element={<Locationa />} />

@@ -138,9 +138,8 @@ export default function Login() {
             </div>
           </form>
           <div style={{ display: "flex", width: "100%" }}>
-            <div style={{ display: "flex", marginLeft: "5%", gap: "0.4rem" }}>
-              <input type="checkbox" />
-              <h4>Keep me logged in</h4>
+          <div style={{ display: "flex", marginLeft: "5%", gap: "0.4rem" }}>
+              <h4><a href="/" style={{textDecoration:"none",color:"#005fa7"}}>Move to Home</a></h4>
             </div>
   
             <Link

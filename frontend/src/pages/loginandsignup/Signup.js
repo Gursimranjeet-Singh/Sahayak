@@ -272,13 +272,13 @@ export default function Signup() {
               />
             </div>
           </div>
-        <div style={{ display: "flex", width: "100%" }}>
+        <div style={{ display: "flex", width: "100%",marginTop:"1rem" }}>
           <div style={{ display: "flex", marginLeft: "5%", gap: "0.4rem" }}>
-            <label htmlFor="client" style={{ color: "rgb(111 112 114)" }}>
+            <label htmlFor="client" style={{ color: "rgb(111 112 114)",fontSize:"1.3rem" }}>
               Client
             </label>
             <input type="radio" name="PersonType" value="client" checked id="client"/>
-            <label htmlFor="volun" style={{ color: "rgb(111 112 114)" }}>
+            <label htmlFor="volun" style={{ color: "rgb(111 112 114)",fontSize:"1.3rem" }}>
               Volunteer
             </label>
             <input type="radio" name="PersonType" value="volunteer" id="volun" />
@@ -286,12 +286,9 @@ export default function Signup() {
         </div>
         </form>
         <div style={{ display: "flex", width: "100%" }}>
-          <div style={{ display: "flex", marginLeft: "5%", gap: "0.4rem" }}>
-            <input type="checkbox" />
-            <h4 style={{ fontWeight: "600" }}>
-              Agree with <u>Terms & Conditions</u>
-            </h4>
-          </div>
+        <div style={{ display: "flex", marginLeft: "5%", gap: "0.4rem" }}>
+              <h4><a href="/" style={{textDecoration:"none",color:"#005fa7"}}>Move to Home</a></h4>
+            </div>
         </div>
 
         <button

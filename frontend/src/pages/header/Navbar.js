@@ -129,33 +129,22 @@ export default function Navbar(props) {
                   {/* <Link className="astylenavbar" to="/service1">
                     <li>Transportation Guider</li>
                   </Link> */}
-                  <Link className="astylenavbar" to="/service2">
+                  <Link className="astylenavbar" to="/service1">
                     <li>Accessible Locations</li>
                   </Link>
-                  <div
-                    onMouseEnter={() => {
-                      handleMouseEnter(setShow4);
-                    }}
-                    onMouseLeave={() => handleMouseLeave(setShow4)}
-                    style={{ margin: "0px", padding: "0px" }}
-                  >
-                    <Link className="astylenavbar" to="/service1">
-                      <li>Volunteer</li>
-                    </Link>
-                    {show4 && (
-                      <>
-                        <Link to="/dashboard/requests">
-                          <li>Request for Help</li>
-                        </Link>
-                        <Link to="/dasboardVolunteer">
-                          <li>Interested in Volunteering?</li>
-                        </Link>
-                      </>
-                    )}
-                  </div>
+                  <Link className="astylenavbar" to="/service2">
+                    <li>Shortest Accessible Path </li>
+                  </Link>
+
+                  <Link className="astylenavbar" to="/dashboard/requests">
+                    <li>Request for Help</li>
+                  </Link>
                 </ul>
               )}
             </div>
+            <Link to="/dashboard/dashboardVolunteer">
+              <li>Interested in Volunteering?</li>
+            </Link>
 
             <li>
               <Link className="astylenavbar" to="/contact">
@@ -187,7 +176,9 @@ export default function Navbar(props) {
                   </Link>
                 </li>
                 <li>
-                  <Link  to="/dashboard/requests">Create Request and Check Status</Link>
+                  <Link to="/dashboard/requests">
+                    Create Request and Check Status
+                  </Link>
                 </li>
                 {/* <li>
                   <a href="">User Preferences</a>

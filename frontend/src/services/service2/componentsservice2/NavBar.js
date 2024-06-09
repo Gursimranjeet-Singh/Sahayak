@@ -11,7 +11,7 @@ export default class NavBarSer2 extends Component {
       <>
         <div
           style={{
-            backgroundColor: "white",
+            backgroundColor: "#005fa7",
             height: "7vh",
             borderTopLeftRadius: "1rem",
             borderTopRightRadius: "1rem",
@@ -26,7 +26,7 @@ export default class NavBarSer2 extends Component {
             alt="error"
             height={40}
             width={40}
-            style={{ marginLeft: "2rem" }}
+            style={{ marginLeft: "2rem",color:"white" }}
           />
           <h1 style={{ fontWeight: "900", fontSize: "3rem", color: "#005fa7" }}>
             Sahayak{" "}
@@ -36,7 +36,7 @@ export default class NavBarSer2 extends Component {
               marginLeft: "auto",
               fontFamily: "garamond",
               fontWeight: "700",
-              color: "#005fa7",
+              color: "white",
             }}
           >
             {this.props.description}
@@ -46,7 +46,7 @@ export default class NavBarSer2 extends Component {
               style={{
                 border: "none",
                 backgroundColor: "#005fa7",
-                color: "white ",
+                color: "white",
                 textDecoration: "none",
                 padding: "0.5rem",
                 borderRadius: "1rem",

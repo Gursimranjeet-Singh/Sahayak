@@ -1,6 +1,8 @@
 import React, { useEffect, useRef } from "react";
 import L from "leaflet";
 import "leaflet/dist/leaflet.css";
+import "leaflet-routing-machine/dist/leaflet-routing-machine.css";
+import "leaflet-routing-machine";
 import Informationcard from "./Informationcard1";
 
 // Define custom icons with example URLs
@@ -9,7 +11,6 @@ const originIcon = new L.Icon({
   iconSize: [38, 95],
   iconAnchor: [22, 94],
   popupAnchor: [-3, -76],
-  shadowUrl: 'https://leafletjs.com/examples/custom-icons/leaf-shadow.png',
   shadowSize: [50, 64],
   shadowAnchor: [4, 62]
 });
@@ -19,7 +20,7 @@ const destinationIcon = new L.Icon({
   iconSize: [38, 95],
   iconAnchor: [22, 94],
   popupAnchor: [-3, -76],
-  shadowUrl: 'https://leafletjs.com/examples/custom-icons/leaf-shadow.png',
+
   shadowSize: [50, 64],
   shadowAnchor: [4, 62]
 });
@@ -29,16 +30,15 @@ const driverIcon = new L.Icon({
   iconSize: [38, 95],
   iconAnchor: [22, 94],
   popupAnchor: [-3, -76],
-  shadowUrl: 'https://leafletjs.com/examples/custom-icons/leaf-shadow.png',
+
   shadowSize: [50, 64],
   shadowAnchor: [4, 62]
 });
 
-// Import statements...
-
 const MapComponent = ({ initialCenter = [20.5937, 78.9629], mapdata }) => {
   const mapRef = useRef(); // ref to hold the map instance
   const markersRef = useRef([]); // ref to hold the markers
+  const routeRef = useRef(); // ref to hold the route instance
 
   const handlecloseinfocard = () => {
     document.getElementById("infsevice2").style.display = "none";
@@ -63,15 +63,19 @@ const MapComponent = ({ initialCenter = [20.5937, 78.9629], mapdata }) => {
   }, [initialCenter]);
 
   useEffect(() => {
-    // Clear existing markers
+    // Clear existing markers and route
     markersRef.current.forEach(marker => marker.remove());
     markersRef.current = [];
+
+    if (routeRef.current) {
+      mapRef.current.removeLayer(routeRef.current);
+    }
 
     // Function to add markers
     const addMarker = (latLng, label, icon) => {
       if (latLng) {
         console.log(`Adding marker: ${label}`, latLng);
-        const marker = L.marker(latLng, { icon }) // Updated to pass latLng directly
+        const marker = L.marker(latLng, { icon })
           .addTo(mapRef.current)
           .bindPopup(label)
           .openPopup();
@@ -94,6 +98,25 @@ const MapComponent = ({ initialCenter = [20.5937, 78.9629], mapdata }) => {
       addMarker([mapdata.driverdata.latitude, mapdata.driverdata.longitude], "Driver", driverIcon);
     } else {
       console.log("Invalid mapdata");
+    }
+
+    // Add route
+    if (mapdata && mapdata.origin && mapdata.destination) {
+      routeRef.current = L.Routing.control({
+        waypoints: [
+          L.latLng(mapdata.origin.lat, mapdata.origin.lng),
+          L.latLng(mapdata.destination.lat, mapdata.destination.lng)
+        ],
+        lineOptions: {
+          styles: [
+            {
+              color: 'black',
+              opacity: 0.8,
+              weight: 6
+            }
+          ]
+        }
+      }).addTo(mapRef.current);
     }
   }, [mapdata]);
 
@@ -119,6 +142,7 @@ const MapComponent = ({ initialCenter = [20.5937, 78.9629], mapdata }) => {
 };
 
 export default MapComponent;
+
 
 
 
