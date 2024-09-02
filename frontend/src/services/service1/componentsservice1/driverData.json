@@ -1,0 +1,74 @@
+{
+    "drivers": [
+      {
+        "name": "Rohan",
+        "driver_id": "D2345678",
+        "cab_name": "KA01AB1234",
+        "phone_number": "9872453219",
+        "current_location": "MG Road, Bangalore"
+      },
+      {
+        "name": "Harish",
+        "driver_id": "D1234567",
+        "cab_name": "KA02CD4567",
+        "phone_number": "9987845329",
+        "current_location": "Indiranagar, Bangalore"
+      },
+      {
+        "name": "Mukesh",
+        "driver_id": "D3456789",
+        "cab_name": "KA03EF7890",
+        "phone_number": "9898567123",
+        "current_location": "Koramangala, Bangalore"
+      },
+      {
+        "name": "Pradeep",
+        "driver_id": "D4567890",
+        "cab_name": "KA04GH1234",
+        "phone_number": "9885791236",
+        "current_location": "Whitefield, Bangalore"
+      },
+      {
+        "name": "Dhruv",
+        "driver_id": "D4567891",
+        "cab_name": "KA05IJ4567",
+        "phone_number": "9876298676",
+        "current_location": "JP Nagar, Bangalore"
+      },
+      {
+        "name": "Harsh",
+        "driver_id": "D5678901",
+        "cab_name": "KA06KL7890",
+        "phone_number": "9862978676",
+        "current_location": "Electronic City, Bangalore"
+      },
+      {
+        "name": "Shubham",
+        "driver_id": "D6789012",
+        "cab_name": "KA07MN1234",
+        "phone_number": "9879877896",
+        "current_location": "Jayanagar, Bangalore"
+      },
+      {
+        "name": "kailash",
+        "driver_id": "D7890123",
+        "cab_name": "KA08OP4567",
+        "phone_number": "9458986890",
+        "current_location": "Yelahanka, Bangalore"
+      },
+      {
+        "name": "Vijay",
+        "driver_id": "D8901234",
+        "cab_name": "KA09QR7890",
+        "phone_number": "9878972345",
+        "current_location": "Hebbal, Bangalore"
+      },
+      {
+        "name": "Bhupendra",
+        "driver_id": "D9012345",
+        "cab_name": "KA10ST1234",
+        "phone_number": "9080902345",
+        "current_location": "HSR Layout, Bangalore"
+      }
+    ]
+}
